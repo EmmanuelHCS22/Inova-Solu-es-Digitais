@@ -128,7 +128,7 @@ export const WebDevelopment: React.FC = () => {
         {/* Header */}
         <div ref={headerRef} className="max-w-3xl mb-16 will-change-transform">
           <div className="flex items-center gap-2 mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#7357E8]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]" />
             <span className="text-xs uppercase tracking-[0.2em] text-[#F7F7F5]/70 font-semibold">
               DESENVOLVIMENTO WEB SOB MEDIDA
             </span>
@@ -151,10 +151,10 @@ export const WebDevelopment: React.FC = () => {
           <div className="rounded-xl bg-[#17192B] p-7 border border-white/10 hover:border-white/20 transition-all duration-300 shadow-xl flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5 pb-3 border-b border-white/10">
-                <span className="text-xs font-mono uppercase tracking-wider text-[#7357E8] font-semibold">
+                <span className="text-xs font-mono uppercase tracking-wider text-[#8B5CF6] font-semibold">
                   01 · FOCO DIRETO
                 </span>
-                <Zap className="w-4 h-4 text-[#7357E8]" />
+                <Zap className="w-4 h-4 text-[#8B5CF6]" />
               </div>
               <h3 className="text-2xl font-bold text-white mb-3 font-display">Landing Page</h3>
               <p className="text-sm text-[#F7F7F5]/70 leading-relaxed mb-6">
@@ -162,19 +162,19 @@ export const WebDevelopment: React.FC = () => {
               </p>
               <ul className="space-y-2.5 mb-8 pt-4 border-t border-white/10 text-xs sm:text-sm text-[#F7F7F5]/80">
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-[#7357E8] shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
                   <span>Estrutura orientada à conversão direta</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-[#7357E8] shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
                   <span>Apresentação objetiva de proposta de valor</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-[#7357E8] shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
                   <span>Botões de contato com WhatsApp imediato</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-[#7357E8] shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
                   <span>Carregamento instantâneo em celulares</span>
                 </li>
               </ul>
@@ -191,8 +191,8 @@ export const WebDevelopment: React.FC = () => {
           </div>
 
           {/* Modalidade 02: Site Institucional (Featured Studio Piece) */}
-          <div className="rounded-xl bg-[#1C1F35] p-7 border-2 border-[#7357E8] relative shadow-2xl flex flex-col justify-between">
-            <div className="absolute -top-3 left-6 px-3 py-0.5 bg-[#7357E8] rounded text-[11px] font-bold tracking-wider text-white uppercase">
+          <div className="rounded-xl bg-[#1C1F35] p-7 border-2 border-[#8B5CF6] relative shadow-2xl flex flex-col justify-between">
+            <div className="absolute -top-3 left-6 px-3 py-0.5 bg-[#8B5CF6] rounded text-[11px] font-bold tracking-wider text-white uppercase">
               Mais Escolhido
             </div>
             <div>
@@ -200,7 +200,7 @@ export const WebDevelopment: React.FC = () => {
                 <span className="text-xs font-mono uppercase tracking-wider text-white/90 font-semibold">
                   02 · CORPORATIVO
                 </span>
-                <Layers className="w-4 h-4 text-[#7357E8]" />
+                <Layers className="w-4 h-4 text-[#8B5CF6]" />
               </div>
               <h3 className="text-2xl font-bold text-white mb-3 font-display">Site Institucional</h3>
               <p className="text-sm text-[#F7F7F5]/70 leading-relaxed mb-6">
@@ -208,19 +208,19 @@ export const WebDevelopment: React.FC = () => {
               </p>
               <ul className="space-y-2.5 mb-8 pt-4 border-t border-white/10 text-xs sm:text-sm text-[#F7F7F5]/80">
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-[#7357E8] shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
                   <span>Apresentação corporativa estruturada</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-[#7357E8] shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
                   <span>Páginas organizadas de serviços e diferenciais</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-[#7357E8] shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
                   <span>Galeria de portfólio e projetos realizados</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-[#7357E8] shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
                   <span>Integração com canais e mapa de localização</span>
                 </li>
               </ul>
@@ -229,7 +229,7 @@ export const WebDevelopment: React.FC = () => {
               href={getWhatsAppUrl('Olá! Gostaria de um orçamento para desenvolvimento de um Site Institucional completo.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-between w-full py-3 px-4 rounded-lg text-xs sm:text-sm font-semibold bg-[#7357E8] hover:bg-[#6348d6] text-white transition-all shadow-md active:scale-98"
+              className="inline-flex items-center justify-between w-full py-3 px-4 rounded-lg text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#6348d6] text-white transition-all shadow-md active:scale-98"
             >
               <span>Consultar Site Institucional</span>
               <ArrowUpRight className="w-4 h-4 text-white" />
@@ -240,10 +240,10 @@ export const WebDevelopment: React.FC = () => {
           <div className="rounded-xl bg-[#17192B] p-7 border border-white/10 hover:border-white/20 transition-all duration-300 shadow-xl flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-5 pb-3 border-b border-white/10">
-                <span className="text-xs font-mono uppercase tracking-wider text-[#7357E8] font-semibold">
+                <span className="text-xs font-mono uppercase tracking-wider text-[#8B5CF6] font-semibold">
                   03 · CATÁLOGO
                 </span>
-                <Store className="w-4 h-4 text-[#7357E8]" />
+                <Store className="w-4 h-4 text-[#8B5CF6]" />
               </div>
               <h3 className="text-2xl font-bold text-white mb-3 font-display">Catálogo Digital</h3>
               <p className="text-sm text-[#F7F7F5]/70 leading-relaxed mb-6">
@@ -251,19 +251,19 @@ export const WebDevelopment: React.FC = () => {
               </p>
               <ul className="space-y-2.5 mb-8 pt-4 border-t border-white/10 text-xs sm:text-sm text-[#F7F7F5]/80">
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-[#7357E8] shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
                   <span>Organização de produtos por categorias</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-[#7357E8] shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
                   <span>Fotos de alta resolução e descrições claras</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-[#7357E8] shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
                   <span>Botão de pedido com mensagem pré-formatada</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-[#7357E8] shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
                   <span>Fácil navegação em qualquer smartphone</span>
                 </li>
               </ul>
@@ -284,7 +284,7 @@ export const WebDevelopment: React.FC = () => {
         <div className="rounded-2xl bg-[#17192B] border border-white/10 p-6 sm:p-9 shadow-2xl">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 mb-8 border-b border-white/10">
             <div>
-              <span className="text-xs font-mono text-[#7357E8] uppercase tracking-wider block mb-1">
+              <span className="text-xs font-mono text-[#8B5CF6] uppercase tracking-wider block mb-1">
                 DEMONSTRAÇÃO DE RESPONSIVIDADE
               </span>
               <h3 className="text-2xl sm:text-3xl font-bold text-white font-display">
@@ -302,7 +302,7 @@ export const WebDevelopment: React.FC = () => {
                 onClick={() => setDeviceView('desktop')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${
                   deviceView === 'desktop'
-                    ? 'bg-[#7357E8] text-white shadow-sm'
+                    ? 'bg-[#8B5CF6] text-white shadow-sm'
                     : 'text-[#F7F7F5]/60 hover:text-white'
                 }`}
               >
@@ -314,7 +314,7 @@ export const WebDevelopment: React.FC = () => {
                 onClick={() => setDeviceView('tablet')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${
                   deviceView === 'tablet'
-                    ? 'bg-[#7357E8] text-white shadow-sm'
+                    ? 'bg-[#8B5CF6] text-white shadow-sm'
                     : 'text-[#F7F7F5]/60 hover:text-white'
                 }`}
               >
@@ -326,7 +326,7 @@ export const WebDevelopment: React.FC = () => {
                 onClick={() => setDeviceView('mobile')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${
                   deviceView === 'mobile'
-                    ? 'bg-[#7357E8] text-white shadow-sm'
+                    ? 'bg-[#8B5CF6] text-white shadow-sm'
                     : 'text-[#F7F7F5]/60 hover:text-white'
                 }`}
               >
@@ -346,7 +346,7 @@ export const WebDevelopment: React.FC = () => {
                 onClick={() => setActiveSegment(seg.id)}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
                   activeSegment === seg.id
-                    ? 'bg-[#7357E8] text-white font-semibold'
+                    ? 'bg-[#8B5CF6] text-white font-semibold'
                     : 'bg-white/5 text-[#F7F7F5]/70 hover:bg-white/10 hover:text-white border border-white/5'
                 }`}
               >
@@ -382,7 +382,7 @@ export const WebDevelopment: React.FC = () => {
               {/* Rendered Website Interior Preview */}
               <div className="rounded-lg bg-[#141624] p-6 border border-white/5">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] font-mono tracking-wider uppercase text-[#7357E8]">
+                  <span className="text-[11px] font-mono tracking-wider uppercase text-[#8B5CF6]">
                     {currentSegment.tagline}
                   </span>
                   <span className="text-[10px] text-white/60">
@@ -412,7 +412,7 @@ export const WebDevelopment: React.FC = () => {
                     href={getWhatsAppUrl(`Olá! Gostaria de um site para o segmento de ${currentSegment.name}.`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white rounded-lg bg-[#7357E8] hover:bg-[#6348d6] shadow-sm transition-all"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white rounded-lg bg-[#8B5CF6] hover:bg-[#6348d6] shadow-sm transition-all"
                   >
                     <span>Quero um projeto como este</span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-white/80" />
@@ -439,7 +439,7 @@ export const WebDevelopment: React.FC = () => {
               href={getWhatsAppUrl('Olá! Quero criar meu site com a Inova Soluções Digitais e gostaria de solicitar um orçamento.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold text-white bg-[#7357E8] hover:bg-[#6348d6] transition-all shadow-md active:scale-98 whitespace-nowrap"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold text-white bg-[#8B5CF6] hover:bg-[#6348d6] transition-all shadow-md active:scale-98 whitespace-nowrap"
             >
               <span>Solicitar proposta de site</span>
               <ArrowUpRight className="w-4 h-4 text-white" />
