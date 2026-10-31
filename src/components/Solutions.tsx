@@ -3,10 +3,10 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ArrowUpRight,
-  Code2,
-  Palette,
   Radio,
+  Smartphone,
   Globe,
+  Calendar,
   MessageCircle,
   Layers,
 } from 'lucide-react';
@@ -15,38 +15,38 @@ import { SOLUTIONS_DATA, getWhatsAppUrl } from '../data/inovaData';
 gsap.registerPlugin(ScrollTrigger);
 
 const iconMap: Record<string, React.ReactNode> = {
-  Code: <Code2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#8B5CF6]" />,
-  Palette: <Palette className="w-4 h-4 sm:w-5 sm:h-5 text-[#8B5CF6]" />,
   Radio: <Radio className="w-4 h-4 sm:w-5 sm:h-5 text-[#8B5CF6]" />,
+  Smartphone: <Smartphone className="w-4 h-4 sm:w-5 sm:h-5 text-[#8B5CF6]" />,
   Globe: <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-[#8B5CF6]" />,
+  Calendar: <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#8B5CF6]" />,
 };
 
 // Strategic studio commentary for each pillar to enhance editorial value
 const PILLAR_INSIGHTS: Record<string, { kicker: string; leadTime: string; highlight: string }> = {
-  'dev-web': {
-    kicker: 'Engenharia & Performance',
-    leadTime: 'Entrega ágil com código limpo',
-    highlight: 'Desenvolvimento contemporâneo focado em velocidade e autoridade comercial.',
+  'plaquinhas-nfc': {
+    kicker: 'Hardware de Balcão & NFC',
+    leadTime: 'Acrílico com base em L e chip integrado',
+    highlight: 'Plaquinhas que facilitam avaliações no Google, pagamentos Pix e contato no balcão.',
   },
-  'design': {
-    kicker: 'Direção de Arte & Marca',
-    leadTime: 'Padronização visual completa',
-    highlight: 'Materiais que eliminam o visual genérico e constroem reconhecimento imediato.',
-  },
-  'nfc-qr': {
-    kicker: 'Hardware & Interação Física',
-    leadTime: 'Tecnologia contactless pronta para uso',
-    highlight: 'Ponto de contato físico no balcão que direciona clientes ao digital em 1 segundo.',
+  'chaveiros-cartoes': {
+    kicker: 'Impressão 3D & Cartões NFC',
+    leadTime: 'Fabricação aditiva 3D e microchip NFC',
+    highlight: 'Chaveiros duráveis e cartões inteligentes para compartilhar dados comerciais em 1 toque.',
   },
   'presenca-digital': {
-    kicker: 'Canais & Google Perfil',
-    leadTime: 'Otimização de reputação local',
-    highlight: 'Centralização de links e avaliações 5 estrelas para dominar buscas locais.',
+    kicker: 'Centralização de Canais & Google',
+    leadTime: 'BioSite mobile e perfil comercial estruturado',
+    highlight: 'BioSite com todos os seus links e otimização para atrair clientes locais no Google.',
+  },
+  'agendamento-sites': {
+    kicker: 'Agendamento Online & Serviços',
+    leadTime: 'Especial para barbearias, lash, nail e estética',
+    highlight: 'Cliente agenda pelo celular em 3 cliques, reduzindo tempo no WhatsApp e diminuindo faltas.',
   },
 };
 
 export const Solutions: React.FC = () => {
-  const [activePillar, setActivePillar] = useState<string>('dev-web');
+  const [activePillar, setActivePillar] = useState<string>('plaquinhas-nfc');
   const [isFading, setIsFading] = useState<boolean>(false);
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -108,7 +108,7 @@ export const Solutions: React.FC = () => {
   };
 
   const selectedItem = SOLUTIONS_DATA.find((item) => item.id === activePillar) || SOLUTIONS_DATA[0];
-  const selectedInsight = PILLAR_INSIGHTS[selectedItem.id] || PILLAR_INSIGHTS['dev-web'];
+  const selectedInsight = PILLAR_INSIGHTS[selectedItem.id] || PILLAR_INSIGHTS['plaquinhas-nfc'];
 
   return (
     <section
@@ -128,13 +128,13 @@ export const Solutions: React.FC = () => {
               className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#171923] tracking-tight leading-[1.12] font-display"
               style={{ textWrap: 'balance' }}
             >
-              Soluções completas para posicionar sua marca.
+              Tecnologia NFC e soluções digitais integradas.
             </h2>
           </div>
 
           <div className="lg:col-span-5 pb-1">
             <p className="text-sm sm:text-base lg:text-lg text-[#171923]/80 leading-relaxed font-normal mb-4">
-              Projetamos e executamos soluções integradas entre design, plataformas web e tecnologia física de aproximação para transformar visitantes em clientes fiéis.
+              Soluções práticas que conectam o atendimento presencial ao mundo online, facilitando conexões, pagamentos e agendamentos para o seu negócio.
             </p>
             {/* Metadados institucionais com legibilidade elevada para ~75% de opacidade */}
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono text-[#171923]/75 pt-3 border-t border-black/10">

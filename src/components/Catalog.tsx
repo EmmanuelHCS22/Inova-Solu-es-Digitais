@@ -316,13 +316,13 @@ export const Catalog: React.FC<CatalogProps> = ({ onOpenModal }) => {
               className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.12] font-display"
               style={{ textWrap: 'balance' }}
             >
-              Showroom de plaquinhas físicas e tecnologia de aproximação.
+              Plaquinhas em acrílico com aproximação NFC e QR Code.
             </h2>
           </div>
 
           <div className="lg:col-span-5 pb-1">
             <p className="text-sm sm:text-base text-[#F7F7F5]/75 leading-relaxed font-normal">
-              Modelos oficiais com tecnologia NFC contactless por aproximação e QR Code vetorial nítido. Explore as linhas padrão e os projetos customizados para empresas.
+              Fabricadas em acrílico transparente com base em L. Conheça as artes padrão prontas para uso e as opções personalizadas com o logotipo e as cores do seu negócio.
             </p>
           </div>
         </div>

@@ -115,7 +115,7 @@ export const Hero: React.FC = () => {
             <h1 className="text-[clamp(2.35rem,4.4vw,4.25rem)] font-extrabold text-white tracking-tight leading-[1.08] mb-6 font-display">
               <span className="block overflow-hidden pb-1">
                 <span className="hero-line-reveal block will-change-transform">
-                  Conectamos sua marca
+                  Conectamos seu negócio
                 </span>
               </span>
               <span className="block overflow-hidden pb-1">
@@ -125,12 +125,12 @@ export const Hero: React.FC = () => {
               </span>
             </h1>
 
-            {/* Subtítulo: Apresenta Sites, Presença Google e NFC naturalmente */}
+            {/* Subtítulo Oficial da Inova */}
             <p
               ref={subtitleRef}
               className="text-base sm:text-lg lg:text-xl text-[#F7F8FC]/80 leading-relaxed max-w-xl mb-8 font-normal"
             >
-              Desenvolvemos sites de alta performance, presença de destaque no Google e soluções NFC de aproximação — unindo o seu ponto de contato físico a experiências online que convertem.
+              Plaquinhas NFC, produtos personalizados e soluções digitais que facilitam a conexão com seus clientes e fortalecem a presença do seu negócio.
             </p>
 
             {/* Grupo de Ações (CTAs) */}
@@ -140,12 +140,12 @@ export const Hero: React.FC = () => {
             >
               {/* CTA Principal */}
               <a
-                href={getWhatsAppUrl('Olá! Gostaria de iniciar um projeto com a Inova Soluções Digitais.')}
+                href={getWhatsAppUrl('Olá! Gostaria de solicitar um orçamento com a Inova Soluções Digitais.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 text-base font-semibold rounded-xl text-white bg-[#8B5CF6] hover:bg-[#7C3AED] transition-[background-color,transform,box-shadow] duration-200 shadow-md shadow-[#8B5CF6]/25 hover:shadow-lg hover:shadow-[#8B5CF6]/40 active:scale-98"
               >
-                <span>Iniciar um projeto</span>
+                <span>Solicitar orçamento</span>
                 <ArrowUpRight className="w-4 h-4 text-white/90 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
               </a>
 
@@ -154,7 +154,7 @@ export const Hero: React.FC = () => {
                 href="#solucoes"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 text-base font-semibold rounded-xl text-white/90 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 transition-[background-color,border-color,transform] duration-200 active:scale-98"
               >
-                <span>Conhecer soluções</span>
+                <span>Conhecer nossas soluções</span>
                 <ArrowDown className="w-4 h-4 text-white/60" />
               </a>
             </div>
@@ -166,17 +166,17 @@ export const Hero: React.FC = () => {
             >
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]" />
-                Web & Landing Pages
+                Plaquinhas NFC & 3D
               </span>
               <span className="text-white/20 hidden sm:inline">·</span>
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#22D3EE]" />
-                Perfil da Empresa no Google
+                Presença Digital & BioSite
               </span>
               <span className="text-white/20 hidden sm:inline">·</span>
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
-                Hardware NFC & QR Code
+                Agendamento & Ferramentas
               </span>
             </div>
           </div>

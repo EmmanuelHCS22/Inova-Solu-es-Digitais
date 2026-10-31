@@ -3,19 +3,20 @@ import { ArrowUpRight, MessageSquare, Send, Check } from 'lucide-react';
 import { getWhatsAppUrl } from '../data/inovaData';
 
 export const ContactCTA: React.FC = () => {
-  const [selectedService, setSelectedService] = useState<string>('Site Institucional / Landing Page');
+  const [selectedService, setSelectedService] = useState<string>('Plaquinhas NFC e QR Code (Balcão)');
   const [userName, setUserName] = useState<string>('');
   const [userCompany, setUserCompany] = useState<string>('');
   const [userNotes, setUserNotes] = useState<string>('');
 
   const servicesList = [
-    'Site Institucional / Landing Page',
-    'Catálogo Digital de Produtos',
-    'Plaquinhas NFC e QR Code',
-    'Chaveiros NFC Personalizados',
-    'BioSite para Instagram',
-    'Design e Identidade Visual',
-    'Otimização Google Meu Negócio',
+    'Plaquinhas NFC e QR Code (Balcão)',
+    'Chaveiros NFC em Impressão 3D',
+    'Cartões de Visita NFC Inteligentes',
+    'BioSite Profissional para Instagram',
+    'Perfil da Empresa no Google (Otimização)',
+    'Sistema de Agendamento Online',
+    'Catálogo ou Cardápio Digital Interativo',
+    'Página de Serviços / Landing Page',
   ];
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -40,9 +41,9 @@ export const ContactCTA: React.FC = () => {
             {/* Lado Esquerdo: Mensagem de Conversão */}
             <div className="lg:col-span-6 text-left">
               <div className="flex items-center gap-2 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#7357E8]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]" />
                 <span className="text-xs uppercase tracking-[0.2em] text-[#F7F7F5]/70 font-semibold">
-                  VAMOS CONVERSAR
+                  SOLICITAR ORÇAMENTO
                 </span>
               </div>
               <h2
@@ -58,15 +59,15 @@ export const ContactCTA: React.FC = () => {
               {/* Quick perks */}
               <div className="space-y-3 mb-8">
                 <div className="flex items-center gap-3 text-xs sm:text-sm text-[#F7F7F5]/80">
-                  <Check className="w-4 h-4 text-[#7357E8]" />
+                  <Check className="w-4 h-4 text-[#8B5CF6]" />
                   <span>Atendimento consultivo direto pelo WhatsApp</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs sm:text-sm text-[#F7F7F5]/80">
-                  <Check className="w-4 h-4 text-[#7357E8]" />
+                  <Check className="w-4 h-4 text-[#8B5CF6]" />
                   <span>Propostas sem compromisso e orçamento sob medida</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs sm:text-sm text-[#F7F7F5]/80">
-                  <Check className="w-4 h-4 text-[#7357E8]" />
+                  <Check className="w-4 h-4 text-[#8B5CF6]" />
                   <span>Atendimento em Uberlândia e em todo o território nacional</span>
                 </div>
               </div>
@@ -74,10 +75,10 @@ export const ContactCTA: React.FC = () => {
               {/* Direct WhatsApp Quick Button */}
               <div>
                 <a
-                  href={getWhatsAppUrl('Olá! Gostaria de pedir um orçamento para minha empresa.')}
+                  href={getWhatsAppUrl('Olá! Gostaria de pedir um orçamento com a Inova Soluções Digitais.')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg text-sm sm:text-base font-semibold text-white bg-[#7357E8] hover:bg-[#6348d6] shadow-sm transition-all whitespace-nowrap active:scale-98"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg text-sm sm:text-base font-semibold text-white bg-[#8B5CF6] hover:bg-[#7C3AED] shadow-sm transition-all whitespace-nowrap active:scale-98"
                 >
                   <MessageSquare className="w-5 h-5 text-white" />
                   <span>Pedir orçamento pelo WhatsApp</span>

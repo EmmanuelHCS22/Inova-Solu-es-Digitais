@@ -21,8 +21,10 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   const navLinks = [
     { label: 'Início', href: '#inicio' },
     { label: 'Soluções', href: '#solucoes' },
-    { label: 'Web & Sites', href: '#desenvolvimento-web' },
     { label: 'Plaquinhas NFC', href: '#catalogo-padrao' },
+    { label: 'Chaveiros 3D & Cartões', href: '#chaveiros-nfc' },
+    { label: 'Presença Digital', href: '#biosite' },
+    { label: 'Agendamento & Sites', href: '#desenvolvimento-web' },
     { label: 'Portfólio', href: '#portfolio' },
     { label: 'Sobre', href: '#sobre' },
     { label: 'Contato', href: '#contato' },
@@ -61,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           {/* Menu de Navegação — Links com paleta editorial #F7F8FC / #B8BAC8 / #8B5CF6 */}
           <nav
             aria-label="Navegação principal"
-            className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium tracking-tight"
+            className="hidden md:flex items-center gap-5 lg:gap-7 text-xs lg:text-sm font-medium tracking-tight"
           >
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
@@ -87,16 +89,16 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             })}
           </nav>
 
-          {/* Botão Solicitar Projeto & Mobile Menu Toggle */}
+          {/* Botão Solicitar Orçamento & Mobile Menu Toggle */}
           <div className="flex items-center gap-3 shrink-0">
-            {/* Botão Solicitar Projeto: Fundo off-white #F7F8FC, texto #111321, hover roxo #8B5CF6 */}
+            {/* Botão Solicitar Orçamento: Fundo off-white #F7F8FC, texto #111321, hover roxo #8B5CF6 */}
             <a
-              href={getWhatsAppUrl('Olá! Gostaria de solicitar um projeto com a Inova Soluções Digitais.')}
+              href={getWhatsAppUrl('Olá! Gostaria de solicitar um orçamento com a Inova Soluções Digitais.')}
               target="_blank"
               rel="noopener noreferrer"
               className="group hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-lg bg-[#F7F8FC] text-[#111321] hover:bg-[#8B5CF6] hover:text-white transition-all duration-200 shadow-sm active:scale-98 whitespace-nowrap"
             >
-              <span>Solicitar projeto</span>
+              <span>Solicitar orçamento</span>
               <ArrowUpRight className="w-4 h-4 text-[#111321] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
             </a>
 

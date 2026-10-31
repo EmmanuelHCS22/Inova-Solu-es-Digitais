@@ -7,8 +7,11 @@ import {
   Tablet,
   ArrowUpRight,
   Zap,
-  Layers,
+  Calendar,
   Store,
+  Sparkles,
+  Scissors,
+  Check,
 } from 'lucide-react';
 import { getWhatsAppUrl } from '../data/inovaData';
 
@@ -26,50 +29,50 @@ interface DemoSegment {
 const DEMO_SEGMENTS: DemoSegment[] = [
   {
     id: 'barbearia',
-    name: 'Barbearia & Estética',
-    tagline: 'Projeto Conceitual • Barber Classic & Studio',
-    heroHeadline: 'Estilo autêntico, visual impecável e agendamento sem espera.',
-    description: 'Site institucional com apresentação de serviços, equipe e botão de agendamento direto.',
+    name: 'Barbearia & Barbearias',
+    tagline: 'Demonstração • Barber Classic & Studio',
+    heroHeadline: 'Corte, barba e estilo autêntico com agendamento sem espera.',
+    description: 'Página profissional com catálogo de serviços, escolha de barbeiro e sistema de agendamento em 3 cliques.',
     stats: [
       { label: 'Tempo de Carregamento', value: '< 0.8s' },
-      { label: 'Agendamento Direto', value: 'WhatsApp' },
-      { label: 'Responsividade', value: '100% Mobile' },
+      { label: 'Agendamento Direto', value: '3 Cliques' },
+      { label: 'Redução de Faltas', value: 'Notável' },
     ],
   },
   {
-    id: 'transportadora',
-    name: 'Transporte & Logística',
-    tagline: 'Projeto Conceitual • Logística Express',
-    heroHeadline: 'Agilidade, segurança e rastreamento para cargas corporativas.',
-    description: 'Landing page focada na captação de cotações, mapa de rotas operacionais e apresentação técnica.',
+    id: 'lash-designer',
+    name: 'Lash Designer & Sobrancelhas',
+    tagline: 'Demonstração • Lash & Brow Studio',
+    heroHeadline: 'Extensão de cílios, micropigmentação e horários marcados online.',
+    description: 'Apresentação visual sofisticada de procedimentos, fotos de trabalhos e botão de agendamento 24h pelo celular.',
     stats: [
-      { label: 'Conversão em Cotações', value: 'Otimizada' },
-      { label: 'Formulário Inteligente', value: '2 Cliques' },
-      { label: 'Segurança e SSL', value: 'Certificado' },
+      { label: 'Agendamento 24h', value: 'Automático' },
+      { label: 'Sem Fila no WhatsApp', value: '100% Livre' },
+      { label: 'Experiência Mobile', value: 'Perfeita' },
     ],
   },
   {
-    id: 'comercio',
-    name: 'Comércio & Varejo Local',
-    tagline: 'Projeto Conceitual • Vitrine Digital & Varejo',
-    heroHeadline: 'Seu catálogo de produtos sempre atualizado no celular dos clientes.',
-    description: 'Catálogo digital com filtros por categoria, botão de pedido para WhatsApp e fotos em alta resolução.',
+    id: 'nail-designer',
+    name: 'Nail Designer & Manicure',
+    tagline: 'Demonstração • Nail Studio VIP',
+    heroHeadline: 'Alongamento em fibra, nail art e catálogo de serviços na tela.',
+    description: 'Vitrine digital com fotos de procedimentos, tabela de valores e escolha rápida de horários vagos.',
     stats: [
-      { label: 'Facilidade de Busca', value: 'Filtros Ágeis' },
-      { label: 'Sem Comissões', value: 'Venda Direta' },
-      { label: 'Atualização Fácil', value: 'Painel Simples' },
+      { label: 'Tabela de Serviços', value: 'Integrada' },
+      { label: 'Confirmação Rápida', value: 'WhatsApp' },
+      { label: 'Design Limpo', value: 'Mobile' },
     ],
   },
   {
-    id: 'servicos',
-    name: 'Consultoria & Serviços',
-    tagline: 'Projeto Conceitual • Serviços Especializados',
-    heroHeadline: 'Autoridade profissional e geração contínua de novos clientes.',
-    description: 'Site corporativo estruturado para transmitir credibilidade, tirar dúvidas e acelerar fechamentos comerciais.',
+    id: 'estetica-beleza',
+    name: 'Estética & Salão de Beleza',
+    tagline: 'Demonstração • Estética & Cuidados',
+    heroHeadline: 'Tratamentos faciais, corporais e protocolos com hora marcada.',
+    description: 'Página completa de apresentação profissional para clínicas de estética, micropigmentadoras e cabeleireiras.',
     stats: [
-      { label: 'Google SEO Local', value: 'Estruturado' },
-      { label: 'Prova de Serviços', value: 'Portfólio' },
-      { label: 'Canal Oficial', value: 'Integrado' },
+      { label: 'Autoridade Local', value: 'Elevada' },
+      { label: 'Fluxo de Clientes', value: 'Organizado' },
+      { label: 'Velocidade Web', value: 'Ultrarrápida' },
     ],
   },
 ];
@@ -154,26 +157,26 @@ export const WebDevelopment: React.FC = () => {
         <div ref={headerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-12 sm:mb-16 lg:mb-20">
           <div className="lg:col-span-7">
             <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#8B5CF6] font-semibold block mb-3">
-              02 / DESENVOLVIMENTO WEB SOB MEDIDA
+              02 / SITES PROFISSIONAIS & AGENDAMENTO
             </span>
             <h2
               className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.12] font-display"
               style={{ textWrap: 'balance' }}
             >
-              Seu negócio merece uma presença digital de alto padrão.
+              Agendamento online e sites focados em serviços.
             </h2>
           </div>
 
           <div className="lg:col-span-5 pb-1">
             <p className="text-sm sm:text-base lg:text-lg text-[#F7F7F5]/75 leading-relaxed font-normal mb-4">
-              Projetamos sites rápidos, objetivos e elegantes, pensados para valorizar sua autoridade de mercado e converter visitantes em contatos qualificados.
+              Soluções sob medida para barbearias, cabeleireiras, lash designers, nail designers e profissionais de estética que querem converter mais e atender sem interrupções.
             </p>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono text-[#F7F7F5]/70 pt-3 border-t border-white/10">
-              <span className="text-white/85">Stack Moderna</span>
+              <span className="text-white/85">Especial para Serviços</span>
               <span aria-hidden="true" className="text-white/30">·</span>
-              <span>Ultra Otimizado para Mobile</span>
+              <span>Agendamento 24 Horas</span>
               <span aria-hidden="true" className="text-white/30">·</span>
-              <span>Sem Mensalidades Ocultas</span>
+              <span>100% Mobile First</span>
             </div>
           </div>
         </div>
@@ -182,34 +185,34 @@ export const WebDevelopment: React.FC = () => {
         <div ref={modalitiesRef} className="mb-20 sm:mb-28 lg:mb-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
             
-            {/* Peça Protagonista (7 colunas): Site Institucional */}
+            {/* Peça Protagonista (7 colunas): Sistema de Agendamento Online */}
             <div className="lg:col-span-7 bg-[#181B2E] rounded-2xl border border-[#8B5CF6]/40 p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col justify-between relative overflow-hidden group hover:border-[#8B5CF6]/70 transition-colors">
               
               {/* Marca sutil de fundo */}
               <div className="absolute top-0 right-0 w-80 h-80 bg-[#8B5CF6]/10 rounded-full blur-3xl pointer-events-none" />
 
               <div>
-                {/* Metadados Editoriais Limpos (Zero Pills) */}
+                {/* Metadados Editoriais Limpos */}
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-4 sm:pb-5 mb-5 sm:mb-6 border-b border-white/10 text-xs font-mono text-[#F7F7F5]/70">
                   <span className="text-[#8B5CF6] font-semibold tracking-wider uppercase">
-                    01 · FORMATO INSTITUCIONAL
+                    01 · SISTEMA DE AGENDAMENTO
                   </span>
                   <span className="text-white/60">
-                    Proposta recomendada para autoridade corporativa
+                    Solução para barbearias, salões e estética
                   </span>
                 </div>
 
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 sm:p-2.5 rounded-xl bg-[#8B5CF6]/15 text-[#8B5CF6]">
-                    <Layers className="w-5 h-5" />
+                    <Calendar className="w-5 h-5" />
                   </div>
                   <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white font-display tracking-tight">
-                    Site Institucional Completo
+                    Agendamento Online para Profissionais
                   </h3>
                 </div>
 
                 <p className="text-xs sm:text-sm lg:text-base text-[#F7F7F5]/75 leading-relaxed mb-6 sm:mb-8 max-w-xl">
-                  Presença digital completa para apresentar a história da empresa, diferenciais competitivos, detalhamento de serviços e portfólio de projetos realizados.
+                  Seus clientes escolhem o serviço, o profissional e o horário disponível em poucos toques pelo celular. Você atende seus clientes com tranquilidade sem precisar parar para responder mensagens no WhatsApp.
                 </p>
 
                 {/* Grid Editorial de Entregáveis */}
@@ -217,138 +220,138 @@ export const WebDevelopment: React.FC = () => {
                   <div className="space-y-3">
                     <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F7F5]/85">
                       <span className="text-xs font-mono text-[#8B5CF6] font-bold mt-0.5">01</span>
-                      <span>Apresentação corporativa estruturada</span>
+                      <span>Catálogo completo de serviços com preços e duração</span>
                     </div>
                     <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F7F5]/85">
                       <span className="text-xs font-mono text-[#8B5CF6] font-bold mt-0.5">02</span>
-                      <span>Páginas organizadas de serviços e diferenciais</span>
+                      <span>Seleção de barbeiro ou profissional de atendimento</span>
                     </div>
                   </div>
                   <div className="space-y-3">
                     <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F7F5]/85">
                       <span className="text-xs font-mono text-[#8B5CF6] font-bold mt-0.5">03</span>
-                      <span>Galeria de portfólio e projetos realizados</span>
+                      <span>Confirmação automática de horário que reduz faltas</span>
                     </div>
                     <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F7F5]/85">
                       <span className="text-xs font-mono text-[#8B5CF6] font-bold mt-0.5">04</span>
-                      <span>Integração com canais e mapa de localização</span>
+                      <span>Abertura instantânea sem downloads de aplicativos</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Botão de Ação Primário com Contraste Marcante (Responsivo para 320px/360px/390px) */}
+              {/* Botão de Ação Primário com Contraste Marcante */}
               <div className="pt-5 sm:pt-6 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
                 <a
-                  href={getWhatsAppUrl('Olá! Gostaria de um orçamento para desenvolvimento de um Site Institucional completo.')}
+                  href={getWhatsAppUrl('Olá! Gostaria de um orçamento para implantar o Sistema de Agendamento Online no meu negócio.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#7348D6] text-white transition-all shadow-lg shadow-[#8B5CF6]/20 active:scale-98 text-center min-h-[44px]"
                 >
-                  <span>Consultar Site Institucional</span>
+                  <span>Consultar Sistema de Agendamento</span>
                   <ArrowUpRight className="w-4 h-4 text-white shrink-0" />
                 </a>
                 <span className="text-xs font-mono text-[#F7F7F5]/50 text-center sm:text-right">
-                  Personalização sob medida para sua marca
+                  Configurado para seu fluxo de atendimento
                 </span>
               </div>
             </div>
 
-            {/* Coluna Complementar (5 colunas): Landing Page & Catálogo Digital */}
+            {/* Coluna Complementar (5 colunas): Página de Serviços & Catálogo Digital */}
             <div className="lg:col-span-5 flex flex-col justify-between gap-5 sm:gap-6">
               
-              {/* Modalidade: Landing Page */}
+              {/* Modalidade: Página de Serviços e Procedimentos */}
               <div className="bg-[#181B2E] rounded-2xl border border-white/10 p-5 sm:p-7 shadow-xl hover:border-white/20 transition-all flex flex-col justify-between flex-1">
                 <div>
                   <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
                     <span className="text-xs font-mono uppercase tracking-wider text-[#8B5CF6] font-semibold">
-                      02 · FOCO DIRETO
+                      02 · PÁGINA DE SERVIÇOS
                     </span>
-                    <Zap className="w-4 h-4 text-[#8B5CF6]" />
+                    <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
                   </div>
 
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 font-display">
-                    Landing Page de Alta Conversão
+                    Página de Procedimentos & Serviços
                   </h3>
                   <p className="text-xs sm:text-sm text-[#F7F7F5]/70 leading-relaxed mb-4 sm:mb-5">
-                    Página estratégica de apresentação única focada em divulgar um produto ou serviço com carregamento instantâneo.
+                    Página moderna e elegante para valorizar seus procedimentos de Lash, Nails ou Estética, exibindo fotos de resultados e diferenciais.
                   </p>
 
                   <div className="space-y-2 mb-5 sm:mb-6 text-xs text-[#F7F7F5]/80">
                     <div className="flex items-start gap-2">
                       <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Estrutura orientada à conversão direta</span>
+                      <span>Galeria de resultados e fotos de trabalhos</span>
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Apresentação objetiva de proposta de valor</span>
+                      <span>Detalhamento claro de procedimentos e valores</span>
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Botões de contato com WhatsApp imediato</span>
+                      <span>Botão direto de agendamento ou WhatsApp</span>
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Carregamento instantâneo em celulares</span>
+                      <span>Carregamento leve e ultrarrápido em celulares</span>
                     </div>
                   </div>
                 </div>
 
                 <a
-                  href={getWhatsAppUrl('Olá! Gostaria de um orçamento para criação de uma Landing Page com a Inova.')}
+                  href={getWhatsAppUrl('Olá! Gostaria de consultar uma Página de Serviços e Procedimentos com a Inova.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-between w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 hover:bg-white/10 text-white border border-white/10 transition-colors text-center min-h-[44px]"
                 >
-                  <span>Consultar Landing Page</span>
+                  <span>Consultar Página de Serviços</span>
                   <ArrowUpRight className="w-4 h-4 text-white/70 shrink-0" />
                 </a>
               </div>
 
-              {/* Modalidade: Catálogo Digital */}
+              {/* Modalidade: Catálogo ou Cardápio Digital */}
               <div className="bg-[#181B2E] rounded-2xl border border-white/10 p-5 sm:p-7 shadow-xl hover:border-white/20 transition-all flex flex-col justify-between flex-1">
                 <div>
                   <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
                     <span className="text-xs font-mono uppercase tracking-wider text-[#8B5CF6] font-semibold">
-                      03 · VITRINE COMERCIAL
+                      03 · CATÁLOGO & CARDÁPIO
                     </span>
                     <Store className="w-4 h-4 text-[#8B5CF6]" />
                   </div>
 
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 font-display">
-                    Catálogo Digital Interativo
+                    Catálogo & Cardápio Digital Interativo
                   </h3>
                   <p className="text-xs sm:text-sm text-[#F7F7F5]/70 leading-relaxed mb-4 sm:mb-5">
-                    Mostruário interativo para exibir itens, preços sugeridos, especificações e pedidos diretos sem intermediários.
+                    Vitrine prática no celular para produtos de cuidados, tratamentos ou cardápios, com envio direto de pedidos para o WhatsApp.
                   </p>
 
                   <div className="space-y-2 mb-5 sm:mb-6 text-xs text-[#F7F7F5]/80">
                     <div className="flex items-start gap-2">
                       <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Organização de produtos por categorias</span>
+                      <span>Divisão por categorias e fotos atrativas</span>
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Fotos de alta resolução e descrições claras</span>
+                      <span>Sem taxas sobre pedidos ou comissões</span>
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Botão de pedido com mensagem pré-formatada</span>
+                      <span>Pedido formatado diretamente no WhatsApp</span>
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Fácil navegação em qualquer smartphone</span>
+                      <span>Acesso imediato por QR Code ou link na bio</span>
                     </div>
                   </div>
                 </div>
 
                 <a
-                  href={getWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para criação de um Catálogo Digital de produtos.')}
+                  href={getWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para criação de um Catálogo ou Cardápio Digital.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-between w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 hover:bg-white/10 text-white border border-white/10 transition-colors text-center min-h-[44px]"
                 >
-                  <span>Consultar Catálogo Digital</span>
+                  <span>Consultar Catálogo / Cardápio</span>
                   <ArrowUpRight className="w-4 h-4 text-white/70 shrink-0" />
                 </a>
               </div>
@@ -364,17 +367,17 @@ export const WebDevelopment: React.FC = () => {
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 mb-8 border-b border-white/10">
             <div>
               <span className="text-xs font-mono text-[#8B5CF6] uppercase tracking-wider block mb-1">
-                LABORATÓRIO INTERATIVO
+                DEMONSTRAÇÃO INTERATIVA
               </span>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white font-display tracking-tight">
-                Adaptação visual em todos os dispositivos
+                Visualização em todos os dispositivos
               </h3>
               <p className="text-xs sm:text-sm text-[#F7F7F5]/65 mt-1 max-w-xl">
-                Alterne entre formatos de tela e ramos de atividade para visualizar a flexibilidade do design e o comportamento responsivo real.
+                Alterne entre formatos de tela e veja como páginas e sistemas de agendamento se adaptam perfeitamente ao celular dos seus clientes.
               </p>
             </div>
 
-            {/* Controles Segmentados de Dispositivo (Zero Pills) */}
+            {/* Controles Segmentados de Dispositivo */}
             <div className="flex items-center gap-1 bg-[#111321] p-1.5 rounded-xl border border-white/10 shrink-0 self-start lg:self-auto">
               <button
                 type="button"
@@ -415,10 +418,10 @@ export const WebDevelopment: React.FC = () => {
             </div>
           </div>
 
-          {/* Seletores de Segmento com Estilo Editorial Limpo */}
+          {/* Seletores de Segmento */}
           <div className="flex flex-wrap items-center gap-2 mb-8">
             <span className="text-xs font-mono text-[#F7F7F5]/50 mr-2 uppercase tracking-wider w-full sm:w-auto">
-              Segmentos:
+              Especialidades:
             </span>
             {DEMO_SEGMENTS.map((seg) => (
               <button
@@ -436,7 +439,7 @@ export const WebDevelopment: React.FC = () => {
             ))}
           </div>
 
-          {/* Canvas de Exibição Cinematográfica com Proporção Aperfeiçoada */}
+          {/* Canvas de Exibição com Proporção Aperfeiçoada */}
           <div className="flex justify-center items-center py-2 sm:py-6 bg-[#111321]/60 rounded-xl border border-white/5 p-2 sm:p-6">
             <div
               className={`transition-all duration-300 rounded-xl bg-[#0E101D] border border-white/10 shadow-2xl p-3 sm:p-6 overflow-hidden ${
@@ -455,7 +458,7 @@ export const WebDevelopment: React.FC = () => {
                   <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
                 </div>
                 <div className="bg-white/5 px-3 sm:px-4 py-1 rounded-md border border-white/5 truncate max-w-[160px] sm:max-w-xs text-[#F7F7F5]/80 font-mono text-[10px] sm:text-[11px]">
-                  cliente.{currentSegment.id}.inova-solucoes.com
+                  agendamento.{currentSegment.id}.inova-solucoes.com
                 </div>
                 <span className="text-[10px] text-[#F7F7F5]/50 uppercase font-mono">{deviceView}</span>
               </div>
@@ -479,7 +482,7 @@ export const WebDevelopment: React.FC = () => {
                     {currentSegment.description}
                   </p>
 
-                  {/* Métricas e Diferenciais (Sem truncamento rígido, quebra natural em 2 linhas) */}
+                  {/* Métricas e Diferenciais */}
                   <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6 pt-4 border-t border-white/10">
                     {currentSegment.stats.map((st, i) => (
                       <div
@@ -489,7 +492,6 @@ export const WebDevelopment: React.FC = () => {
                         <p className="text-xs sm:text-sm font-bold text-white font-mono tabular-nums leading-none">
                           {st.value}
                         </p>
-                        {/* Quebra natural e legibilidade sem truncate */}
                         <p className="text-[9px] sm:text-[10px] text-[#F7F7F5]/70 mt-1 leading-tight text-center min-h-[2.2em] flex items-center justify-center">
                           {st.label}
                         </p>
@@ -500,12 +502,12 @@ export const WebDevelopment: React.FC = () => {
 
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                   <a
-                    href={getWhatsAppUrl(`Olá! Gostaria de um site para o segmento de ${currentSegment.name}.`)}
+                    href={getWhatsAppUrl(`Olá! Gostaria de consultar um sistema de agendamento online para ${currentSegment.name}.`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold text-white rounded-lg bg-[#8B5CF6] hover:bg-[#7348D6] shadow-sm transition-all text-center min-h-[40px]"
                   >
-                    <span>Quero um projeto como este</span>
+                    <span>Quero agendamento online no meu negócio</span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-white/80 shrink-0" />
                   </a>
                   <span className="text-[10px] sm:text-[11px] font-mono text-[#F7F7F5]/50 text-center sm:text-left">
@@ -516,23 +518,23 @@ export const WebDevelopment: React.FC = () => {
             </div>
           </div>
 
-          {/* Banner de Fechamento Editorial Responsivo */}
+          {/* Banner de Fechamento Editorial */}
           <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
             <div className="text-center sm:text-left">
               <p className="text-base sm:text-lg font-bold text-white font-display">
-                Pronto para transformar a imagem da sua empresa na internet?
+                Quer mais clientes agendando sozinhos e menos tempo no WhatsApp?
               </p>
               <p className="text-xs sm:text-sm text-[#F7F7F5]/65 mt-0.5">
-                Atendimento consultivo e proposta sob medida para sua necessidade e prazo.
+                Atendimento consultivo e proposta sob medida para sua barbearia, salão ou clínica de estética.
               </p>
             </div>
             <a
-              href={getWhatsAppUrl('Olá! Quero criar meu site com a Inova Soluções Digitais e gostaria de solicitar um orçamento.')}
+              href={getWhatsAppUrl('Olá! Quero conhecer o sistema de agendamento online da Inova Soluções Digitais e solicitar um orçamento.')}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-[#8B5CF6] hover:bg-[#7348D6] transition-all shadow-lg shadow-[#8B5CF6]/25 active:scale-98 text-center w-full sm:w-auto min-h-[44px]"
             >
-              <span>Solicitar proposta de site</span>
+              <span>Solicitar orçamento de agendamento</span>
               <ArrowUpRight className="w-4 h-4 text-white shrink-0" />
             </a>
           </div>

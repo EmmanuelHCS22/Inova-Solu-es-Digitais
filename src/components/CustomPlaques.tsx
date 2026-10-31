@@ -34,7 +34,7 @@ export const CustomPlaques: React.FC<CustomPlaquesProps> = ({ onOpenModal }) => 
 
         {/* Filters */}
         <div className="flex items-center justify-start sm:justify-center overflow-x-auto pb-4 mb-10 gap-2 no-scrollbar">
-          {CUSTOM_PLAQUES_FILTERS.map((filt) => (
+          {CUSTOM_PLAQUES_FILTERS.map((filt: { id: string; label: string }) => (
             <button
               key={filt.id}
               type="button"

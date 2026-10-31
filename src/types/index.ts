@@ -23,7 +23,7 @@ export interface PortfolioProject {
   id: string;
   name: string;
   segment: string;
-  category: 'sites' | 'landing-pages' | 'identidade-visual' | 'plaquinhas' | 'nfc' | 'biosites';
+  category: 'plaquinhas' | 'chaveiros-cartoes' | 'presenca-digital' | 'agendamento-sites';
   categoryLabel: string;
   description: string;
   solution: string;

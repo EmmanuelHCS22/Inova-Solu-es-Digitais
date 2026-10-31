@@ -1,6 +1,6 @@
 {
   "name": "Inova Soluções Digitais",
-  "description": "Soluções em desenvolvimento web, design institucional e tecnologia NFC para conectar sua empresa ao futuro.",
+  "description": "Tecnologia NFC, chaveiros em impressão 3D, cartões inteligentes, BioSites e sistemas de agendamento online para empresas e profissionais.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

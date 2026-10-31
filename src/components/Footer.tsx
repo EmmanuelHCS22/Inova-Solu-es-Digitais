@@ -21,15 +21,15 @@ export const Footer: React.FC = () => {
                 height="36"
               />
             </a>
-            <p className="text-xs uppercase tracking-wider font-semibold text-[#7357E8] mb-2 font-mono">
+            <p className="text-xs uppercase tracking-wider font-semibold text-[#8B5CF6] mb-2 font-mono">
               {INOVA_CONTACT.tagline}
             </p>
             <p className="text-xs sm:text-sm text-[#F7F7F5]/60 leading-relaxed max-w-sm mb-6">
-              Desenvolvimento de sites corporativos, landing pages, produtos com tecnologia NFC e presença digital para marcas que buscam relevância e escala.
+              Plaquinhas NFC, chaveiros em impressão 3D, cartões inteligentes, BioSites e sistemas de agendamento online conectando o mundo físico ao digital.
             </p>
 
             <div className="flex items-center gap-2 text-xs text-[#F7F7F5]/50">
-              <MapPin className="w-4 h-4 text-[#7357E8]" />
+              <MapPin className="w-4 h-4 text-[#8B5CF6]" />
               <span>{INOVA_CONTACT.location} · Atendimento nacional</span>
             </div>
           </div>
@@ -51,18 +51,23 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#desenvolvimento-web" className="hover:text-white transition-colors">
-                  Criação de Sites
-                </a>
-              </li>
-              <li>
-                <a href="#produtos-nfc" className="hover:text-white transition-colors">
-                  Produtos NFC
-                </a>
-              </li>
-              <li>
                 <a href="#catalogo-padrao" className="hover:text-white transition-colors">
-                  Vitrine de Plaquinhas
+                  Plaquinhas NFC
+                </a>
+              </li>
+              <li>
+                <a href="#chaveiros-nfc" className="hover:text-white transition-colors">
+                  Chaveiros 3D & Cartões
+                </a>
+              </li>
+              <li>
+                <a href="#biosite" className="hover:text-white transition-colors">
+                  Presença Digital & BioSite
+                </a>
+              </li>
+              <li>
+                <a href="#desenvolvimento-web" className="hover:text-white transition-colors">
+                  Agendamento & Sites
                 </a>
               </li>
               <li>
@@ -77,7 +82,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="#faq" className="hover:text-white transition-colors">
-                  Perguntas Frequentes
+                  Dúvidas Frequentes
                 </a>
               </li>
             </ul>
@@ -86,42 +91,47 @@ export const Footer: React.FC = () => {
           {/* Coluna 3: Soluções */}
           <div className="lg:col-span-2">
             <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
-              Soluções
+              Soluções Oficiais
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <a href="#desenvolvimento-web" className="hover:text-white transition-colors">
-                  Landing Pages
-                </a>
-              </li>
-              <li>
-                <a href="#desenvolvimento-web" className="hover:text-white transition-colors">
-                  Sites Institucionais
-                </a>
-              </li>
-              <li>
-                <a href="#desenvolvimento-web" className="hover:text-white transition-colors">
-                  Catálogos Digitais
-                </a>
-              </li>
-              <li>
-                <a href="#plaquinhas-personalizadas" className="hover:text-white transition-colors">
-                  Plaquinhas NFC
+                <a href="#catalogo-padrao" className="hover:text-white transition-colors">
+                  Plaquinhas NFC (Balcão)
                 </a>
               </li>
               <li>
                 <a href="#chaveiros-nfc" className="hover:text-white transition-colors">
-                  Chaveiros NFC
+                  Chaveiros NFC Impressão 3D
+                </a>
+              </li>
+              <li>
+                <a href="#chaveiros-nfc" className="hover:text-white transition-colors">
+                  Cartões NFC Inteligentes
                 </a>
               </li>
               <li>
                 <a href="#biosite" className="hover:text-white transition-colors">
-                  BioSite Profissional
+                  BioSite para Instagram
                 </a>
               </li>
               <li>
                 <a href="#google-empresa" className="hover:text-white transition-colors">
-                  Perfil no Google
+                  Perfil no Google (Otimização)
+                </a>
+              </li>
+              <li>
+                <a href="#desenvolvimento-web" className="hover:text-white transition-colors">
+                  Agendamento Barbearias
+                </a>
+              </li>
+              <li>
+                <a href="#desenvolvimento-web" className="hover:text-white transition-colors">
+                  Agendamento Lash & Salões
+                </a>
+              </li>
+              <li>
+                <a href="#desenvolvimento-web" className="hover:text-white transition-colors">
+                  Catálogos & Cardápios
                 </a>
               </li>
             </ul>

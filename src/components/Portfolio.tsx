@@ -18,12 +18,10 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenModal }) => {
 
   const categories = [
     { id: 'todos', label: 'Todos os Projetos' },
-    { id: 'sites', label: 'Sites' },
-    { id: 'landing-pages', label: 'Landing Pages' },
-    { id: 'identidade-visual', label: 'Identidade Visual' },
-    { id: 'plaquinhas', label: 'Plaquinhas' },
-    { id: 'nfc', label: 'NFC' },
-    { id: 'biosites', label: 'BioSites' },
+    { id: 'plaquinhas', label: 'Plaquinhas NFC & QR Code' },
+    { id: 'chaveiros-cartoes', label: 'Chaveiros 3D & Cartões' },
+    { id: 'presenca-digital', label: 'BioSites & Presença Digital' },
+    { id: 'agendamento-sites', label: 'Sites & Agendamento Online' },
   ];
 
   const filteredProjects = PORTFOLIO_PROJECTS.filter((proj) => {
@@ -78,7 +76,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenModal }) => {
             Projetos reais que conectam marcas a resultados.
           </h2>
           <p className="text-base sm:text-lg text-[#171923]/70 leading-relaxed max-w-2xl">
-            Conheça criações desenvolvidas pela Inova Soluções Digitais para negócios físicos e digitais que exigem diferenciação visual e funcional.
+            Conheça criações da Inova: plaquinhas em acrílico, chaveiros em impressão 3D, cartões inteligentes, BioSites e sistemas de agendamento online.
           </p>
         </div>
 

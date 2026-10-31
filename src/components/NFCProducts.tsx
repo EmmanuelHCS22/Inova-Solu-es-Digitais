@@ -95,11 +95,11 @@ export const NFCProducts: React.FC = () => {
                 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#171923] tracking-tight mb-4 font-display leading-[1.12]"
                 style={{ textWrap: 'balance' }}
               >
-                Mais praticidade. Conexão instantânea no balcão.
+                Plaquinhas NFC e QR Code para o seu balcão.
               </h2>
 
               <p className="text-sm sm:text-base text-[#171923]/80 leading-relaxed mb-6 font-normal">
-                Materiais táteis desenvolvidos para balcões, mesas, vitrines e recepções que aproximam os clientes da sua empresa em apenas um toque de celular, sem burocracia ou digitação.
+                Fabricadas em acrílico resistente com base em L para balcão, caixa e recepção. Escolha entre modelos de arte padrão pronta ou crie uma arte personalizada com as cores e o logotipo do seu negócio.
               </p>
 
               {/* Bloco de Engenharia Tátil: Card Escuro de Contraste */}
