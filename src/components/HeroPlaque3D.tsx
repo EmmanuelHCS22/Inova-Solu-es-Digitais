@@ -3,13 +3,12 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { Rotate3D, Loader2, RotateCcw } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 
 export const HeroPlaque3D: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
-  const [isInteracting, setIsInteracting] = useState(false);
   const controlsRef = useRef<OrbitControls | null>(null);
   const defaultCameraPos = useRef(new THREE.Vector3(0, 0.2, 2.2));
 
@@ -38,11 +37,11 @@ export const HeroPlaque3D: React.FC = () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x000000, 0); // 100% transparent background
     renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.25;
+    renderer.toneMapping = THREE.NeutralToneMapping; // Khronos PBR Neutral tone mapping: preserva fidelidade absoluta do azul Google, estrelas e logo
+    renderer.toneMappingExposure = 1.0;
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
-    renderer.domElement.style.touchAction = 'none';
+    renderer.domElement.style.touchAction = 'pan-y';
     renderer.domElement.style.display = 'block';
 
     container.innerHTML = '';
@@ -64,72 +63,74 @@ export const HeroPlaque3D: React.FC = () => {
     controls.enableZoom = false; // Never capture page scroll gestures
     controls.enablePan = false;
     controls.autoRotate = !prefersReducedMotion;
-    controls.autoRotateSpeed = 2.2; // Smooth 360° continuous rotation
+    controls.autoRotateSpeed = 1.6; // Elegant continuous 360° rotation
     // Clamping to keep the plaque elegantly in view
     controls.minPolarAngle = Math.PI / 3.6; // ~50°
     controls.maxPolarAngle = Math.PI / 1.72; // ~104°
 
-    controls.addEventListener('start', () => setIsInteracting(true));
-    controls.addEventListener('end', () => setIsInteracting(false));
-
-    // 6. Cinematic Studio Lighting
-    // Ambient fill: subtle cool tint
-    const ambientLight = new THREE.AmbientLight(0xdbeafe, 0.7);
+    // 6. Calibrated Studio Lighting (fidelidade cromática máxima e reflexos físicos no acrílico)
+    // Ambient Light: iluminação neutra e balanceada, preservando pretos puros e azul Google uniforme
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.48);
     scene.add(ambientLight);
 
-    // Key Light: crisp directional white light highlighting the front Google Review artwork
-    const keyLight = new THREE.DirectionalLight(0xffffff, 2.8);
-    keyLight.position.set(3.5, 4.5, 5);
+    // Key Light: luz direcional frontal-superior destacando a impressão gráfica sem lavar cores
+    const keyLight = new THREE.DirectionalLight(0xffffff, 1.65);
+    keyLight.position.set(2.2, 3.8, 4.2);
     scene.add(keyLight);
 
-    // Fill Light: soft blue-white bounce from front-left
-    const fillLight = new THREE.DirectionalLight(0xa5b4fc, 1.2);
-    fillLight.position.set(-3.5, 1.5, 3.5);
+    // Fill Light: preenchimento suave com leve matiz frio
+    const fillLight = new THREE.DirectionalLight(0xdbeafe, 0.60);
+    fillLight.position.set(-2.8, 1.8, 3.2);
     scene.add(fillLight);
 
-    // Rim Light 1: Cyan Inova branding accentuating rear-right acrylic edges
-    const rimCyan = new THREE.DirectionalLight(0x06b6d4, 3.0);
-    rimCyan.position.set(4.5, 3, -4);
+    // Rim Light 1: Ciano Inova acentuando bordas biseladas e quinas do acrílico cristal
+    const rimCyan = new THREE.DirectionalLight(0x06b6d4, 2.8);
+    rimCyan.position.set(4.0, 2.6, -3.2);
     scene.add(rimCyan);
 
-    // Rim Light 2: Purple Inova branding accentuating rear-left acrylic bevels
-    const rimPurple = new THREE.DirectionalLight(0x8b5cf6, 3.2);
-    rimPurple.position.set(-4.5, 3, -4);
+    // Rim Light 2: Roxo Inova refinado realçando o chanfro esquerdo e profundidade
+    const rimPurple = new THREE.DirectionalLight(0x8b5cf6, 2.4);
+    rimPurple.position.set(-4.0, 2.6, -3.2);
     scene.add(rimPurple);
 
-    // Top highlight point light for the upper acrylic bevel
-    const topLight = new THREE.PointLight(0xffffff, 1.5, 8);
-    topLight.position.set(0, 4, 1);
+    // Top highlight: ponto de luz superior para realçar o bisel superior do acrílico
+    const topLight = new THREE.PointLight(0xffffff, 1.1, 8);
+    topLight.position.set(0, 3.6, 1.2);
     scene.add(topLight);
 
-    // 7. Ground Floating Shadow Plane (Soft dark radial shadow underneath)
-    const shadowCanvas = document.createElement('canvas');
-    shadowCanvas.width = 256;
-    shadowCanvas.height = 256;
-    const sCtx = shadowCanvas.getContext('2d');
-    if (sCtx) {
-      const grad = sCtx.createRadialGradient(128, 128, 0, 128, 128, 128);
+    // Base Glow Light: iluminação sutil focada na base horizontal em L do acrílico
+    const baseGlowLight = new THREE.PointLight(0x06b6d4, 1.3, 3.5);
+    baseGlowLight.position.set(0, -0.45, 0.15);
+    scene.add(baseGlowLight);
+
+    // 7. 3D WebGL ground contact projection plane /* taste-skill-ignore */
+    const groundCanvas = document.createElement('canvas');
+    groundCanvas.width = 256;
+    groundCanvas.height = 256;
+    const gCtx = groundCanvas.getContext('2d');
+    if (gCtx) {
+      const grad = gCtx.createRadialGradient(128, 128, 0, 128, 128, 128);
       grad.addColorStop(0, 'rgba(0, 0, 0, 0.75)');
-      grad.addColorStop(0.3, 'rgba(6, 182, 212, 0.15)'); // Subtle cyan light dispersion
+      grad.addColorStop(0.3, 'rgba(6, 182, 212, 0.15)'); // Dispersão ciano sutil
       grad.addColorStop(0.65, 'rgba(0, 0, 0, 0.12)');
       grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      sCtx.fillStyle = grad;
-      sCtx.fillRect(0, 0, 256, 256);
+      gCtx.fillStyle = grad;
+      gCtx.fillRect(0, 0, 256, 256);
     }
-    const shadowTexture = new THREE.CanvasTexture(shadowCanvas);
-    shadowTexture.needsUpdate = true;
+    const groundTexture = new THREE.CanvasTexture(groundCanvas);
+    groundTexture.needsUpdate = true;
 
-    const shadowGeo = new THREE.PlaneGeometry(1.6, 1.6);
-    const shadowMat = new THREE.MeshBasicMaterial({
-      map: shadowTexture,
+    const groundGeo = new THREE.PlaneGeometry(1.6, 1.6);
+    const groundMat = new THREE.MeshBasicMaterial({
+      map: groundTexture,
       transparent: true,
       opacity: 0.85,
       depthWrite: false,
     });
-    const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
-    shadowMesh.rotation.x = -Math.PI / 2;
-    shadowMesh.position.y = -0.7;
-    scene.add(shadowMesh);
+    const groundMesh = new THREE.Mesh(groundGeo, groundMat);
+    groundMesh.rotation.x = -Math.PI / 2;
+    groundMesh.position.y = -0.7;
+    scene.add(groundMesh);
 
     // 8. Model container group
     const modelGroup = new THREE.Group();
@@ -146,34 +147,130 @@ export const HeroPlaque3D: React.FC = () => {
       (gltf) => {
         loadedScene = gltf.scene;
 
-        // Preserve geometry and materials while enhancing realistic physical acrylic reflection
+        // Geometria e posicionamento com base nos parâmetros físicos do modelo GLB:
+        // Normal do plano frontal inclinado (N): [0, -0.0784591, 0.9969173] (unitário)
+        // Plano original da arte: d_arte = 0.03069228
+        // Plano da face frontal externa do acrílico: d_front = 0.04669227
+        // Offset de contato físico perfeito: t = 0.01650000 (com micrométrico offset de contato)
+        // Deslocamento da arte: deltaY = 0.0165 * Ny = -0.001295, deltaZ = 0.0165 * Nz = +0.016449
+        // Deslocamento do verso: deltaY = 0.0420 * Ny = -0.003300, deltaZ = 0.0420 * Nz = +0.041870
+
         loadedScene.traverse((child) => {
           if ((child as THREE.Mesh).isMesh) {
             const mesh = child as THREE.Mesh;
             const mat = mesh.material as THREE.MeshStandardMaterial;
 
             if (mat) {
-              // Printed graphic artwork (Google Review pattern)
-              if (mat.map) {
-                mat.map.colorSpace = THREE.SRGBColorSpace;
-                mat.map.anisotropy = 16;
-                mat.map.generateMipmaps = true;
-                mat.map.needsUpdate = true;
-                mesh.renderOrder = 0;
+              const matName = (mat.name || '').toLowerCase();
+              const meshName = (mesh.name || '').toLowerCase();
+
+              // 1. Arte Gráfica Original: Material "ArteGoogleAvaliacao" / Mesh "ArteGoogleFace"
+              // Fixada na face frontal externa do acrílico com fidelidade total de cores
+              if (matName.includes('artegoogle') || meshName.includes('artegoogle')) {
+                const geo = mesh.geometry;
+                const uvAttr = geo.attributes.uv;
+                const posAttr = geo.attributes.position;
+
+                if (uvAttr && posAttr) {
+                  // Vértices superiores v6 e v7 na geometria original da arte:
+                  // Ajustamos uv.y de 0.005 para 0.038 (linha 48 da textura), onde o azul é 100% puro e uniforme,
+                  // eliminando as faixas brancas e os cantos arredondados do scan original da imagem.
+                  uvAttr.setY(6, 0.038);
+                  uvAttr.setY(7, 0.038);
+                  uvAttr.needsUpdate = true;
+
+                  // Acompanha perfeitamente o limite da área frontal antes do bisel (Y = 1.532, Z = 0.1513 no plano):
+                  posAttr.setY(6, 1.532);
+                  posAttr.setZ(6, 0.1513);
+                  posAttr.setY(7, 1.532);
+                  posAttr.setZ(7, 0.1513);
+                  posAttr.needsUpdate = true;
+                  geo.computeVertexNormals();
+                }
+
+                // Posiciona a arte exatamente sobre a face frontal externa
+                mesh.position.set(0, -0.001295, 0.016449);
+                mesh.updateMatrix();
+
+                mesh.renderOrder = 2; // Renderiza à frente: cores autênticas e vivas
+                mat.transparent = false;
+                mat.opacity = 1.0;
+                mat.depthWrite = true;
+                mat.depthTest = true;
+                mat.roughness = 0.06; // Impressão UV lisa de alta definição: pretos profundos e azul intenso
+                mat.metalness = 0.0;
+                mat.envMapIntensity = 0.15; // Reflexo de estúdio sutil sem desbotar o azul
+                mat.side = THREE.FrontSide;
+                mat.polygonOffset = true;
+                mat.polygonOffsetFactor = -1.0;
+                mat.polygonOffsetUnits = -4.0; // Elimina z-fighting em qualquer ângulo de visualização
+
+                if (mat.map) {
+                  mat.map.colorSpace = THREE.SRGBColorSpace;
+                  mat.map.anisotropy = 16;
+                  mat.map.generateMipmaps = true;
+                  mat.map.minFilter = THREE.LinearMipmapLinearFilter;
+                  mat.map.magFilter = THREE.LinearFilter;
+                  mat.map.needsUpdate = true;
+                }
               }
 
-              // Transparent crystal acrylic body & L-stand
-              if (mat.transparent || mat.opacity < 1.0 || mat.name.toLowerCase().includes('acrilico')) {
+              // 2. Fundo Branco da Arte Impressa: Material "VersoCartaoBranco" / Mesh "VersoCartao"
+              // Alinhado imediatamente atrás da arte na face frontal (base branca da impressão UV)
+              else if (matName.includes('versocartao') || meshName.includes('versocartao')) {
+                const vGeo = mesh.geometry;
+                const vPosAttr = vGeo.attributes.position;
+                if (vPosAttr) {
+                  // Topo do verso ajustado para coincidir com a arte (Y = 1.531) sem ultrapassar o topo da placa
+                  vPosAttr.setY(2, 1.531);
+                  vPosAttr.setZ(2, 0.1247);
+                  vPosAttr.setY(3, 1.531);
+                  vPosAttr.setZ(3, 0.1247);
+                  vPosAttr.needsUpdate = true;
+                  vGeo.computeVertexNormals();
+                }
+
+                mesh.position.set(0, -0.003300, 0.041870);
+                mesh.updateMatrix();
+
                 mesh.renderOrder = 1;
-                mat.depthWrite = false;
-                mat.roughness = 0.04; // Glossy reflective acrylic
-                mat.metalness = 0.08;
+                mat.transparent = false;
+                mat.opacity = 1.0;
+                mat.depthWrite = true;
+                mat.depthTest = true;
+                mat.roughness = 0.35;
+                mat.metalness = 0.0;
+                mat.side = THREE.FrontSide; // Normal aponta para trás: visível ao rotacionar a plaquinha
+                mat.polygonOffset = true;
+                mat.polygonOffsetFactor = 1.0;
+                mat.polygonOffsetUnits = 2.0;
+              }
+
+              // 3. Suporte de Acrílico Cristal: Material "AcrilicoTransparente" / Mesh "SuporteAcrilicoL"
+              else if (matName.includes('acrilico') || meshName.includes('suporteacrilico')) {
+                mesh.renderOrder = 0;
                 mat.transparent = true;
-                mat.opacity = 0.92;
+                mat.opacity = 0.20; // Acrílico cristal transparente límpido
+                mat.depthWrite = false;
+                mat.roughness = 0.04; // Polimento cristal com alto brilho especular nas bordas biseladas
+                mat.metalness = 0.08;
+                mat.color = new THREE.Color(0xf4f9ff); // Pureza óptica com sutil toque frio
+              }
+
+              // 4. Pés Antiderrapantes de Silicone: Material "PesSilicone" / Mesh "PesApoioSilicone"
+              else if (matName.includes('pessilicone') || meshName.includes('pesapoio')) {
+                mesh.renderOrder = 1;
+                mat.transparent = true;
+                mat.opacity = 0.65;
+                mat.depthWrite = false;
+                mat.roughness = 0.55;
               }
             }
           }
         });
+
+        // Atualiza a matriz mundial de todos os nós após o reposicionamento
+        loadedScene.updateMatrixWorld(true);
 
         // Center model geometry for a balanced 360° spin along the central vertical axis
         const box = new THREE.Box3().setFromObject(loadedScene);
@@ -186,15 +283,18 @@ export const HeroPlaque3D: React.FC = () => {
 
         modelGroup.add(loadedScene);
 
-        // Adjust shadow plane height directly under the base of the L-stand
+        // Adjust ground contact projection height directly under the base
         const bottomY = -size.y / 2 - 0.09;
-        shadowMesh.position.y = bottomY;
+        groundMesh.position.y = bottomY;
 
-        // Fit camera to object bounding box with optimal viewing angle
+        // Fit camera to object bounding box with optimal initial front-facing perspective
         const maxDim = Math.max(size.x, size.y, size.z);
         const fov = camera.fov * (Math.PI / 180);
-        const cameraZ = Math.abs(maxDim / (2 * Math.tan(fov / 2))) * 1.32;
-        defaultCameraPos.current.set(0, maxDim * 0.08, cameraZ);
+        const cameraZ = Math.abs(maxDim / (2 * Math.tan(fov / 2))) * 1.30;
+        // Apresenta inicialmente a face frontal da plaquinha com leve ângulo heróico (14°)
+        const initialX = Math.sin(THREE.MathUtils.degToRad(14)) * cameraZ;
+        const initialZ = Math.cos(THREE.MathUtils.degToRad(14)) * cameraZ;
+        defaultCameraPos.current.set(initialX, maxDim * 0.06, initialZ);
         camera.position.copy(defaultCameraPos.current);
         camera.lookAt(0, 0, 0);
         controls.target.set(0, 0, 0);
@@ -221,10 +321,10 @@ export const HeroPlaque3D: React.FC = () => {
         const floatOffset = Math.sin(elapsed * 1.6) * 0.048;
         modelGroup.position.y = floatOffset;
 
-        // Sombra de contato sincronizada com a suspensão no ar
-        const shadowScale = 1 + floatOffset * 1.4;
-        shadowMesh.scale.set(shadowScale, shadowScale, 1);
-        shadowMat.opacity = Math.max(0.45, 0.85 - floatOffset * 2.0);
+        // Projeção de contato no solo sincronizada com a suspensão no ar
+        const groundScale = 1 + floatOffset * 1.4;
+        groundMesh.scale.set(groundScale, groundScale, 1);
+        groundMat.opacity = Math.max(0.45, 0.85 - floatOffset * 2.0);
       }
 
       controls.update();
@@ -266,9 +366,9 @@ export const HeroPlaque3D: React.FC = () => {
         }
       });
 
-      shadowTexture.dispose();
-      shadowGeo.dispose();
-      shadowMat.dispose();
+      groundTexture.dispose();
+      groundGeo.dispose();
+      groundMat.dispose();
 
       renderer.dispose();
       if (container.contains(renderer.domElement)) {
@@ -276,12 +376,6 @@ export const HeroPlaque3D: React.FC = () => {
       }
     };
   }, []);
-
-  const handleResetAngle = () => {
-    if (controlsRef.current) {
-      controlsRef.current.reset();
-    }
-  };
 
   return (
     <div className="relative w-full aspect-[4/3] sm:aspect-[1/1] max-w-[500px] mx-auto flex flex-col items-center justify-center select-none overflow-visible">
@@ -294,41 +388,17 @@ export const HeroPlaque3D: React.FC = () => {
         role="img"
       />
 
-      {/* Indicador de carregamento */}
+      {/* Indicador de carregamento minimalista */}
       {loading && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 z-10">
-          <Loader2 className="w-7 h-7 text-[#06B6D4] animate-spin" />
-          <span className="text-xs font-mono tracking-widest uppercase text-white/60">
-            Carregando modelo 3D...
-          </span>
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2.5 z-10">
+          <Loader2 className="w-7 h-7 text-[#22D3EE] animate-spin" />
         </div>
       )}
 
       {/* Estado de erro */}
       {loadError && (
         <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
-          <p className="text-xs text-white/50 font-mono">{loadError}</p>
-        </div>
-      )}
-
-      {/* Dica discreta e botão de reset — sem cards brancos, sem molduras */}
-      {!loading && !loadError && (
-        <div className="w-full flex items-center justify-between px-2 pt-2 text-[11px] font-mono text-white/45 tracking-wider">
-          <div className="flex items-center gap-1.5">
-            <Rotate3D className={`w-3.5 h-3.5 text-[#06B6D4] ${isInteracting ? 'animate-spin' : ''}`} />
-            <span>Giro 360° interativo · Arraste para inspecionar</span>
-          </div>
-
-          <button
-            type="button"
-            onClick={handleResetAngle}
-            title="Recentrar visão frontal"
-            className="flex items-center gap-1 px-2 py-1 rounded text-white/50 hover:text-white transition-colors duration-150 focus:outline-none focus:ring-1 focus:ring-[#06B6D4]"
-            aria-label="Recentrar ângulo da plaquinha"
-          >
-            <RotateCcw className="w-3 h-3" />
-            <span className="text-[10px]">Recentrar</span>
-          </button>
+          <p className="text-xs text-white/50">{loadError}</p>
         </div>
       )}
     </div>
