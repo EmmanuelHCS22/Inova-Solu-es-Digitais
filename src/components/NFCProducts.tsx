@@ -1,7 +1,18 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Star, QrCode, CreditCard, Share2, Wifi, Radio, AlertCircle, ArrowUpRight, Zap } from 'lucide-react';
+import {
+  Star,
+  QrCode,
+  CreditCard,
+  Share2,
+  Wifi,
+  Radio,
+  AlertCircle,
+  ArrowUpRight,
+  Zap,
+  Check,
+} from 'lucide-react';
 import { NFC_FEATURES, getWhatsAppUrl } from '../data/inovaData';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -27,11 +38,11 @@ export const NFCProducts: React.FC = () => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         leftColRef.current,
-        { y: 30, opacity: 0 },
+        { y: 24, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.8,
+          duration: 0.75,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: leftColRef.current,
@@ -43,7 +54,7 @@ export const NFCProducts: React.FC = () => {
       if (listRef.current) {
         gsap.fromTo(
           listRef.current.children,
-          { y: 25, opacity: 0 },
+          { y: 20, opacity: 0 },
           {
             y: 0,
             opacity: 1,
@@ -66,55 +77,72 @@ export const NFCProducts: React.FC = () => {
     <section
       id="produtos-nfc"
       ref={sectionRef}
-      className="py-24 sm:py-32 relative bg-[#F5F4F0] border-t border-black/10 overflow-hidden"
+      className="py-20 sm:py-28 lg:py-32 relative bg-[#F5F4F0] border-t border-black/10 text-[#171923] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Layout Assimétrico Split-Screen */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-16">
           
           {/* Coluna Esquerda: Narrativa & Posicionamento */}
           <div ref={leftColRef} className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="w-2 h-2 rounded-full bg-[#8B5CF6]" />
-                <span className="text-xs uppercase tracking-[0.2em] text-[#171923]/70 font-semibold">
-                  TECNOLOGIA DE PONTO DE ATENDIMENTO
-                </span>
-              </div>
+              <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#7357E8] font-semibold block mb-3">
+                03 / TECNOLOGIA DE BALCÃO & CONECTIVIDADE
+              </span>
+
               <h2
-                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#171923] tracking-tight mb-5 font-display leading-[1.08]"
+                className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#171923] tracking-tight mb-4 font-display leading-[1.12]"
                 style={{ textWrap: 'balance' }}
               >
                 Mais praticidade. Conexão instantânea no balcão.
               </h2>
-              <p className="text-base text-[#171923]/75 leading-relaxed mb-8 font-normal">
+
+              <p className="text-sm sm:text-base text-[#171923]/80 leading-relaxed mb-6 font-normal">
                 Materiais táteis desenvolvidos para balcões, mesas, vitrines e recepções que aproximam os clientes da sua empresa em apenas um toque de celular, sem burocracia ou digitação.
               </p>
 
-              {/* Bloco de Engenharia Tátil */}
-              <div className="rounded-xl bg-[#111321] text-white p-5 sm:p-6 mb-8 border border-white/10 shadow-lg">
+              {/* Bloco de Engenharia Tátil: Card Escuro de Contraste */}
+              <div className="rounded-2xl bg-[#111321] text-white p-5 sm:p-7 mb-8 border border-white/10 shadow-xl">
                 <div className="flex items-center gap-2.5 mb-2.5">
                   <Zap className="w-4 h-4 text-[#8B5CF6]" />
-                  <span className="text-xs font-semibold uppercase tracking-wider text-white/90">
+                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-white/90">
                     Aproximação Sem Aplicativo
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
-                  Compatível com iPhone e Android nativos. A tecnologia NFC direciona o cliente imediatamente ao destino configurado, complementada pelo QR Code de alta precisão.
+                <p className="text-xs sm:text-sm text-white/75 leading-relaxed font-normal mb-4">
+                  Compatível nativamente com iPhone e Android. A tecnologia NFC direciona o cliente imediatamente ao destino configurado, complementada pelo QR Code de alta precisão.
                 </p>
+
+                <div className="pt-3 border-t border-white/10 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono text-white/60">
+                  <span className="flex items-center gap-1.5 text-white/80">
+                    <Check className="w-3.5 h-3.5 text-[#8B5CF6]" /> Sem necessidade de app
+                  </span>
+                  <span className="flex items-center gap-1.5 text-white/80">
+                    <Check className="w-3.5 h-3.5 text-[#8B5CF6]" /> Leitura em 1 segundo
+                  </span>
+                </div>
               </div>
             </div>
 
-            <a
-              href={getWhatsAppUrl('Olá! Gostaria de consultar detalhes e valores de plaquinhas NFC e QR Code.')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg text-sm font-semibold text-white bg-[#111321] hover:bg-[#8B5CF6] transition-all duration-200 shadow-sm whitespace-nowrap active:scale-98 self-start"
-            >
-              <span>Consultar Plaquinhas NFC</span>
-              <ArrowUpRight className="w-4 h-4 text-white/80" />
-            </a>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <a
+                href={getWhatsAppUrl('Olá! Gostaria de consultar detalhes e valores de plaquinhas NFC e QR Code.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-[#111321] hover:bg-[#8B5CF6] transition-all duration-200 shadow-sm active:scale-98 text-center min-h-[44px]"
+              >
+                <span>Consultar Plaquinhas NFC</span>
+                <ArrowUpRight className="w-4 h-4 text-white/80 shrink-0" />
+              </a>
+
+              <a
+                href="#catalogo-padrao"
+                className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-[#171923] hover:text-[#8B5CF6] hover:bg-black/5 transition-colors text-center min-h-[44px]"
+              >
+                <span>Explorar Modelos ↓</span>
+              </a>
+            </div>
           </div>
 
           {/* Coluna Direita: Lista Editorial de Aplicações (Zero grades repetitivas) */}
@@ -122,17 +150,17 @@ export const NFCProducts: React.FC = () => {
             {NFC_FEATURES.map((item, index) => (
               <div
                 key={index}
-                className="py-5 sm:py-6 flex items-start gap-4 sm:gap-6 group transition-colors duration-200 hover:bg-black/[0.015]"
+                className="py-4 sm:py-5 flex items-start gap-4 sm:gap-5 group transition-colors duration-200 hover:bg-black/[0.015]"
               >
-                <div className="w-10 h-10 rounded-lg bg-black/5 flex items-center justify-center shrink-0 mt-0.5 text-[#8B5CF6] group-hover:bg-[#8B5CF6]/10 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-black/5 flex items-center justify-center shrink-0 mt-0.5 text-[#8B5CF6] group-hover:bg-[#8B5CF6]/10 transition-colors">
                   {iconMap[item.icon]}
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between gap-2 mb-1">
-                    <h3 className="text-base sm:text-lg font-bold text-[#171923] group-hover:text-[#8B5CF6] transition-colors font-display">
+                    <h3 className="text-sm sm:text-base font-bold text-[#171923] group-hover:text-[#8B5CF6] transition-colors font-display">
                       {item.title}
                     </h3>
-                    <span className="text-xs font-mono text-[#171923]/40">
+                    <span className="text-xs font-mono tabular-nums text-[#171923]/40">
                       0{index + 1}
                     </span>
                   </div>
@@ -147,7 +175,7 @@ export const NFCProducts: React.FC = () => {
         </div>
 
         {/* Esclarecimento Técnico com Tipografia Editorial */}
-        <div className="pt-6 border-t border-black/10 flex items-start gap-3 text-xs sm:text-sm text-[#171923]/70">
+        <div className="pt-6 border-t border-black/10 flex items-start gap-3 text-xs sm:text-sm text-[#171923]/75 bg-white/60 p-4 rounded-xl border border-black/5">
           <AlertCircle className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
           <p>
             <strong className="text-[#171923] font-semibold">Esclarecimento de compatibilidade:</strong> A tecnologia por aproximação (NFC) depende do leitor nativo do smartphone do cliente. Dispositivos sem NFC efetuam a leitura normalmente através do QR Code integrado em alta nitidez.

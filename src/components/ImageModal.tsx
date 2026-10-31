@@ -99,10 +99,10 @@ export const ImageModal: React.FC<ImageModalProps> = ({ image, onClose }) => {
               href={getWhatsAppUrl(`Olá! Tenho interesse no modelo "${image.name}" e gostaria de solicitar um orçamento.`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-[#8B5CF6] to-[#6366F1] hover:from-[#7c3aed] hover:to-[#4f46e5] shadow-lg shadow-[#8B5CF6]/25 transition-all"
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-xs sm:text-sm font-semibold text-white bg-[#8B5CF6] hover:bg-[#7348D6] focus:outline-none focus:ring-2 focus:ring-[#8B5CF6]/50 shadow-md transition-all active:scale-98 min-h-[44px]"
             >
               <span>Solicitar este modelo</span>
-              <ArrowUpRight className="w-4 h-4 text-[#22D3EE]" />
+              <ArrowUpRight className="w-4 h-4 text-white shrink-0" />
             </a>
             <button
               type="button"
