@@ -1,0 +1,1278 @@
+# PROJETO: RECONSTRUÇÃO COMPLETA DO SITE INOVA SOLUÇÕES DIGITAIS
+
+## 1. PAPEL E OBJETIVO
+
+Atue como uma equipe sênior composta por:
+
+- Diretor de arte especializado em branding digital.
+- UX/UI Designer especializado em interfaces premium.
+- Desenvolvedor Front-end especializado em React.
+- Desenvolvedor especializado em animações GSAP e Motion Design.
+- Especialista em SEO técnico e performance.
+- Especialista em responsividade e acessibilidade.
+- Especialista em conversão e experiência comercial.
+
+Sua missão é RECRIAR COMPLETAMENTE o site da INOVA SOLUÇÕES DIGITAIS, desenvolvendo uma nova experiência visual, estrutural e comercial.
+
+Site atual como referência de conteúdo e materiais:
+https://landing-page-de-artes-personalizadas--EmmanuelC542.replit.app
+
+Não faça apenas pequenos ajustes no site existente. Desenvolva uma nova versão, com arquitetura visual superior, organização profissional, animações sofisticadas e identidade empresarial consistente.
+
+O resultado deve parecer um site institucional desenvolvido por uma agência profissional de tecnologia e design.
+
+IMPORTANTE: antes de alterar o projeto, examine a estrutura existente, identifique os arquivos, dependências, imagens, logotipo, informações comerciais e funcionalidades atuais.
+
+Preserve os materiais originais importantes e não destrua informações ou funcionalidades que possam ser reutilizadas.
+
+Não substitua a identidade visual oficial por uma identidade inventada.
+
+---
+
+# 2. IDENTIDADE VISUAL OFICIAL
+
+Marca: INOVA SOLUÇÕES DIGITAIS.
+
+Utilize a identidade visual já estabelecida.
+
+### Paleta de cores
+
+- Roxo principal: #8B5CF6
+- Violeta: #6366F1
+- Ciano: #22D3EE
+- Azul-marinho: #0A0F2E
+- Branco: #F7F8FC
+
+### Tipografia
+
+Utilizar preferencialmente Poppins, mantendo uma combinação tipográfica moderna e elegante.
+
+### Direção visual
+
+A estética deve combinar:
+
+- Tecnologia.
+- Modernidade.
+- Sofisticação.
+- Minimalismo.
+- Criatividade.
+- Profissionalismo.
+- Confiança empresarial.
+
+Utilize fundos azul-marinho profundos, gradientes controlados, detalhes em violeta e ciano, iluminação sutil, transparências e camadas visuais.
+
+Evite excesso de efeitos neon, poluição visual, elementos genéricos e aparência de template pronto.
+
+### REGRA OBRIGATÓRIA SOBRE A LOGO
+
+Utilize o arquivo original da logo da Inova.
+
+Não redesenhe, não recrie, não distorça, não altere as cores e não substitua o símbolo original.
+
+Preserve a proporção, qualidade e identidade da marca.
+
+---
+
+# 3. POSICIONAMENTO ESTRATÉGICO
+
+A Inova não deve parecer apenas uma loja de plaquinhas NFC ou artes personalizadas.
+
+Ela deve ser apresentada como uma empresa de soluções digitais que trabalha com tecnologia, desenvolvimento web, design e conectividade.
+
+Mensagem institucional principal:
+
+"Seu negócio conectado ao futuro."
+
+Mensagem complementar:
+
+"Desenvolvimento web, design e tecnologia para empresas que querem crescer e se destacar no digital."
+
+A empresa deverá apresentar quatro grandes áreas de atuação:
+
+1. Desenvolvimento Web.
+2. Design e Identidade Visual.
+3. Produtos NFC e QR Code.
+4. Presença Digital.
+
+A comunicação deve transmitir capacidade técnica, profissionalismo, criatividade e atendimento personalizado.
+
+Não invente clientes, certificações, números de projetos, avaliações, resultados comerciais ou anos de experiência.
+
+---
+
+# 4. ARQUITETURA COMPLETA DO SITE
+
+Desenvolva uma landing page institucional completa, com navegação por âncoras e seções bem definidas.
+
+## SEÇÃO 01 — HEADER / NAVEGAÇÃO
+
+Criar cabeçalho moderno, minimalista e sofisticado.
+
+Elementos:
+
+- Logo oficial da Inova.
+- Navegação principal.
+- Botão destacado de orçamento.
+- Menu responsivo para dispositivos móveis.
+
+Menu:
+
+Início
+Soluções
+Sites
+Portfólio
+Sobre a Inova
+Contato
+
+Botão principal:
+
+"Solicitar orçamento ↗"
+
+### Comportamento
+
+- Cabeçalho fixo durante a rolagem.
+- Fundo com transparência e efeito de blur.
+- Alteração sutil do fundo após sair do topo.
+- Indicador animado da seção ativa.
+- Transições suaves.
+- Menu mobile com abertura e fechamento animados.
+
+---
+
+## SEÇÃO 02 — HERO / APRESENTAÇÃO PRINCIPAL
+
+Esta é a seção mais importante do site.
+
+Ela precisa causar uma excelente primeira impressão nos primeiros segundos.
+
+### Texto principal
+
+Pequeno identificador:
+
+"INOVA SOLUÇÕES DIGITAIS"
+
+Título:
+
+"Seu negócio conectado ao futuro."
+
+Texto complementar:
+
+"Criamos sites, experiências digitais e soluções inteligentes para conectar marcas aos seus clientes."
+
+Botões:
+
+"Conhecer soluções ↗"
+
+"Ver portfólio ↓"
+
+Adicionar pequenos indicadores de áreas de atuação:
+
+- Desenvolvimento Web.
+- Design.
+- NFC e QR Code.
+
+### Composição visual
+
+Utilizar layout dividido em duas áreas.
+
+Lado esquerdo:
+- Título grande e expressivo.
+- Palavras destacadas com gradiente.
+- Descrição objetiva.
+- Botões de ação.
+
+Lado direito:
+Criar uma composição visual tecnológica mostrando:
+
+- Notebook com um site profissional aberto.
+- Smartphone com um BioSite.
+- Plaquinha NFC.
+- Elementos de interface digital.
+- Formas geométricas e linhas de conexão.
+
+As imagens devem possuir aparência de produtos reais e apresentações profissionais.
+
+Não utilizar uma simples arte publicitária como imagem principal.
+
+### Animação de entrada
+
+Criar uma abertura cinematográfica:
+
+1. Fundo azul-marinho.
+2. Uma linha fina aparece e percorre horizontalmente a tela.
+3. A linha se transforma em uma forma geométrica.
+4. O símbolo visual da Inova é revelado por uma máscara.
+5. O título aparece com animação tipográfica.
+6. Palavras com gradiente são reveladas individualmente.
+7. Os botões surgem com movimento de escala e opacidade.
+8. A composição visual da direita entra com movimento lateral e parallax sutil.
+
+Toda a sequência deve ser elegante e rápida, sem obrigar o visitante a esperar para visualizar o conteúdo.
+
+---
+
+## SEÇÃO 03 — SOLUÇÕES DIGITAIS
+
+Título:
+
+"Soluções para conectar seu negócio."
+
+Descrição:
+
+"Conheça as áreas de atuação da Inova e descubra como podemos ajudar sua empresa a fortalecer sua presença digital."
+
+Criar quatro cards premium.
+
+### CARD 01 — DESENVOLVIMENTO WEB
+
+Ícone: monitor ou code.
+
+Descrição:
+
+"Desenvolvimento de sites modernos, landing pages, catálogos digitais e plataformas personalizadas."
+
+Serviços:
+- Sites institucionais.
+- Landing pages.
+- BioSites.
+- Catálogos digitais.
+- Sistemas personalizados.
+
+Botão: "Conhecer desenvolvimento web"
+
+### CARD 02 — DESIGN E IDENTIDADE VISUAL
+
+Ícone: palette ou brush.
+
+Descrição:
+
+"Criamos materiais visuais personalizados para fortalecer a identidade e a comunicação da sua marca."
+
+Serviços:
+- Artes publicitárias.
+- Identidade visual.
+- Materiais comerciais.
+- Design para redes sociais.
+- Materiais personalizados.
+
+Botão: "Conhecer serviços de design"
+
+### CARD 03 — NFC E QR CODE
+
+Ícone: nfc ou qr-code.
+
+Descrição:
+
+"Soluções físicas e digitais que aproximam sua empresa dos clientes."
+
+Serviços:
+- Plaquinhas NFC.
+- Plaquinhas QR Code.
+- Chaveiros NFC.
+- Cartões NFC.
+- Soluções personalizadas.
+
+Botão: "Conhecer produtos NFC"
+
+### CARD 04 — PRESENÇA DIGITAL
+
+Ícone: globe.
+
+Descrição:
+
+"Organização e otimização dos canais digitais para facilitar o acesso às informações da sua empresa."
+
+Serviços:
+- BioSites.
+- Perfil da Empresa no Google.
+- Organização de canais digitais.
+- Orientação de presença digital.
+
+Botão: "Conhecer presença digital"
+
+### Interações dos cards
+
+- Entrada com stagger animation.
+- Elevação discreta no hover.
+- Borda com gradiente sutil.
+- Ícone com movimento suave.
+- Pequena animação na seta do botão.
+- Fundo com iluminação dinâmica discreta.
+
+No mobile, adaptar os cards para uma navegação confortável.
+
+---
+
+## SEÇÃO 04 — DESTAQUE: DESENVOLVIMENTO DE SITES
+
+Esta seção deve receber destaque especial.
+
+A Inova também oferece criação de sites para clientes e precisa demonstrar claramente essa capacidade.
+
+Título:
+
+"Seu negócio merece uma presença digital profissional."
+
+Descrição:
+
+"Desenvolvemos sites modernos, rápidos e responsivos, projetados para apresentar sua empresa, fortalecer sua marca e transformar visitantes em oportunidades."
+
+### Apresentar três modalidades
+
+CARD 01 — LANDING PAGE
+
+- Página estratégica de apresentação.
+- Divulgação de produtos e serviços.
+- Botões de contato.
+- Estrutura orientada à conversão.
+
+CARD 02 — SITE INSTITUCIONAL
+
+- Apresentação completa da empresa.
+- Seções de serviços.
+- Portfólio.
+- Informações comerciais.
+- Integração com canais de atendimento.
+
+CARD 03 — CATÁLOGO DIGITAL
+
+- Apresentação de produtos.
+- Organização por categorias.
+- Imagens e descrições.
+- Botões de orçamento.
+- Navegação responsiva.
+
+Não inventar preços ou prazos.
+
+### Demonstração visual
+
+Criar mockups profissionais mostrando um mesmo projeto funcionando em:
+
+- Notebook.
+- Desktop.
+- Smartphone.
+
+As telas devem apresentar exemplos visuais coerentes de sites empresariais.
+
+Criar demonstrações de diferentes segmentos:
+
+- Barbearia.
+- Transportadora.
+- Loja ou comércio.
+- Empresa de serviços.
+
+Identificar demonstrações como projetos conceituais quando não forem trabalhos reais de clientes.
+
+### CTA
+
+"Quero criar meu site ↗"
+
+Direcionar para o WhatsApp com uma mensagem pré-preenchida.
+
+---
+
+## SEÇÃO 05 — PRODUTOS NFC E QR CODE
+
+Título:
+
+"Mais praticidade. Mais conexão."
+
+Descrição:
+
+"Materiais pensados para balcões, mesas, vitrines, recepções e pontos de atendimento."
+
+Criar uma apresentação visual com seis funcionalidades:
+
+- Avaliações no Google.
+- QR Code personalizado.
+- Pix e pagamentos.
+- WhatsApp e Instagram.
+- Wi-Fi para clientes.
+- Tecnologia NFC.
+
+Utilizar ícones consistentes e cards com acabamento premium.
+
+Explicar de maneira objetiva que a tecnologia NFC depende de compatibilidade e configuração do dispositivo.
+
+Não prometer funcionamento universal.
+
+---
+
+## SEÇÃO 06 — CATÁLOGO DE ARTES PADRÃO
+
+Preservar e aprimorar o catálogo existente.
+
+Manter as categorias:
+
+- Todas as artes.
+- Avaliações Google.
+- WhatsApp.
+- Pix.
+- Instagram.
+- Wi-Fi.
+- Aproximação NFC.
+- Modelos combinados.
+- Outros modelos.
+
+Criar uma galeria moderna com cards padronizados.
+
+Cada card deverá possuir:
+
+- Imagem original.
+- Nome do modelo.
+- Categoria.
+- Descrição curta.
+- Botão "Solicitar este modelo".
+- Link para consultar detalhes pelo WhatsApp.
+
+### Funcionalidades
+
+- Filtros funcionais.
+- Animação de troca de categorias.
+- Ampliação de imagens em modal.
+- Navegação por teclado.
+- Fechamento do modal por botão e tecla ESC.
+- Transição suave de abertura.
+- Imagens com proporções preservadas.
+
+Não modificar as artes originais.
+
+Não gerar QR Codes fictícios que possam ser interpretados como códigos funcionais.
+
+Adicionar aviso:
+
+"As imagens são referências visuais. O QR Code final deve ser configurado com o link da sua empresa e testado antes da utilização."
+
+---
+
+## SEÇÃO 07 — PLAQUINHAS PERSONALIZADAS
+
+Título:
+
+"Sua marca, seu estilo."
+
+Descrição:
+
+"Envie sua logo e suas preferências para solicitar uma plaquinha desenvolvida de acordo com a identidade do seu negócio."
+
+Criar filtros:
+
+- Todas as artes.
+- Avaliações Google.
+- Pix e pagamentos.
+- Wi-Fi.
+- Por segmento.
+
+Preservar os projetos de referência existentes:
+
+- Claudia Ateliê.
+- Verde Limão Chinelaria.
+- Óticas Gouveia.
+- Reall Car Automotive.
+- Flayder Willis Barbearia.
+- Capotas Pickup GYN Fibras.
+
+Cada projeto deve possuir:
+- Imagem.
+- Nome.
+- Segmento.
+- Descrição.
+- Botão para solicitar personalização.
+
+Adicionar ampliação em modal.
+
+Diferenciar claramente projetos de referência de produtos prontos para produção.
+
+---
+
+## SEÇÃO 08 — CHAVEIROS NFC
+
+Título:
+
+"Compartilhe sua presença digital com um simples toque."
+
+Descrição:
+
+"Chaveiros NFC personalizados para facilitar o compartilhamento de links, páginas e redes sociais através da aproximação de um celular compatível."
+
+Apresentar:
+
+- Modelos disponíveis.
+- Cores e possibilidades de personalização.
+- Exemplos de utilização.
+- Funcionamento.
+- Compatibilidade.
+
+Utilizar imagens reais ou materiais existentes do catálogo.
+
+Adicionar botão:
+
+"Quero meu chaveiro NFC ↗"
+
+---
+
+## SEÇÃO 09 — BIOSITE
+
+Título:
+
+"Sua presença digital em um só lugar."
+
+Descrição:
+
+"Uma página digital para reunir redes sociais, contatos, serviços, catálogos e informações comerciais em um endereço único."
+
+Apresentar mockup de smartphone com exemplo de BioSite.
+
+Mostrar benefícios:
+
+- Centralização de links.
+- Acesso rápido ao WhatsApp.
+- Apresentação profissional.
+- Personalização visual.
+- Facilidade de compartilhamento.
+
+Adicionar botão:
+
+"Quero meu BioSite ↗"
+
+Os exemplos apresentados devem ser identificados como demonstrações quando não estiverem configurados para clientes reais.
+
+---
+
+## SEÇÃO 10 — PERFIL DA EMPRESA NO GOOGLE
+
+Título:
+
+"Mais visibilidade para seu negócio no Google."
+
+Descrição:
+
+"Organizamos as informações comerciais e orientamos a apresentação do seu negócio no Perfil da Empresa no Google."
+
+Apresentar:
+
+- Revisão de informações comerciais.
+- Organização de serviços e categorias.
+- Orientação para fotos.
+- Apresentação da empresa.
+- Orientação para avaliações.
+
+Adicionar observação de que o serviço não garante posição nos resultados, quantidade de clientes ou ranqueamento específico.
+
+CTA:
+
+"Quero otimizar minha empresa no Google ↗"
+
+---
+
+## SEÇÃO 11 — PORTFÓLIO DE PROJETOS
+
+Criar uma seção visualmente sofisticada.
+
+Título:
+
+"Projetos que transformam ideias em soluções."
+
+Subtítulo:
+
+"Conheça alguns exemplos de projetos e materiais desenvolvidos pela Inova."
+
+Criar filtros:
+
+- Todos.
+- Sites.
+- Landing Pages.
+- Identidade Visual.
+- Plaquinhas.
+- NFC.
+- BioSites.
+
+Cada projeto deverá apresentar:
+
+- Imagem.
+- Nome do projeto.
+- Segmento.
+- Categoria.
+- Breve descrição.
+- Solução desenvolvida.
+
+Quando houver um site real disponível, adicionar botão "Visualizar projeto".
+
+Não inventar resultados ou clientes.
+
+Priorizar uma galeria visual com boa qualidade de imagem, proporções consistentes e navegação intuitiva.
+
+---
+
+## SEÇÃO 12 — POR QUE ESCOLHER A INOVA
+
+Título:
+
+"Tecnologia e criatividade trabalhando juntas."
+
+Criar quatro diferenciais:
+
+01. Design personalizado.
+
+"Projetos desenvolvidos de acordo com a identidade de cada negócio."
+
+02. Tecnologia acessível.
+
+"Soluções pensadas para facilitar o dia a dia das empresas e seus clientes."
+
+03. Soluções sob medida.
+
+"Cada projeto considera as necessidades e os objetivos de cada negócio."
+
+04. Atendimento próximo.
+
+"Contato direto para alinhar ideias, necessidades e entregas."
+
+Utilizar animações sutis, ícones e composição moderna.
+
+---
+
+## SEÇÃO 13 — SOBRE A INOVA
+
+Criar uma seção institucional.
+
+Título:
+
+"Conectamos tecnologia, criatividade e negócios."
+
+Texto:
+
+"A Inova Soluções Digitais nasceu com o propósito de aproximar empresas das possibilidades do mundo digital. Desenvolvemos soluções que unem tecnologia, design e praticidade, ajudando negócios a apresentarem suas marcas e se conectarem melhor com seus clientes."
+
+Complementar com uma apresentação visual da empresa.
+
+Não inventar história, equipe, instalações físicas ou certificações.
+
+---
+
+## SEÇÃO 14 — COMO FUNCIONA
+
+Título:
+
+"Da primeira conversa à solução final."
+
+Apresentar quatro etapas:
+
+01 — Escolha uma solução.
+
+"Conheça nossos serviços e identifique o que sua empresa precisa."
+
+02 — Compartilhe suas informações.
+
+"Envie sua logo, materiais, referências e preferências."
+
+03 — Alinhamento do projeto.
+
+"Definimos escopo, personalização, compatibilidade, valores e prazos."
+
+04 — Aprovação e entrega.
+
+"Revise as informações e acompanhe os próximos passos."
+
+Criar linha de progresso animada e entrada sequencial dos passos.
+
+---
+
+## SEÇÃO 15 — PERGUNTAS FREQUENTES
+
+Preservar e aprimorar as perguntas existentes.
+
+- Posso usar minha própria logo e minhas cores?
+- Posso enviar meu próprio QR Code ou link?
+- A plaquinha ou o chaveiro NFC funciona em qualquer celular?
+- Qual a diferença entre modelo padrão e personalizado?
+- Vocês fazem artes para qualquer segmento?
+- As artes do catálogo já estão prontas para produção?
+- O que é o BioSite?
+- A otimização garante primeiro lugar no Google?
+- Os QR Codes das imagens já direcionam para minha empresa?
+- Quais são os preços, prazos e opções de entrega?
+- Como funciona a criação de sites?
+- Vocês desenvolvem sites personalizados?
+- Os sites funcionam em celulares?
+- Como solicitar um orçamento?
+
+Criar accordion funcional.
+
+Utilizar abertura suave, rotação do ícone e transições de altura.
+
+Garantir acessibilidade e navegação por teclado.
+
+---
+
+## SEÇÃO 16 — CTA FINAL
+
+Criar uma seção de encerramento visualmente impactante.
+
+Título:
+
+"Soluções digitais para dar mais destaque ao seu negócio."
+
+Descrição:
+
+"Conte o que sua empresa precisa e descubra como a Inova pode ajudar."
+
+Botão principal:
+
+"Pedir orçamento pelo WhatsApp ↗"
+
+Utilizar gradiente controlado, iluminação de fundo e animação de entrada.
+
+---
+
+## SEÇÃO 17 — RODAPÉ
+
+Apresentar:
+
+- Logo oficial.
+- Nome da empresa.
+- Frase institucional.
+- Links de navegação.
+- Serviços.
+- WhatsApp.
+- Instagram.
+- Localização: Uberlândia, MG.
+- Direitos autorais com ano atualizado automaticamente.
+
+Não inventar endereços, telefones ou redes sociais.
+
+Utilizar os contatos já existentes no projeto.
+
+---
+
+# 5. SISTEMA DE ANIMAÇÕES — MOTION DESIGN PROFISSIONAL
+
+Esta é uma das partes mais importantes do projeto.
+
+Utilize GSAP como principal ferramenta de animação.
+
+A experiência deve lembrar uma combinação entre site institucional premium, estúdio de motion design e apresentação cinematográfica.
+
+Não utilizar animações aleatórias. Todas devem ter propósito visual e respeitar a hierarquia do conteúdo.
+
+### TECNOLOGIAS
+
+- GSAP.
+- GSAP ScrollTrigger.
+- GSAP Timeline.
+- CSS Transforms.
+- CSS Clip-path.
+- SVG.
+- IntersectionObserver quando apropriado.
+
+### A. INTRODUÇÃO CINEMATOGRÁFICA
+
+Criar uma sequência inicial:
+
+1. Fundo escuro.
+2. Linha horizontal animada.
+3. Transformação da linha em forma geométrica.
+4. Revelação da identidade visual da Inova.
+5. Entrada tipográfica do título.
+6. Revelação das palavras com gradiente.
+7. Entrada dos elementos visuais com movimentos sincronizados.
+
+A animação deve acontecer rapidamente e não prejudicar o carregamento ou a navegação.
+
+### B. ANIMAÇÕES TIPOGRÁFICAS
+
+Utilizar:
+
+- Split de palavras e caracteres.
+- Text reveal.
+- Clip-path reveal.
+- Fade e slide combinados.
+- Pequenas rotações controladas.
+- Palavras com gradiente.
+- Tipografia de destaque com contraste editorial.
+
+Não exagerar na divisão de caracteres, preservando legibilidade e acessibilidade.
+
+### C. TRANSIÇÕES CINEMATOGRÁFICAS
+
+Aplicar quando apropriado:
+
+- Wipes horizontais.
+- Wipes verticais.
+- Máscaras circulares.
+- Efeitos de íris.
+- Revelação por recorte.
+- Scale transitions.
+- Opacity transitions.
+- Movimento de câmera simulado.
+
+### D. ANIMAÇÕES DOS CARDS
+
+Ao entrar na tela:
+
+- Revelação por stagger.
+- Fade in.
+- Movimento vertical.
+- Scale sutil.
+
+No hover:
+
+- Elevação de 4 a 8 pixels.
+- Borda com gradiente discreto.
+- Iluminação suave.
+- Ícone com pequeno movimento.
+- Seta do botão avançando.
+- Imagem com zoom muito sutil.
+
+### E. BOTÕES INTERATIVOS
+
+Todos os botões devem apresentar respostas visuais.
+
+Implementar:
+
+- Hover com transição de gradiente.
+- Pequena elevação.
+- Efeito de brilho controlado.
+- Animação da seta.
+- Feedback visual de clique.
+- Estados de foco acessíveis.
+- Active state com escala discreta.
+
+Os botões precisam continuar funcionais, sem efeitos que impeçam o clique.
+
+### F. EFEITOS DE PROFUNDIDADE
+
+Adicionar:
+
+- Parallax sutil em elementos do Hero.
+- Elementos geométricos flutuantes.
+- Gradientes com movimento lento.
+- Linhas animadas.
+- Iluminação radial discreta.
+- Elementos decorativos com movimento independente.
+
+Evitar partículas em excesso e efeitos que prejudiquem a performance.
+
+### G. SCROLL ANIMATIONS
+
+Utilizar ScrollTrigger para:
+
+- Revelação de títulos.
+- Entrada de imagens.
+- Animação sequencial de cards.
+- Progresso de etapas.
+- Transições de seções.
+- Pequenos efeitos de parallax.
+
+Evitar scroll hijacking.
+
+Não bloquear a rolagem natural do navegador.
+
+### H. CONTADORES ANIMADOS
+
+Se forem utilizados indicadores numéricos, só apresentar números reais e verificáveis.
+
+Não inventar estatísticas da empresa.
+
+### I. LOADING
+
+Criar um carregamento elegante apenas se houver necessidade real.
+
+Não utilizar uma tela de loading longa.
+
+O site deve apresentar conteúdo rapidamente, inclusive em conexões móveis mais lentas.
+
+### J. ACESSIBILIDADE DE MOVIMENTO
+
+Implementar suporte a prefers-reduced-motion.
+
+Quando o visitante preferir movimento reduzido, desabilitar ou simplificar animações não essenciais.
+
+---
+
+# 6. ESPECIFICAÇÕES TÉCNICAS
+
+Utilizar preferencialmente:
+
+- React.
+- TypeScript.
+- Vite, caso compatível com a estrutura existente.
+- HTML5.
+- CSS3.
+- GSAP.
+- ScrollTrigger.
+- Lucide Icons.
+
+Organizar os componentes em arquivos independentes.
+
+Estrutura sugerida:
+
+src/
+  components/
+    Header
+    Hero
+    Solutions
+    WebDevelopment
+    NFCProducts
+    Catalog
+    Portfolio
+    About
+    Process
+    FAQ
+    Footer
+    WhatsAppButton
+
+  sections/
+    Home
+    Services
+    Sites
+    Products
+    Portfolio
+    Contact
+
+  hooks/
+    useGSAP
+    useMediaQuery
+
+  data/
+    services
+    portfolio
+    products
+    faq
+
+  styles/
+    global
+    animations
+    responsive
+    variables
+
+  assets/
+    logo
+    portfolio
+    products
+    illustrations
+
+A estrutura poderá ser adaptada ao projeto existente, sem criar arquivos desnecessários.
+
+### ORGANIZAÇÃO DAS ANIMAÇÕES
+
+Criar timelines independentes por seção.
+
+Utilizar gsap.context() e limpeza adequada das animações ao desmontar componentes.
+
+Evitar duplicação de ScrollTriggers.
+
+Garantir funcionamento correto em React Strict Mode.
+
+Não criar animações que sejam executadas repetidamente sem necessidade.
+
+---
+
+# 7. RESPONSIVIDADE — DESKTOP, TABLET E MOBILE
+
+O site deve ser desenvolvido com abordagem mobile-first.
+
+### DESKTOP
+
+Resolução de referência: 1920x1080.
+
+- Layout amplo.
+- Hierarquia visual sofisticada.
+- Espaçamento consistente.
+- Composição em duas colunas quando apropriado.
+- Imagens grandes e bem posicionadas.
+- Navegação horizontal.
+
+### TABLET
+
+- Grid adaptável.
+- Cards reorganizados.
+- Títulos proporcionais.
+- Navegação adequada ao espaço disponível.
+
+### MOBILE
+
+Referências de largura:
+
+- 360px.
+- 375px.
+- 390px.
+- 430px.
+
+Requisitos:
+
+- Menu mobile funcional.
+- Layout sem rolagem horizontal.
+- Títulos com tamanho adaptável.
+- Cards em uma coluna ou duas quando houver espaço.
+- Imagens sem distorção.
+- Botões fáceis de tocar.
+- Textos confortavelmente legíveis.
+- Hero reorganizado verticalmente.
+- Imagens com dimensões adequadas.
+- FAQ funcional.
+- WhatsApp sem sobrepor elementos importantes.
+- Animações simplificadas quando necessário.
+
+Não utilizar apenas um layout desktop reduzido para mobile. Reorganizar verdadeiramente a composição.
+
+---
+
+# 8. CONVERSÃO E FUNCIONALIDADES COMERCIAIS
+
+O site deve funcionar como uma ferramenta de geração de oportunidades comerciais.
+
+Todos os botões de orçamento precisam funcionar.
+
+### Integração com WhatsApp
+
+Utilizar o número de contato já existente no projeto.
+
+Criar mensagens diferentes de acordo com o serviço selecionado.
+
+Exemplos:
+
+"Olá! Gostaria de solicitar um orçamento para criação de site."
+
+"Olá! Tenho interesse em uma plaquinha personalizada."
+
+"Olá! Gostaria de conhecer as opções de chaveiros NFC."
+
+"Olá! Quero saber mais sobre o serviço de BioSite."
+
+Codificar corretamente os textos para URLs.
+
+### Outros requisitos
+
+- Links do Instagram funcionais.
+- Navegação por âncoras.
+- Filtros de catálogo funcionais.
+- Modal de imagens funcional.
+- FAQ funcional.
+- Botão flutuante do WhatsApp.
+- CTAs distribuídos estrategicamente.
+- Links externos abrindo adequadamente.
+
+Não criar botões decorativos sem funcionalidade.
+
+---
+
+# 9. SEO, PERFORMANCE E QUALIDADE
+
+Implementar:
+
+- Título SEO adequado.
+- Meta description.
+- Open Graph.
+- Favicon oficial.
+- Hierarquia correta de H1, H2 e H3.
+- Imagens com alt text.
+- URLs e âncoras organizadas.
+- Sitemap.xml.
+- Robots.txt.
+- Dados estruturados adequados ao negócio.
+- Canonical URL quando aplicável.
+
+### PERFORMANCE
+
+- Imagens otimizadas.
+- Lazy loading abaixo da primeira dobra.
+- Fontes com carregamento otimizado.
+- Evitar bibliotecas desnecessárias.
+- Reduzir JavaScript não essencial.
+- Evitar layouts que mudam bruscamente durante o carregamento.
+- Reservar dimensões das imagens.
+- Respeitar os limites de memória e processamento dos celulares.
+
+Meta de qualidade: buscar pontuação elevada no Lighthouse, especialmente em Performance, Accessibility, Best Practices e SEO.
+
+Não sacrificar a qualidade visual para obter pontuações artificiais.
+
+---
+
+# 10. REGRAS IMPORTANTES DE DESENVOLVIMENTO
+
+1. Não apagar arquivos importantes antes de examiná-los.
+2. Não substituir a logo oficial.
+3. Não remover os projetos e imagens existentes.
+4. Não inventar informações comerciais.
+5. Não inventar depoimentos ou avaliações.
+6. Não utilizar imagens de baixa qualidade.
+7. Não deixar links sem destino.
+8. Não deixar botões sem ação.
+9. Não utilizar QR Codes fictícios como se fossem funcionais.
+10. Não criar animações que prejudiquem a navegação.
+11. Não deixar erros no console.
+12. Não entregar apenas um protótipo visual.
+13. Implementar todas as seções solicitadas.
+14. Preservar os dados e integrações existentes.
+15. Não publicar nem alterar configurações de produção sem autorização.
+
+Se alguma informação estiver ausente, utilize os dados já disponíveis no projeto ou mantenha um campo claramente identificável para configuração posterior.
+
+---
+
+# 11. ETAPA OBRIGATÓRIA: TESTE E AUDITORIA APÓS O BUILD
+
+ATENÇÃO: não considere o projeto concluído imediatamente após escrever o código.
+
+Depois de implementar todas as seções, execute uma auditoria completa.
+
+### ETAPA A — BUILD
+
+1. Executar a instalação das dependências necessárias.
+2. Executar o build de produção.
+3. Corrigir todos os erros encontrados.
+4. Corrigir incompatibilidades entre dependências.
+5. Verificar se a aplicação inicia corretamente.
+6. Verificar se todas as rotas e seções carregam.
+
+### ETAPA B — AUDITORIA VISUAL
+
+Revisar todas as seções do site.
+
+Verificar:
+
+- Alinhamento.
+- Espaçamentos.
+- Hierarquia tipográfica.
+- Contraste.
+- Proporção das imagens.
+- Consistência dos cards.
+- Aparência dos botões.
+- Continuidade visual entre seções.
+- Qualidade das animações.
+- Ausência de elementos cortados.
+- Ausência de sobreposições.
+
+### ETAPA C — TESTES RESPONSIVOS
+
+Testar pelo menos:
+
+- Desktop 1920x1080.
+- Notebook 1440x900.
+- Tablet 768px.
+- Smartphone 390px.
+- Smartphone 360px.
+
+Verificar especificamente:
+
+- Menu.
+- Hero.
+- Galerias.
+- Catálogos.
+- Botões.
+- Formulários.
+- Rodapé.
+- Rolagem horizontal.
+- Elementos fixos.
+
+### ETAPA D — TESTES FUNCIONAIS
+
+Testar:
+
+- Todos os links.
+- Todos os botões.
+- WhatsApp.
+- Instagram.
+- Filtros.
+- Modal de imagens.
+- Accordion.
+- Navegação.
+- Menu mobile.
+- Animações.
+- Navegação por teclado.
+
+### ETAPA E — TESTES DE PERFORMANCE
+
+Executar Lighthouse, quando disponível.
+
+Avaliar:
+
+- Performance.
+- Acessibilidade.
+- SEO.
+- Best Practices.
+- Core Web Vitals.
+
+Verificar erros de carregamento, imagens pesadas, problemas de layout e animações excessivas.
+
+### ETAPA F — AUDITORIA FINAL CRÍTICA
+
+Após concluir o build, assuma o papel de um auditor externo.
+
+Analise o site como se fosse a primeira vez que estivesse visitando a empresa.
+
+Responda:
+
+1. O site transmite autoridade e profissionalismo?
+2. A Inova parece uma empresa de soluções digitais?
+3. A criação de sites está suficientemente valorizada?
+4. Os serviços estão claros?
+5. O visitante entende o que a empresa oferece?
+6. O portfólio transmite capacidade técnica?
+7. A identidade visual é consistente?
+8. O site funciona bem em dispositivos móveis?
+9. As animações são elegantes e fluidas?
+10. Os botões conduzem corretamente à conversão?
+11. Existem problemas de desempenho?
+12. O site está pronto para ser apresentado a clientes?
+
+Criar um relatório final com:
+
+- Pontos fortes.
+- Problemas identificados.
+- Correções realizadas.
+- Pendências.
+- Resultados dos testes.
+- Avaliação visual.
+- Avaliação técnica.
+- Recomendações adicionais.
+
+Atribuir notas de 0 a 10 para:
+
+- Design.
+- Branding.
+- UX/UI.
+- Responsividade.
+- Performance.
+- SEO.
+- Conversão.
+- Qualidade técnica.
+
+Se qualquer problema crítico for identificado, corrigir e testar novamente antes de considerar o projeto concluído.
+
+---
+
+# 12. CRITÉRIOS DE ENTREGA
+
+O projeto somente poderá ser considerado concluído quando:
+
+- Todas as seções estiverem implementadas.
+- A identidade oficial da Inova estiver preservada.
+- O site estiver responsivo.
+- As animações estiverem funcionando.
+- Os links e botões estiverem funcionais.
+- O build de produção estiver concluído sem erros.
+- A auditoria visual estiver realizada.
+- Os testes funcionais estiverem realizados.
+- Os principais problemas encontrados estiverem corrigidos.
+
+Ao finalizar, apresente:
+
+1. Resumo das mudanças.
+2. Estrutura final do site.
+3. Tecnologias utilizadas.
+4. Funcionalidades implementadas.
+5. Resultado dos testes.
+6. Relatório da auditoria final.
+7. Problemas corrigidos.
+8. Pendências que dependem de informações ou materiais do proprietário.
+
+IMPORTANTE: execute o projeto de verdade. Não responda apenas com um planejamento, uma demonstração ou trechos de código.
+
+Construa, teste, revise e aperfeiçoe toda a experiência.
+
+O resultado final deve representar uma empresa profissional de tecnologia e soluções digitais, com identidade forte, presença visual sofisticada e capacidade de conquistar a confiança de novos clientes.
+
+**INOVA SOLUÇÕES DIGITAIS — Tecnologia, design e inovação que conectam negócios.**

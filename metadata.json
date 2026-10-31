@@ -1,0 +1,6 @@
+{
+  "name": "Inova Soluções Digitais",
+  "description": "Soluções em desenvolvimento web, design institucional e tecnologia NFC para conectar sua empresa ao futuro.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
