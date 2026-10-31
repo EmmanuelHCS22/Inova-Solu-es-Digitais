@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
             <p className="text-xs uppercase tracking-wider font-semibold text-[#8B5CF6] mb-2 font-mono">
               {INOVA_CONTACT.tagline}
             </p>
-            <p className="text-xs sm:text-sm text-[#F7F7F5]/60 leading-relaxed max-w-sm mb-6">
+            <p className="text-xs sm:text-sm text-[#F7F7F5]/60 leading-relaxed max-w-sm mb-6 font-normal">
               Plaquinhas NFC, chaveiros em impressão 3D, cartões inteligentes, BioSites e sistemas de agendamento online conectando o mundo físico ao digital.
             </p>
 
@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
 
           {/* Coluna 2: Navegação */}
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
+            <h4 className="text-xs uppercase tracking-wider text-white font-bold mb-4">
               Navegação
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
@@ -61,13 +61,13 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#biosite" className="hover:text-white transition-colors">
-                  Presença Digital & BioSite
+                <a href="#presenca-digital" className="hover:text-white transition-colors">
+                  Presença Digital
                 </a>
               </li>
               <li>
-                <a href="#desenvolvimento-web" className="hover:text-white transition-colors">
-                  Agendamento & Sites
+                <a href="#agendamento-online" className="hover:text-white transition-colors">
+                  Agendamento Online
                 </a>
               </li>
               <li>
@@ -88,9 +88,9 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Coluna 3: Soluções */}
+          {/* Coluna 3: Soluções Oficiais */}
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
+            <h4 className="text-xs uppercase tracking-wider text-white font-bold mb-4">
               Soluções Oficiais
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
@@ -101,7 +101,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="#chaveiros-nfc" className="hover:text-white transition-colors">
-                  Chaveiros NFC Impressão 3D
+                  Chaveiros NFC 3D
                 </a>
               </li>
               <li>
@@ -110,28 +110,33 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#biosite" className="hover:text-white transition-colors">
+                <a href="#presenca-digital" className="hover:text-white transition-colors">
+                  Perfil no Google
+                </a>
+              </li>
+              <li>
+                <a href="#presenca-digital" className="hover:text-white transition-colors">
                   BioSite para Instagram
                 </a>
               </li>
               <li>
-                <a href="#google-empresa" className="hover:text-white transition-colors">
-                  Perfil no Google (Otimização)
+                <a href="#presenca-digital" className="hover:text-white transition-colors">
+                  Catálogos & Cardápios
                 </a>
               </li>
               <li>
-                <a href="#desenvolvimento-web" className="hover:text-white transition-colors">
+                <a href="#agendamento-online" className="hover:text-white transition-colors">
                   Agendamento Barbearias
                 </a>
               </li>
               <li>
-                <a href="#desenvolvimento-web" className="hover:text-white transition-colors">
+                <a href="#agendamento-online" className="hover:text-white transition-colors">
                   Agendamento Lash & Salões
                 </a>
               </li>
               <li>
-                <a href="#desenvolvimento-web" className="hover:text-white transition-colors">
-                  Catálogos & Cardápios
+                <a href="#presenca-digital" className="hover:text-white transition-colors">
+                  Landing Pages
                 </a>
               </li>
             </ul>
@@ -139,7 +144,7 @@ export const Footer: React.FC = () => {
 
           {/* Coluna 4: Canais de Atendimento */}
           <div className="lg:col-span-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
+            <h4 className="text-xs uppercase tracking-wider text-white font-bold mb-4">
               Atendimento Direto
             </h4>
             <div className="space-y-2.5 mb-6">
@@ -147,7 +152,7 @@ export const Footer: React.FC = () => {
                 href={getWhatsAppUrl('Olá! Gostaria de falar com o atendimento da Inova Soluções Digitais.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 p-3 rounded-lg bg-white/5 hover:bg-white/10 text-white transition-colors border border-white/5"
+                className="flex items-center gap-2.5 p-3 rounded-xl bg-white/5 hover:bg-white/10 text-white transition-colors border border-white/5"
               >
                 <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
                 <div className="text-xs">
@@ -160,7 +165,7 @@ export const Footer: React.FC = () => {
                 href="https://www.instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 p-3 rounded-lg bg-white/5 hover:bg-white/10 text-white transition-colors border border-white/5"
+                className="flex items-center gap-2.5 p-3 rounded-xl bg-white/5 hover:bg-white/10 text-white transition-colors border border-white/5"
               >
                 <Instagram className="w-4 h-4 text-pink-400 shrink-0" />
                 <div className="text-xs">
@@ -170,7 +175,7 @@ export const Footer: React.FC = () => {
               </a>
             </div>
 
-            <p className="text-[11px] text-[#F7F7F5]/50 font-mono">
+            <p className="text-[11px] text-[#F7F7F5]/50">
               Segunda a Sexta · 08h às 18h
             </p>
           </div>
@@ -182,7 +187,7 @@ export const Footer: React.FC = () => {
             © {currentYear} Inova Soluções Digitais. Todos os direitos reservados. CNPJ e serviços sediados em Uberlândia - MG.
           </p>
           <div className="flex items-center gap-4 text-[#F7F7F5]/50">
-            <span>Privacidade & Diretrizes</span>
+            <span>Privacidade & Transparência</span>
             <span>·</span>
             <span>Estúdio Inova</span>
           </div>

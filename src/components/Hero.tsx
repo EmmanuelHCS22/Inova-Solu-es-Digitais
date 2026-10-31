@@ -30,7 +30,7 @@ export const Hero: React.FC = () => {
 
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-      // 1. Headline: 2 linhas sólidas reveladas com máscara editorial
+      // 1. Headline: 2 linhas sólidas reveladas
       tl.fromTo(
         '.hero-line-reveal',
         { yPercent: 110, opacity: 0 },
@@ -42,7 +42,7 @@ export const Hero: React.FC = () => {
           ease: 'power4.out',
         }
       )
-      // 2. Subtítulo contextual
+      // 2. Subtítulo contextual oficial
       .fromTo(
         subtitleRef.current,
         { opacity: 0, y: 16 },
@@ -95,7 +95,7 @@ export const Hero: React.FC = () => {
       ref={containerRef}
       className="relative min-h-[92vh] lg:min-h-[94vh] flex items-center pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 lg:pb-24 overflow-hidden bg-[#0A0F2E] text-white"
     >
-      {/* Iluminação cinematográfica controlada: reflexos sutis de violeta e ciano */}
+      {/* Iluminação cinematográfica controlada com a paleta oficial */}
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none -z-10 bg-[radial-gradient(ellipse_75%_55%_at_65%_45%,rgba(34,211,238,0.08)_0%,rgba(139,92,246,0.11)_40%,transparent_72%)]"
@@ -108,10 +108,10 @@ export const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
           
-          {/* LADO ESQUERDO: Tipografia Manrope, hierarquia forte e títulos sólidos */}
+          {/* LADO ESQUERDO: Tipografia e Mensagem Oficial */}
           <div ref={leftColRef} className="lg:col-span-7 xl:col-span-6 flex flex-col justify-center text-left">
             
-            {/* Título Principal Sólido — Máximo 2 Linhas */}
+            {/* Título Principal Oficial — 2 Linhas */}
             <h1 className="text-[clamp(2.35rem,4.4vw,4.25rem)] font-extrabold text-white tracking-tight leading-[1.08] mb-6 font-display">
               <span className="block overflow-hidden pb-1">
                 <span className="hero-line-reveal block will-change-transform">
@@ -138,9 +138,9 @@ export const Hero: React.FC = () => {
               ref={ctaGroupRef}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-8 sm:mb-10"
             >
-              {/* CTA Principal */}
+              {/* CTA Principal: Solicitar Orçamento */}
               <a
-                href={getWhatsAppUrl('Olá! Gostaria de solicitar um orçamento com a Inova Soluções Digitais.')}
+                href={getWhatsAppUrl('Olá! Estou no site da Inova Soluções Digitais e gostaria de solicitar um orçamento.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 text-base font-semibold rounded-xl text-white bg-[#8B5CF6] hover:bg-[#7C3AED] transition-[background-color,transform,box-shadow] duration-200 shadow-md shadow-[#8B5CF6]/25 hover:shadow-lg hover:shadow-[#8B5CF6]/40 active:scale-98"
@@ -149,7 +149,7 @@ export const Hero: React.FC = () => {
                 <ArrowUpRight className="w-4 h-4 text-white/90 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
               </a>
 
-              {/* CTA Secundário */}
+              {/* CTA Secundário: Conhecer nossas soluções */}
               <a
                 href="#solucoes"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 text-base font-semibold rounded-xl text-white/90 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 transition-[background-color,border-color,transform] duration-200 active:scale-98"
@@ -166,17 +166,17 @@ export const Hero: React.FC = () => {
             >
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]" />
-                Plaquinhas NFC & 3D
+                Plaquinhas NFC & QR Code
               </span>
               <span className="text-white/20 hidden sm:inline">·</span>
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#22D3EE]" />
-                Presença Digital & BioSite
+                Chaveiros 3D & Cartões NFC
               </span>
               <span className="text-white/20 hidden sm:inline">·</span>
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
-                Agendamento & Ferramentas
+                Presença Digital & Agendamento
               </span>
             </div>
           </div>

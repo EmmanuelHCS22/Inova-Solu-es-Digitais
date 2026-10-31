@@ -6,13 +6,13 @@ export const WhyChooseUs: React.FC = () => {
     {
       num: '01',
       title: 'Produtos personalizados',
-      desc: 'Plaquinhas em acrílico e materiais produzidos de acordo com as cores e o logotipo do seu negócio.',
+      desc: 'Plaquinhas em acrílico e materiais produzidos com o logotipo e as cores do seu negócio.',
       icon: <Palette className="w-5 h-5 text-[#8B5CF6]" />,
     },
     {
       num: '02',
       title: 'Impressão 3D e NFC',
-      desc: 'Chaveiros duráveis em manufatura aditiva 3D e chips NFC de leitura ágil sem necessidade de aplicativo.',
+      desc: 'Chaveiros duráveis em manufatura aditiva 3D e chips NFC de leitura instantânea sem necessidade de app.',
       icon: <Radio className="w-5 h-5 text-[#8B5CF6]" />,
     },
     {
@@ -30,22 +30,16 @@ export const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section className="py-28 relative bg-[#111321] text-[#F7F7F5] border-t border-white/10">
+    <section id="diferenciais" className="py-20 sm:py-28 relative bg-[#111321] text-[#F7F7F5] border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-3xl mb-16">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]" />
-            <span className="text-xs uppercase tracking-[0.2em] text-[#F7F7F5]/70 font-semibold">
-              DIFERENCIAIS DA INOVA
-            </span>
-          </div>
+        <div className="max-w-3xl mb-14">
           <h2
-            className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 font-display"
+            className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4 font-display leading-[1.12]"
             style={{ textWrap: 'balance' }}
           >
             Tecnologia física e digital trabalhando juntas.
           </h2>
-          <p className="text-base sm:text-lg text-[#F7F7F5]/75 leading-relaxed max-w-2xl font-normal">
+          <p className="text-sm sm:text-base lg:text-lg text-[#F7F7F5]/75 leading-relaxed max-w-2xl font-normal">
             Unimos materiais físicos de alta durabilidade a soluções digitais práticas que tornam o contato com seus clientes mais rápido e profissional.
           </p>
         </div>
@@ -54,21 +48,21 @@ export const WhyChooseUs: React.FC = () => {
           {differentials.map((diff, index) => (
             <div
               key={index}
-              className="group rounded-xl bg-[#17192B] border border-white/10 p-7 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col justify-between"
+              className="group rounded-2xl bg-[#181B2E] border border-white/10 p-7 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
-                  <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
                     {diff.icon}
                   </div>
-                  <span className="text-sm font-mono font-bold text-white/40">
+                  <span className="text-sm font-semibold text-white/40">
                     {diff.num}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#8B5CF6] transition-colors font-display">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-[#8B5CF6] transition-colors font-display">
                   {diff.title}
                 </h3>
-                <p className="text-sm text-[#F7F7F5]/70 leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#F7F7F5]/70 leading-relaxed font-normal">
                   {diff.desc}
                 </p>
               </div>

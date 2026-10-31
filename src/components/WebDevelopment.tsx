@@ -6,12 +6,12 @@ import {
   Smartphone,
   Tablet,
   ArrowUpRight,
-  Zap,
   Calendar,
   Store,
   Sparkles,
-  Scissors,
   Check,
+  Clock,
+  MessageCircle,
 } from 'lucide-react';
 import { getWhatsAppUrl } from '../data/inovaData';
 
@@ -29,50 +29,62 @@ interface DemoSegment {
 const DEMO_SEGMENTS: DemoSegment[] = [
   {
     id: 'barbearia',
-    name: 'Barbearia & Barbearias',
-    tagline: 'Demonstração • Barber Classic & Studio',
-    heroHeadline: 'Corte, barba e estilo autêntico com agendamento sem espera.',
-    description: 'Página profissional com catálogo de serviços, escolha de barbeiro e sistema de agendamento em 3 cliques.',
+    name: 'Barbearias',
+    tagline: 'Agendamento • Barbearias & Salões Masculinos',
+    heroHeadline: 'Corte, barba e horário marcado sem fila de espera.',
+    description: 'Página mobile com catálogo de serviços, escolha de barbeiro e sistema de agendamento ágil pelo próprio cliente.',
     stats: [
-      { label: 'Tempo de Carregamento', value: '< 0.8s' },
-      { label: 'Agendamento Direto', value: '3 Cliques' },
-      { label: 'Redução de Faltas', value: 'Notável' },
+      { label: 'Tempo de Agendamento', value: '< 1 min' },
+      { label: 'Processo Direto', value: '3 Cliques' },
+      { label: 'Menos Mensagens no WhatsApp', value: 'Notável' },
+    ],
+  },
+  {
+    id: 'cabeleireiras',
+    name: 'Cabeleireiras & Salões',
+    tagline: 'Agendamento • Salão de Beleza & Cabelos',
+    heroHeadline: 'Mechas, corte, escova e tratamentos com hora marcada online.',
+    description: 'Organização prática da agenda da profissional, permitindo que as clientes escolham o procedimento e o horário disponível.',
+    stats: [
+      { label: 'Agenda 24 Horas', value: 'Automática' },
+      { label: 'Organização da Rotina', value: 'Total' },
+      { label: 'Acesso pelo Celular', value: '100% Mobile' },
     ],
   },
   {
     id: 'lash-designer',
-    name: 'Lash Designer & Sobrancelhas',
-    tagline: 'Demonstração • Lash & Brow Studio',
-    heroHeadline: 'Extensão de cílios, micropigmentação e horários marcados online.',
-    description: 'Apresentação visual sofisticada de procedimentos, fotos de trabalhos e botão de agendamento 24h pelo celular.',
+    name: 'Lash Designers',
+    tagline: 'Agendamento • Lash & Extensão de Cílios',
+    heroHeadline: 'Extensão de cílios, manutenção e horários marcados pelo celular.',
+    description: 'Apresentação visual dos procedimentos com fotos de trabalhos e botão de agendamento disponível a qualquer hora.',
     stats: [
-      { label: 'Agendamento 24h', value: 'Automático' },
-      { label: 'Sem Fila no WhatsApp', value: '100% Livre' },
-      { label: 'Experiência Mobile', value: 'Perfeita' },
+      { label: 'Agendamento Online', value: '24h' },
+      { label: 'Sem Parar o Atendimento', value: 'Tranquilo' },
+      { label: 'Confirmação Automática', value: 'Direta' },
     ],
   },
   {
     id: 'nail-designer',
-    name: 'Nail Designer & Manicure',
-    tagline: 'Demonstração • Nail Studio VIP',
-    heroHeadline: 'Alongamento em fibra, nail art e catálogo de serviços na tela.',
-    description: 'Vitrine digital com fotos de procedimentos, tabela de valores e escolha rápida de horários vagos.',
+    name: 'Nail Designers',
+    tagline: 'Agendamento • Alongamento & Nail Art',
+    heroHeadline: 'Alongamento em fibra, esmaltação e horários vagos na tela.',
+    description: 'Vitrine digital com catálogo de serviços, tabela de valores e escolha rápida de horários sem troca infinita de mensagens.',
     stats: [
-      { label: 'Tabela de Serviços', value: 'Integrada' },
-      { label: 'Confirmação Rápida', value: 'WhatsApp' },
-      { label: 'Design Limpo', value: 'Mobile' },
+      { label: 'Catálogo de Serviços', value: 'Integrado' },
+      { label: 'Menor Índice de Faltas', value: 'Efetivo' },
+      { label: 'Facilidade de Acesso', value: 'Sem App' },
     ],
   },
   {
     id: 'estetica-beleza',
-    name: 'Estética & Salão de Beleza',
-    tagline: 'Demonstração • Estética & Cuidados',
-    heroHeadline: 'Tratamentos faciais, corporais e protocolos com hora marcada.',
-    description: 'Página completa de apresentação profissional para clínicas de estética, micropigmentadoras e cabeleireiras.',
+    name: 'Profissionais da Estética',
+    tagline: 'Agendamento • Estética Facial & Corporal',
+    heroHeadline: 'Limpeza de pele, massagens e protocolos com horário organizado.',
+    description: 'Página profissional para clínicas de estética, biomédicas e massoterapeutas gerenciarem seus atendimentos com pontualidade.',
     stats: [
-      { label: 'Autoridade Local', value: 'Elevada' },
-      { label: 'Fluxo de Clientes', value: 'Organizado' },
-      { label: 'Velocidade Web', value: 'Ultrarrápida' },
+      { label: 'Apresentação Profissional', value: 'Elegante' },
+      { label: 'Gestão de Horários', value: 'Organizada' },
+      { label: 'Comunicação Clara', value: 'WhatsApp' },
     ],
   },
 ];
@@ -147,18 +159,18 @@ export const WebDevelopment: React.FC = () => {
 
   return (
     <section
-      id="desenvolvimento-web"
+      id="agendamento-online"
       ref={sectionRef}
-      className="py-20 sm:py-28 lg:py-32 relative bg-[#111321] text-[#F7F7F5] border-t border-white/10 overflow-hidden"
+      className="py-20 sm:py-28 lg:py-32 relative bg-[#181B2E] text-[#F7F7F5] border-t border-white/10 overflow-hidden"
     >
+      {/* Âncora para links antigos */}
+      <div id="desenvolvimento-web" className="relative -top-24 pointer-events-none" aria-hidden="true" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header Editorial com Tipografia Expressiva */}
+        {/* Header Editorial */}
         <div ref={headerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-12 sm:mb-16 lg:mb-20">
           <div className="lg:col-span-7">
-            <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#8B5CF6] font-semibold block mb-3">
-              02 / SITES PROFISSIONAIS & AGENDAMENTO
-            </span>
             <h2
               className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.12] font-display"
               style={{ textWrap: 'balance' }}
@@ -169,36 +181,33 @@ export const WebDevelopment: React.FC = () => {
 
           <div className="lg:col-span-5 pb-1">
             <p className="text-sm sm:text-base lg:text-lg text-[#F7F7F5]/75 leading-relaxed font-normal mb-4">
-              Soluções sob medida para barbearias, cabeleireiras, lash designers, nail designers e profissionais de estética que querem converter mais e atender sem interrupções.
+              Soluções direcionadas a barbearias, cabeleireiras, Lash Designers, Nail Designers e profissionais da estética que buscam organizar horários e atender sem interrupções.
             </p>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono text-[#F7F7F5]/70 pt-3 border-t border-white/10">
-              <span className="text-white/85">Especial para Serviços</span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[#F7F7F5]/70 pt-3 border-t border-white/10 font-medium">
+              <span>Agendamento 24h</span>
               <span aria-hidden="true" className="text-white/30">·</span>
-              <span>Agendamento 24 Horas</span>
+              <span>Menos mensagens no WhatsApp</span>
               <span aria-hidden="true" className="text-white/30">·</span>
-              <span>100% Mobile First</span>
+              <span>Menor índice de faltas</span>
             </div>
           </div>
         </div>
 
-        {/* Modalidades em Composição Editorial Assimétrica */}
+        {/* Modalidades em Composição Editorial */}
         <div ref={modalitiesRef} className="mb-20 sm:mb-28 lg:mb-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
             
-            {/* Peça Protagonista (7 colunas): Sistema de Agendamento Online */}
-            <div className="lg:col-span-7 bg-[#181B2E] rounded-2xl border border-[#8B5CF6]/40 p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col justify-between relative overflow-hidden group hover:border-[#8B5CF6]/70 transition-colors">
-              
-              {/* Marca sutil de fundo */}
+            {/* Peça Protagonista: Sistema de Agendamento Online */}
+            <div className="lg:col-span-7 bg-[#111321] rounded-2xl border border-[#8B5CF6]/40 p-6 sm:p-8 lg:p-10 shadow-2xl flex flex-col justify-between relative overflow-hidden group hover:border-[#8B5CF6]/70 transition-colors">
               <div className="absolute top-0 right-0 w-80 h-80 bg-[#8B5CF6]/10 rounded-full blur-3xl pointer-events-none" />
 
               <div>
-                {/* Metadados Editoriais Limpos */}
-                <div className="flex flex-wrap items-center justify-between gap-3 pb-4 sm:pb-5 mb-5 sm:mb-6 border-b border-white/10 text-xs font-mono text-[#F7F7F5]/70">
-                  <span className="text-[#8B5CF6] font-semibold tracking-wider uppercase">
-                    01 · SISTEMA DE AGENDAMENTO
+                <div className="flex flex-wrap items-center justify-between gap-3 pb-4 mb-5 border-b border-white/10 text-xs text-[#F7F7F5]/70 font-medium">
+                  <span className="text-[#8B5CF6] font-semibold uppercase tracking-wider">
+                    Sistema de Agendamento Online
                   </span>
                   <span className="text-white/60">
-                    Solução para barbearias, salões e estética
+                    Barbearias, cabeleireiras e estética
                   </span>
                 </div>
 
@@ -207,92 +216,88 @@ export const WebDevelopment: React.FC = () => {
                     <Calendar className="w-5 h-5" />
                   </div>
                   <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white font-display tracking-tight">
-                    Agendamento Online para Profissionais
+                    Mais facilidade na rotina de agendamentos
                   </h3>
                 </div>
 
-                <p className="text-xs sm:text-sm lg:text-base text-[#F7F7F5]/75 leading-relaxed mb-6 sm:mb-8 max-w-xl">
-                  Seus clientes escolhem o serviço, o profissional e o horário disponível em poucos toques pelo celular. Você atende seus clientes com tranquilidade sem precisar parar para responder mensagens no WhatsApp.
+                <p className="text-xs sm:text-sm lg:text-base text-[#F7F7F5]/75 leading-relaxed mb-6 max-w-xl font-normal">
+                  Seus clientes escolhem o serviço desejado, o profissional e o horário disponível em poucos cliques pelo celular. Você não precisa parar seu trabalho para responder perguntas de horários disponíveis no WhatsApp.
                 </p>
 
-                {/* Grid Editorial de Entregáveis */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8 pt-5 sm:pt-6 border-t border-white/10">
-                  <div className="space-y-3">
+                {/* Grid de Benefícios Concretos */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 pt-5 border-t border-white/10">
+                  <div className="space-y-2.5">
                     <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F7F5]/85">
-                      <span className="text-xs font-mono text-[#8B5CF6] font-bold mt-0.5">01</span>
-                      <span>Catálogo completo de serviços com preços e duração</span>
+                      <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
+                      <span>Catálogo de serviços com valores e tempo de duração</span>
                     </div>
                     <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F7F5]/85">
-                      <span className="text-xs font-mono text-[#8B5CF6] font-bold mt-0.5">02</span>
-                      <span>Seleção de barbeiro ou profissional de atendimento</span>
+                      <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
+                      <span>Escolha individual de profissional da equipe</span>
                     </div>
                   </div>
-                  <div className="space-y-3">
+                  <div className="space-y-2.5">
                     <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F7F5]/85">
-                      <span className="text-xs font-mono text-[#8B5CF6] font-bold mt-0.5">03</span>
-                      <span>Confirmação automática de horário que reduz faltas</span>
+                      <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
+                      <span>Confirmação que reduz faltas e atrasos</span>
                     </div>
                     <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F7F5]/85">
-                      <span className="text-xs font-mono text-[#8B5CF6] font-bold mt-0.5">04</span>
-                      <span>Abertura instantânea sem downloads de aplicativos</span>
+                      <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
+                      <span>Funciona direto no navegador, sem app para instalar</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Botão de Ação Primário com Contraste Marcante */}
-              <div className="pt-5 sm:pt-6 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
+              {/* Botão de Solicitação */}
+              <div className="pt-5 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                 <a
                   href={getWhatsAppUrl('Olá! Gostaria de um orçamento para implantar o Sistema de Agendamento Online no meu negócio.')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#7348D6] text-white transition-all shadow-lg shadow-[#8B5CF6]/20 active:scale-98 text-center min-h-[44px]"
+                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#7348D6] text-white transition-all shadow-lg shadow-[#8B5CF6]/20 active:scale-98 text-center min-h-[44px]"
                 >
-                  <span>Consultar Sistema de Agendamento</span>
+                  <span>Solicitar orçamento de agendamento</span>
                   <ArrowUpRight className="w-4 h-4 text-white shrink-0" />
                 </a>
-                <span className="text-xs font-mono text-[#F7F7F5]/50 text-center sm:text-right">
-                  Configurado para seu fluxo de atendimento
+                <span className="text-xs text-[#F7F7F5]/50 text-center sm:text-right">
+                  Personalizado para os seus horários e serviços
                 </span>
               </div>
             </div>
 
-            {/* Coluna Complementar (5 colunas): Página de Serviços & Catálogo Digital */}
+            {/* Coluna Complementar: Páginas de Serviços e Catálogos */}
             <div className="lg:col-span-5 flex flex-col justify-between gap-5 sm:gap-6">
               
               {/* Modalidade: Página de Serviços e Procedimentos */}
-              <div className="bg-[#181B2E] rounded-2xl border border-white/10 p-5 sm:p-7 shadow-xl hover:border-white/20 transition-all flex flex-col justify-between flex-1">
+              <div className="bg-[#111321] rounded-2xl border border-white/10 p-5 sm:p-7 shadow-xl hover:border-white/20 transition-all flex flex-col justify-between flex-1">
                 <div>
                   <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
-                    <span className="text-xs font-mono uppercase tracking-wider text-[#8B5CF6] font-semibold">
-                      02 · PÁGINA DE SERVIÇOS
+                    <span className="text-xs font-semibold uppercase tracking-wider text-[#8B5CF6]">
+                      Páginas de Serviços
                     </span>
                     <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
                   </div>
 
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 font-display">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 font-display">
                     Página de Procedimentos & Serviços
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#F7F7F5]/70 leading-relaxed mb-4 sm:mb-5">
-                    Página moderna e elegante para valorizar seus procedimentos de Lash, Nails ou Estética, exibindo fotos de resultados e diferenciais.
+                  <p className="text-xs sm:text-sm text-[#F7F7F5]/70 leading-relaxed mb-4">
+                    Página desenvolvida para valorizar procedimentos de Lash Design, Nail Design, estética e beleza, apresentando fotos de resultados e botão direto de agendamento.
                   </p>
 
-                  <div className="space-y-2 mb-5 sm:mb-6 text-xs text-[#F7F7F5]/80">
+                  <div className="space-y-2 mb-5 text-xs text-[#F7F7F5]/80">
                     <div className="flex items-start gap-2">
-                      <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Galeria de resultados e fotos de trabalhos</span>
+                      <Check className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0 mt-0.5" />
+                      <span>Galeria de fotos reais de trabalhos e resultados</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Detalhamento claro de procedimentos e valores</span>
+                      <Check className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0 mt-0.5" />
+                      <span>Detalhamento dos procedimentos e tabela de valores</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Botão direto de agendamento ou WhatsApp</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Carregamento leve e ultrarrápido em celulares</span>
+                      <Check className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0 mt-0.5" />
+                      <span>Abertura ultrarrápida no celular para link na bio</span>
                     </div>
                   </div>
                 </div>
@@ -308,50 +313,46 @@ export const WebDevelopment: React.FC = () => {
                 </a>
               </div>
 
-              {/* Modalidade: Catálogo ou Cardápio Digital */}
-              <div className="bg-[#181B2E] rounded-2xl border border-white/10 p-5 sm:p-7 shadow-xl hover:border-white/20 transition-all flex flex-col justify-between flex-1">
+              {/* Modalidade: Catálogos e Cardápios Digitais */}
+              <div className="bg-[#111321] rounded-2xl border border-white/10 p-5 sm:p-7 shadow-xl hover:border-white/20 transition-all flex flex-col justify-between flex-1">
                 <div>
                   <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
-                    <span className="text-xs font-mono uppercase tracking-wider text-[#8B5CF6] font-semibold">
-                      03 · CATÁLOGO & CARDÁPIO
+                    <span className="text-xs font-semibold uppercase tracking-wider text-[#8B5CF6]">
+                      Catálogos & Cardápios
                     </span>
                     <Store className="w-4 h-4 text-[#8B5CF6]" />
                   </div>
 
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 font-display">
-                    Catálogo & Cardápio Digital Interativo
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2 font-display">
+                    Catálogos e Cardápios Digitais
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#F7F7F5]/70 leading-relaxed mb-4 sm:mb-5">
-                    Vitrine prática no celular para produtos de cuidados, tratamentos ou cardápios, com envio direto de pedidos para o WhatsApp.
+                  <p className="text-xs sm:text-sm text-[#F7F7F5]/70 leading-relaxed mb-4">
+                    Sites profissionais estruturados para exibição de produtos ou cardápios alimentícios, facilitando consultas e pedidos no WhatsApp.
                   </p>
 
-                  <div className="space-y-2 mb-5 sm:mb-6 text-xs text-[#F7F7F5]/80">
+                  <div className="space-y-2 mb-5 text-xs text-[#F7F7F5]/80">
                     <div className="flex items-start gap-2">
-                      <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Divisão por categorias e fotos atrativas</span>
+                      <Check className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0 mt-0.5" />
+                      <span>Organização limpa por categorias com fotos</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Sem taxas sobre pedidos ou comissões</span>
+                      <Check className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0 mt-0.5" />
+                      <span>Pedidos enviados diretamente para o WhatsApp</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Pedido formatado diretamente no WhatsApp</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-xs font-mono text-[#8B5CF6] font-bold">·</span>
-                      <span>Acesso imediato por QR Code ou link na bio</span>
+                      <Check className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0 mt-0.5" />
+                      <span>Sem taxas sobre vendas ou comissões</span>
                     </div>
                   </div>
                 </div>
 
                 <a
-                  href={getWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para criação de um Catálogo ou Cardápio Digital.')}
+                  href={getWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Catálogo ou Cardápio Digital.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-between w-full py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 hover:bg-white/10 text-white border border-white/10 transition-colors text-center min-h-[44px]"
                 >
-                  <span>Consultar Catálogo / Cardápio</span>
+                  <span>Consultar Catálogo ou Cardápio</span>
                   <ArrowUpRight className="w-4 h-4 text-white/70 shrink-0" />
                 </a>
               </div>
@@ -361,24 +362,24 @@ export const WebDevelopment: React.FC = () => {
           </div>
         </div>
 
-        {/* Demonstração Visual Interativa de Responsividade */}
-        <div ref={demoRef} className="rounded-2xl bg-[#181B2E] border border-white/10 p-5 sm:p-8 lg:p-10 shadow-2xl">
+        {/* Demonstração Interativa de Responsividade */}
+        <div ref={demoRef} className="rounded-2xl bg-[#111321] border border-white/10 p-5 sm:p-8 lg:p-10 shadow-2xl">
           
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 mb-8 border-b border-white/10">
             <div>
-              <span className="text-xs font-mono text-[#8B5CF6] uppercase tracking-wider block mb-1">
-                DEMONSTRAÇÃO INTERATIVA
+              <span className="text-xs font-semibold text-[#8B5CF6] uppercase tracking-wider block mb-1">
+                Demonstração Interativa
               </span>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white font-display tracking-tight">
-                Visualização em todos os dispositivos
+                Adaptação visual em celulares, tablets e computadores
               </h3>
               <p className="text-xs sm:text-sm text-[#F7F7F5]/65 mt-1 max-w-xl">
-                Alterne entre formatos de tela e veja como páginas e sistemas de agendamento se adaptam perfeitamente ao celular dos seus clientes.
+                Alterne entre formatos de tela e veja como as páginas de agendamento se adaptam perfeitamente ao celular dos seus clientes.
               </p>
             </div>
 
-            {/* Controles Segmentados de Dispositivo */}
-            <div className="flex items-center gap-1 bg-[#111321] p-1.5 rounded-xl border border-white/10 shrink-0 self-start lg:self-auto">
+            {/* Controles de Dispositivo */}
+            <div className="flex items-center gap-1 bg-[#0C0D17] p-1.5 rounded-xl border border-white/10 shrink-0 self-start lg:self-auto">
               <button
                 type="button"
                 onClick={() => setDeviceView('desktop')}
@@ -420,8 +421,8 @@ export const WebDevelopment: React.FC = () => {
 
           {/* Seletores de Segmento */}
           <div className="flex flex-wrap items-center gap-2 mb-8">
-            <span className="text-xs font-mono text-[#F7F7F5]/50 mr-2 uppercase tracking-wider w-full sm:w-auto">
-              Especialidades:
+            <span className="text-xs text-[#F7F7F5]/50 mr-2 uppercase tracking-wider font-semibold w-full sm:w-auto">
+              Segmentos atendidos:
             </span>
             {DEMO_SEGMENTS.map((seg) => (
               <button
@@ -431,7 +432,7 @@ export const WebDevelopment: React.FC = () => {
                 className={`px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-lg text-xs font-medium transition-all min-h-[34px] ${
                   activeSegment === seg.id
                     ? 'bg-white text-[#111321] font-bold shadow-sm'
-                    : 'bg-[#111321] text-[#F7F7F5]/70 hover:text-white hover:bg-white/5 border border-white/5'
+                    : 'bg-[#0C0D17] text-[#F7F7F5]/70 hover:text-white hover:bg-white/5 border border-white/5'
                 }`}
               >
                 {seg.name}
@@ -439,8 +440,8 @@ export const WebDevelopment: React.FC = () => {
             ))}
           </div>
 
-          {/* Canvas de Exibição com Proporção Aperfeiçoada */}
-          <div className="flex justify-center items-center py-2 sm:py-6 bg-[#111321]/60 rounded-xl border border-white/5 p-2 sm:p-6">
+          {/* Canvas de Exibição */}
+          <div className="flex justify-center items-center py-2 sm:py-6 bg-[#0C0D17]/80 rounded-xl border border-white/5 p-2 sm:p-6">
             <div
               className={`transition-all duration-300 rounded-xl bg-[#0E101D] border border-white/10 shadow-2xl p-3 sm:p-6 overflow-hidden ${
                 deviceView === 'desktop'
@@ -450,49 +451,48 @@ export const WebDevelopment: React.FC = () => {
                   : 'w-full max-w-[340px] sm:max-w-[360px] min-h-[480px] flex flex-col justify-between'
               }`}
             >
-              {/* Moldura do Navegador / Dispositivo */}
-              <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/10 text-xs text-[#F7F7F5]/50 font-mono">
+              {/* Moldura do Dispositivo */}
+              <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/10 text-xs text-[#F7F7F5]/50 font-medium">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
                   <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
                   <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
                 </div>
-                <div className="bg-white/5 px-3 sm:px-4 py-1 rounded-md border border-white/5 truncate max-w-[160px] sm:max-w-xs text-[#F7F7F5]/80 font-mono text-[10px] sm:text-[11px]">
+                <div className="bg-white/5 px-3 py-1 rounded-md border border-white/5 truncate max-w-[180px] sm:max-w-xs text-[#F7F7F5]/80 text-[11px]">
                   agendamento.{currentSegment.id}.inova-solucoes.com
                 </div>
-                <span className="text-[10px] text-[#F7F7F5]/50 uppercase font-mono">{deviceView}</span>
+                <span className="text-[10px] text-[#F7F7F5]/50 uppercase">{deviceView}</span>
               </div>
 
               {/* Conteúdo Renderizado da Amostra */}
               <div className="rounded-lg bg-[#141624] p-4 sm:p-6 lg:p-7 border border-white/5 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <span className="text-[10px] sm:text-[11px] font-mono tracking-wider uppercase text-[#8B5CF6]">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[11px] uppercase tracking-wider text-[#8B5CF6] font-semibold">
                       {currentSegment.tagline}
                     </span>
-                    <span className="text-[10px] font-mono text-white/50">
+                    <span className="text-[10px] text-white/50">
                       Demonstração
                     </span>
                   </div>
 
-                  <h4 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-white mb-2 leading-tight font-display">
+                  <h4 className="text-lg sm:text-xl font-extrabold text-white mb-2 leading-tight font-display">
                     {currentSegment.heroHeadline}
                   </h4>
-                  <p className="text-xs sm:text-sm text-[#F7F7F5]/70 mb-5 leading-relaxed max-w-xl">
+                  <p className="text-xs sm:text-sm text-[#F7F7F5]/70 mb-5 leading-relaxed max-w-xl font-normal">
                     {currentSegment.description}
                   </p>
 
-                  {/* Métricas e Diferenciais */}
                   <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6 pt-4 border-t border-white/10">
                     {currentSegment.stats.map((st, i) => (
                       <div
                         key={i}
                         className="bg-white/5 p-2 sm:p-2.5 rounded-lg border border-white/5 text-center flex flex-col justify-center items-center"
                       >
-                        <p className="text-xs sm:text-sm font-bold text-white font-mono tabular-nums leading-none">
+                        <p className="text-xs sm:text-sm font-bold text-white leading-none">
                           {st.value}
                         </p>
-                        <p className="text-[9px] sm:text-[10px] text-[#F7F7F5]/70 mt-1 leading-tight text-center min-h-[2.2em] flex items-center justify-center">
+                        <p className="text-[10px] text-[#F7F7F5]/70 mt-1 leading-tight text-center">
                           {st.label}
                         </p>
                       </div>
@@ -507,10 +507,10 @@ export const WebDevelopment: React.FC = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold text-white rounded-lg bg-[#8B5CF6] hover:bg-[#7348D6] shadow-sm transition-all text-center min-h-[40px]"
                   >
-                    <span>Quero agendamento online no meu negócio</span>
+                    <span>Quero agendamento online para {currentSegment.name}</span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-white/80 shrink-0" />
                   </a>
-                  <span className="text-[10px] sm:text-[11px] font-mono text-[#F7F7F5]/50 text-center sm:text-left">
+                  <span className="text-[11px] text-[#F7F7F5]/50 text-center sm:text-left">
                     Desenvolvido sob medida pela Inova
                   </span>
                 </div>
@@ -518,7 +518,7 @@ export const WebDevelopment: React.FC = () => {
             </div>
           </div>
 
-          {/* Banner de Fechamento Editorial */}
+          {/* Banner de Fechamento */}
           <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6">
             <div className="text-center sm:text-left">
               <p className="text-base sm:text-lg font-bold text-white font-display">

@@ -7,12 +7,11 @@ import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Solutions } from './components/Solutions';
-import { WebDevelopment } from './components/WebDevelopment';
 import { NFCProducts } from './components/NFCProducts';
 import { Catalog } from './components/Catalog';
 import { KeychainsNFC } from './components/KeychainsNFC';
-import { BioSiteSection } from './components/BioSiteSection';
-import { GoogleProfileSection } from './components/GoogleProfileSection';
+import { DigitalPresence } from './components/DigitalPresence';
+import { WebDevelopment } from './components/WebDevelopment';
 import { Portfolio } from './components/Portfolio';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { AboutUs } from './components/AboutUs';
@@ -39,15 +38,15 @@ export default function App() {
     const sectionIds = [
       'inicio',
       'solucoes',
-      'desenvolvimento-web',
       'produtos-nfc',
       'catalogo-padrao',
-      'plaquinhas-personalizadas',
       'chaveiros-nfc',
-      'biosite',
-      'google-empresa',
+      'presenca-digital',
+      'agendamento-online',
       'portfolio',
+      'diferenciais',
       'sobre',
+      'processo',
       'faq',
       'contato',
     ];
@@ -81,50 +80,47 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-1">
-        {/* 2. Hero Section with Studio Editorial Redesign */}
+        {/* 2. Hero Section with 3D Plaque Showcase */}
         <Hero />
 
-        {/* 3. Solutions Section (4 Pillars) */}
+        {/* 3. Solutions Section (4 Official Categories) */}
         <Solutions />
 
-        {/* 4. Highlight: Web Development (Landing Page, Institutional, Digital Catalog) */}
-        <WebDevelopment />
-
-        {/* 5. NFC & QR Code Products */}
+        {/* 4. NFC & QR Code Products */}
         <NFCProducts />
 
-        {/* 6. Product Showcase Slider: Cinematographic presentation of standard and custom plaques */}
+        {/* 5. Product Showcase: Standard and Custom Acrylic Plaques */}
         <Catalog onOpenModal={(img) => setModalImage(img)} />
 
-        {/* 7. NFC Keychains Section */}
+        {/* 6. 3D-Printed NFC Keychains & Smart NFC Cards */}
         <KeychainsNFC />
 
-        {/* 8. BioSite Section */}
-        <BioSiteSection />
+        {/* 7. Digital Presence: Google Meu Negócio, BioSite, Cartão Virtual, Catálogos, Cardápios, Landing Pages */}
+        <DigitalPresence />
 
-        {/* 9. Google Business Profile Optimization */}
-        <GoogleProfileSection />
+        {/* 8. Online Scheduling & Specialized Service Pages (Barbearias, Cabeleireiras, Lash, Nail, Estética) */}
+        <WebDevelopment />
 
-        {/* 10. Portfolio Section */}
+        {/* 9. Portfolio Section with Real Authentic Projects */}
         <Portfolio onOpenModal={(img) => setModalImage(img)} />
 
-        {/* 11. Why Choose Inova */}
+        {/* 10. Why Choose Inova (Differentials) */}
         <WhyChooseUs />
 
-        {/* 12. About Inova Soluções Digitais */}
+        {/* 11. About Inova Soluções Digitais */}
         <AboutUs />
 
-        {/* 13. Work Process (4 Steps) */}
+        {/* 12. Work Process (4 Linear Steps) */}
         <ProcessSection />
 
-        {/* 14. FAQ Accordion (14 Questions) */}
+        {/* 13. FAQ Accordion (14 Questions Covering all 10 areas) */}
         <FAQ />
 
-        {/* 15. Final CTA Banner & WhatsApp Lead Generator */}
+        {/* 14. Final CTA Banner & WhatsApp Lead Generator */}
         <ContactCTA />
       </main>
 
-      {/* 16. Footer */}
+      {/* 15. Footer */}
       <Footer />
 
       {/* Image Zoom Modal */}

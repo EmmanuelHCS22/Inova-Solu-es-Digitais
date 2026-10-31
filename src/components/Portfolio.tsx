@@ -18,10 +18,10 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenModal }) => {
 
   const categories = [
     { id: 'todos', label: 'Todos os Projetos' },
-    { id: 'plaquinhas', label: 'Plaquinhas NFC & QR Code' },
-    { id: 'chaveiros-cartoes', label: 'Chaveiros 3D & Cartões' },
-    { id: 'presenca-digital', label: 'BioSites & Presença Digital' },
-    { id: 'agendamento-sites', label: 'Sites & Agendamento Online' },
+    { id: 'plaquinhas', label: 'Plaquinhas NFC e QR Code' },
+    { id: 'chaveiros-cartoes', label: 'Chaveiros 3D e Cartões' },
+    { id: 'presenca-digital', label: 'BioSites e Presença Digital' },
+    { id: 'agendamento-sites', label: 'Sites e Agendamento Online' },
   ];
 
   const filteredProjects = PORTFOLIO_PROJECTS.filter((proj) => {
@@ -57,40 +57,34 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenModal }) => {
     <section
       id="portfolio"
       ref={sectionRef}
-      className="py-28 relative bg-[#F5F4F0] border-t border-black/8 overflow-hidden"
+      className="py-20 sm:py-28 lg:py-32 relative bg-[#F5F4F0] border-t border-black/10 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div ref={headerRef} className="max-w-3xl mb-12 will-change-transform">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#7357E8]" />
-            <span className="text-xs uppercase tracking-[0.2em] text-[#171923]/70 font-semibold">
-              PORTFÓLIO & CASOS
-            </span>
-          </div>
           <h2
-            className="text-3xl sm:text-5xl font-extrabold text-[#171923] tracking-tight mb-4 font-display"
+            className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#171923] tracking-tight mb-4 font-display leading-[1.12]"
             style={{ textWrap: 'balance' }}
           >
             Projetos reais que conectam marcas a resultados.
           </h2>
-          <p className="text-base sm:text-lg text-[#171923]/70 leading-relaxed max-w-2xl">
-            Conheça criações da Inova: plaquinhas em acrílico, chaveiros em impressão 3D, cartões inteligentes, BioSites e sistemas de agendamento online.
+          <p className="text-sm sm:text-base lg:text-lg text-[#171923]/75 leading-relaxed max-w-2xl font-normal">
+            Conheça soluções desenvolvidas pela Inova: plaquinhas em acrílico, chaveiros por impressão 3D, cartões inteligentes, BioSites e sistemas de agendamento online.
           </p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex items-center justify-start overflow-x-auto pb-4 mb-12 gap-2 no-scrollbar">
+        <div className="flex items-center justify-start overflow-x-auto pb-4 mb-10 gap-2 no-scrollbar">
           {categories.map((cat) => (
             <button
               key={cat.id}
               type="button"
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all whitespace-nowrap shrink-0 ${
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap shrink-0 min-h-[38px] ${
                 activeCategory === cat.id
-                  ? 'bg-[#111321] text-white font-semibold shadow-sm'
-                  : 'bg-white text-[#171923]/70 hover:text-[#171923] hover:bg-black/5 border border-black/8'
+                  ? 'bg-[#111321] text-white shadow-sm'
+                  : 'bg-white text-[#171923]/70 hover:text-[#171923] hover:bg-black/5 border border-black/10'
               }`}
             >
               {cat.label}
@@ -103,11 +97,11 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenModal }) => {
           {filteredProjects.map((project: PortfolioProject) => (
             <div
               key={project.id}
-              className="group rounded-xl bg-white border border-black/8 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg"
+              className="group rounded-2xl bg-white border border-black/10 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-lg"
             >
               {/* Media Thumbnail */}
               <div
-                className="relative bg-[#F0EFEA] aspect-[16/10] overflow-hidden cursor-pointer"
+                className="relative bg-[#0E101D] aspect-[16/10] overflow-hidden cursor-pointer flex items-center justify-center p-4"
                 onClick={() =>
                   onOpenModal({
                     src: project.image,
@@ -122,16 +116,16 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenModal }) => {
                   src={project.image}
                   alt={project.name}
                   loading="lazy"
-                  className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                  className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
                 />
 
-                <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-mono text-[#171923] border border-black/10">
+                <div className="absolute top-3 left-3 bg-[#111321]/90 px-2.5 py-1 rounded text-[10px] text-white/90 border border-white/10 font-medium">
                   {project.categoryLabel}
                 </div>
 
                 {project.isConceptual && (
-                  <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-mono text-[#171923]/70 border border-black/10">
-                    Conceito Visual
+                  <div className="absolute top-3 right-3 bg-[#111321]/90 px-2.5 py-1 rounded text-[10px] text-white/70 border border-white/10 font-medium">
+                    Demonstração
                   </div>
                 )}
               </div>
@@ -139,30 +133,30 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenModal }) => {
               {/* Content Body */}
               <div className="p-6 flex flex-col flex-1 justify-between">
                 <div>
-                  <span className="text-[11px] font-mono text-[#171923]/50 block mb-1">
+                  <span className="text-xs text-[#171923]/60 block mb-1 font-medium">
                     {project.segment}
                   </span>
-                  <h3 className="text-xl font-bold text-[#171923] mb-2 group-hover:text-[#7357E8] transition-colors font-display">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#171923] mb-2 group-hover:text-[#7357E8] transition-colors font-display">
                     {project.name}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#171923]/70 leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-[#171923]/70 leading-relaxed mb-4 font-normal">
                     {project.description}
                   </p>
 
-                  <div className="p-3 rounded-lg bg-[#F5F4F0] border border-black/5 mb-6">
-                    <p className="text-[10px] font-semibold text-[#7357E8] uppercase tracking-wider mb-1">
-                      Solução Desenvolvida
+                  <div className="p-3.5 rounded-xl bg-[#F5F4F0] border border-black/5 mb-6">
+                    <p className="text-[11px] font-semibold text-[#7357E8] uppercase tracking-wider mb-1">
+                      Solução Implementada
                     </p>
-                    <p className="text-xs text-[#171923]/75 leading-relaxed">
+                    <p className="text-xs text-[#171923]/75 leading-relaxed font-normal">
                       {project.solution}
                     </p>
                   </div>
                 </div>
 
                 {/* Actions */}
-                <div className="pt-4 border-t border-black/8 flex items-center justify-between gap-3">
+                <div className="pt-4 border-t border-black/10 flex items-center justify-between gap-3">
                   <a
-                    href={getWhatsAppUrl(`Olá! Vi o projeto "${project.name}" no portfólio da Inova e gostaria de solicitar uma solução semelhante para minha empresa.`)}
+                    href={getWhatsAppUrl(`Olá! Vi o projeto "${project.name}" no portfólio da Inova e gostaria de solicitar uma solução semelhante para o meu negócio.`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#171923] hover:text-[#7357E8] transition-colors"
@@ -184,7 +178,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenModal }) => {
                     }
                     className="text-xs text-[#171923]/50 hover:text-[#171923] transition-colors"
                   >
-                    Ver detalhes
+                    Ampliar
                   </button>
                 </div>
               </div>

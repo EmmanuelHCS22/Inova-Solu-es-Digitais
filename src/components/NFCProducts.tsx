@@ -87,39 +87,35 @@ export const NFCProducts: React.FC = () => {
           {/* Coluna Esquerda: Narrativa & Posicionamento */}
           <div ref={leftColRef} className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#7357E8] font-semibold block mb-3">
-                03 / TECNOLOGIA DE BALCÃO & CONECTIVIDADE
-              </span>
-
               <h2
                 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#171923] tracking-tight mb-4 font-display leading-[1.12]"
                 style={{ textWrap: 'balance' }}
               >
-                Plaquinhas NFC e QR Code para o seu balcão.
+                Plaquinhas NFC e QR Code para balcão e recepção.
               </h2>
 
               <p className="text-sm sm:text-base text-[#171923]/80 leading-relaxed mb-6 font-normal">
-                Fabricadas em acrílico resistente com base em L para balcão, caixa e recepção. Escolha entre modelos de arte padrão pronta ou crie uma arte personalizada com as cores e o logotipo do seu negócio.
+                Produzidas em acrílico com base em L para pontos de atendimento e balcões comerciais. Você pode optar por modelos com artes padrão prontas para uso ou criar artes personalizadas com as cores e o logotipo da sua empresa.
               </p>
 
-              {/* Bloco de Engenharia Tátil: Card Escuro de Contraste */}
+              {/* Bloco Tátil: Card Escuro de Contraste */}
               <div className="rounded-2xl bg-[#111321] text-white p-5 sm:p-7 mb-8 border border-white/10 shadow-xl">
                 <div className="flex items-center gap-2.5 mb-2.5">
                   <Zap className="w-4 h-4 text-[#8B5CF6]" />
-                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-white/90">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-white/90">
                     Aproximação Sem Aplicativo
                   </span>
                 </div>
                 <p className="text-xs sm:text-sm text-white/75 leading-relaxed font-normal mb-4">
-                  Compatível nativamente com iPhone e Android. A tecnologia NFC direciona o cliente imediatamente ao destino configurado, complementada pelo QR Code de alta precisão.
+                  O cliente encosta o smartphone na plaquinha e o link é aberto imediatamente no navegador do celular. O QR Code integrado garante acesso a aparelhos que não possuam leitor NFC ativo.
                 </p>
 
-                <div className="pt-3 border-t border-white/10 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono text-white/60">
-                  <span className="flex items-center gap-1.5 text-white/80">
+                <div className="pt-3 border-t border-white/10 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/70">
+                  <span className="flex items-center gap-1.5 text-white/85">
                     <Check className="w-3.5 h-3.5 text-[#8B5CF6]" /> Sem necessidade de app
                   </span>
-                  <span className="flex items-center gap-1.5 text-white/80">
-                    <Check className="w-3.5 h-3.5 text-[#8B5CF6]" /> Leitura em 1 segundo
+                  <span className="flex items-center gap-1.5 text-white/85">
+                    <Check className="w-3.5 h-3.5 text-[#8B5CF6]" /> Leitura instantânea
                   </span>
                 </div>
               </div>
@@ -127,12 +123,12 @@ export const NFCProducts: React.FC = () => {
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <a
-                href={getWhatsAppUrl('Olá! Gostaria de consultar detalhes e valores de plaquinhas NFC e QR Code.')}
+                href={getWhatsAppUrl('Olá! Gostaria de consultar detalhes e valores de plaquinhas NFC e QR Code para o meu negócio.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-[#111321] hover:bg-[#8B5CF6] transition-all duration-200 shadow-sm active:scale-98 text-center min-h-[44px]"
               >
-                <span>Consultar Plaquinhas NFC</span>
+                <span>Solicitar orçamento de plaquinhas</span>
                 <ArrowUpRight className="w-4 h-4 text-white/80 shrink-0" />
               </a>
 
@@ -140,12 +136,12 @@ export const NFCProducts: React.FC = () => {
                 href="#catalogo-padrao"
                 className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl text-xs sm:text-sm font-semibold text-[#171923] hover:text-[#8B5CF6] hover:bg-black/5 transition-colors text-center min-h-[44px]"
               >
-                <span>Explorar Modelos ↓</span>
+                <span>Ver catálogo de modelos ↓</span>
               </a>
             </div>
           </div>
 
-          {/* Coluna Direita: Lista Editorial de Aplicações (Zero grades repetitivas) */}
+          {/* Coluna Direita: Aplicações Oficiais */}
           <div ref={listRef} className="lg:col-span-7 divide-y divide-black/10 border-t border-b border-black/10">
             {NFC_FEATURES.map((item, index) => (
               <div
@@ -160,9 +156,6 @@ export const NFCProducts: React.FC = () => {
                     <h3 className="text-sm sm:text-base font-bold text-[#171923] group-hover:text-[#8B5CF6] transition-colors font-display">
                       {item.title}
                     </h3>
-                    <span className="text-xs font-mono tabular-nums text-[#171923]/40">
-                      0{index + 1}
-                    </span>
                   </div>
                   <p className="text-xs sm:text-sm text-[#171923]/70 leading-relaxed font-normal">
                     {item.description}
@@ -174,11 +167,11 @@ export const NFCProducts: React.FC = () => {
 
         </div>
 
-        {/* Esclarecimento Técnico com Tipografia Editorial */}
+        {/* Esclarecimento Técnico */}
         <div className="pt-6 border-t border-black/10 flex items-start gap-3 text-xs sm:text-sm text-[#171923]/75 bg-white/60 p-4 rounded-xl border border-black/5">
           <AlertCircle className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
           <p>
-            <strong className="text-[#171923] font-semibold">Esclarecimento de compatibilidade:</strong> A tecnologia por aproximação (NFC) depende do leitor nativo do smartphone do cliente. Dispositivos sem NFC efetuam a leitura normalmente através do QR Code integrado em alta nitidez.
+            <strong className="text-[#171923] font-semibold">Compatibilidade:</strong> A aproximação por NFC depende do suporte nativo do smartphone do cliente. Dispositivos sem NFC realizam a leitura normalmente apontando a câmera para o QR Code de alta resolução presente em todas as plaquinhas.
           </p>
         </div>
 
