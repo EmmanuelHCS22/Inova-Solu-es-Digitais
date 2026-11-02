@@ -1,4 +1,4 @@
-import { CatalogItem, CustomPlaque, FAQItem, PortfolioProject, ServiceItem } from '../types';
+import { CatalogItem, CustomPlaque, FAQItem, ServiceItem } from '../types';
 
 export const INOVA_CONTACT = {
   name: 'Inova Soluções Digitais',
@@ -117,7 +117,296 @@ export const NFC_FEATURES = [
   },
 ];
 
+export interface ProductExperienceItem {
+  id: string;
+  name: string;
+  label: string;
+  type: 'padrao' | 'personalizada';
+  categories: string[];
+  description: string;
+  image: string;
+  alt: string;
+  segment?: string;
+  primaryColor: string;
+  secondaryColor: string;
+  accentGlow: string;
+  accentGlowSecondary: string;
+  badgeText: string;
+  badgeBorder: string;
+  keyBenefits: string[];
+  whatsappMessage: string;
+}
+
+export const PRODUCT_EXPERIENCE_CATALOG: ProductExperienceItem[] = [
+  {
+    id: 'padrao-google',
+    name: 'Plaquinha Google',
+    label: 'ARTE PADRÃO • Avaliações Google • NFC e QR Code',
+    type: 'padrao',
+    categories: ['google', 'nfc'],
+    description: 'Deixe o caminho até as avaliações no Google direto e simples. O cliente apenas aproxima o smartphone ou lê o QR Code para abrir sua página e deixar uma avaliação de 5 estrelas no balcão.',
+    image: '/assets/inova/padrao-google.jpeg',
+    alt: 'Modelo padrão azul de plaquinha para avaliações no Google com estrelas, NFC e QR Code',
+    primaryColor: '#1A73E8',
+    secondaryColor: '#8B5CF6',
+    accentGlow: 'rgba(26, 115, 232, 0.32)',
+    accentGlowSecondary: 'rgba(139, 92, 246, 0.18)',
+    badgeText: 'Arte Padrão • Avaliações Google',
+    badgeBorder: '#1A73E8',
+    keyBenefits: [
+      'Abertura direta na tela de 5 estrelas sem busca manual',
+      'QR Code de alta definição e chip NFC contactless embutido',
+      'Estrutura em acrílico cristal dobrado em L para balcão'
+    ],
+    whatsappMessage: 'Olá! Tenho interesse na Plaquinha Google da Inova. Gostaria de receber informações e um orçamento.',
+  },
+  {
+    id: 'padrao-instagram',
+    name: 'Plaquinha Instagram',
+    label: 'ARTE PADRÃO • Instagram • NFC e QR Code',
+    type: 'padrao',
+    categories: ['instagram', 'nfc'],
+    description: 'Convide seus clientes a seguir o perfil da sua empresa e interagir com suas publicações no momento exato do atendimento físico, conectando seu balcão à sua audiência digital.',
+    image: '/assets/inova/padrao-instagram.jpeg',
+    alt: 'Modelo padrão colorido de plaquinha para divulgar o Instagram com NFC e QR Code',
+    primaryColor: '#E1306C',
+    secondaryColor: '#C13584',
+    accentGlow: 'rgba(225, 48, 108, 0.30)',
+    accentGlowSecondary: 'rgba(193, 53, 132, 0.18)',
+    badgeText: 'Arte Padrão • Seguir no Instagram',
+    badgeBorder: '#E1306C',
+    keyBenefits: [
+      'Aproximação instantânea direto para o seu perfil comercial',
+      'QR Code colorido com contraste nítido para todas as câmeras',
+      'Design vibrante que atrai a atenção e gera seguidores orgânicos'
+    ],
+    whatsappMessage: 'Olá! Tenho interesse na Plaquinha Instagram da Inova. Gostaria de receber informações e um orçamento.',
+  },
+  {
+    id: 'padrao-whatsapp',
+    name: 'Plaquinha WhatsApp',
+    label: 'ARTE PADRÃO • WhatsApp • NFC e QR Code',
+    type: 'padrao',
+    categories: ['whatsapp', 'nfc', 'combinados'],
+    description: 'Facilite o contato direto dos clientes pelo WhatsApp. Em um simples toque ou leitura de código, o cliente já inicia a conversa com o seu atendimento sem precisar salvar o número na agenda.',
+    image: '/assets/inova/padrao-whatsapp.jpeg',
+    alt: 'Modelo padrão de plaquinha verde para contato pelo WhatsApp com NFC e QR Code',
+    primaryColor: '#25D366',
+    secondaryColor: '#128C7E',
+    accentGlow: 'rgba(37, 211, 102, 0.28)',
+    accentGlowSecondary: 'rgba(18, 140, 126, 0.18)',
+    badgeText: 'Arte Padrão • Atendimento WhatsApp',
+    badgeBorder: '#25D366',
+    keyBenefits: [
+      'Abre a conversa imediatamente sem digitar dígitos ou DDD',
+      'QR Code com logotipo WhatsApp para identificação instantânea',
+      'Ideal para balcões de recepção, orçamentos e pós-venda'
+    ],
+    whatsappMessage: 'Olá! Tenho interesse na Plaquinha WhatsApp da Inova. Gostaria de receber informações e um orçamento.',
+  },
+  {
+    id: 'padrao-pix',
+    name: 'Plaquinha Pix',
+    label: 'ARTE PADRÃO • Pix • NFC e QR Code',
+    type: 'padrao',
+    categories: ['pix', 'nfc'],
+    description: 'Apresente seu canal de pagamento Pix com visual profissional e QR Code nítido para cobranças rápidas no caixa, eliminando erros de digitação de chave e atritos com o cliente.',
+    image: '/assets/inova/padrao-pix.jpeg',
+    alt: 'Modelo padrão verde de plaquinha para pagamento por Pix com NFC e QR Code',
+    primaryColor: '#32BCAD',
+    secondaryColor: '#22D3EE',
+    accentGlow: 'rgba(50, 188, 173, 0.30)',
+    accentGlowSecondary: 'rgba(34, 211, 238, 0.18)',
+    badgeText: 'Arte Padrão • Pagamento Pix',
+    badgeBorder: '#32BCAD',
+    keyBenefits: [
+      'QR Code Pix de leitura ultra-rápida direto no caixa',
+      'Aproximação NFC com link da chave ou aplicativo de cobrança',
+      'Agiliza o fluxo de pagamento e reduz tempo de espera na fila'
+    ],
+    whatsappMessage: 'Olá! Tenho interesse na Plaquinha Pix da Inova. Gostaria de receber informações e um orçamento.',
+  },
+  {
+    id: 'padrao-wifi',
+    name: 'Plaquinha Wi-Fi',
+    label: 'ARTE PADRÃO • Wi-Fi • NFC e QR Code',
+    type: 'padrao',
+    categories: ['wifi', 'nfc'],
+    description: 'Ajude seus clientes a conectar-se à rede Wi-Fi do seu estabelecimento com facilidade em mesas, balcões e recepções, sem precisar soletrar ou digitar senhas complexas repetidamente.',
+    image: '/assets/inova/padrao-wifi.jpeg',
+    alt: 'Modelo padrão azul de plaquinha para acesso ao Wi-Fi com NFC e QR Code',
+    primaryColor: '#0EA5E9',
+    secondaryColor: '#6366F1',
+    accentGlow: 'rgba(14, 165, 233, 0.28)',
+    accentGlowSecondary: 'rgba(99, 102, 241, 0.16)',
+    badgeText: 'Arte Padrão • Conexão Wi-Fi',
+    badgeBorder: '#0EA5E9',
+    keyBenefits: [
+      'Conexão automática por aproximação NFC ou leitura de câmera',
+      'Funciona em smartphones iOS e Android sem instalar aplicativo',
+      'Excelente hospitalidade para salas de espera, clínicas e cafés'
+    ],
+    whatsappMessage: 'Olá! Tenho interesse na Plaquinha Wi-Fi da Inova. Gostaria de receber informações e um orçamento.',
+  },
+  {
+    id: 'claudia',
+    name: 'Claudia Ateliê',
+    label: 'Personalizada • Moda festa',
+    type: 'personalizada',
+    segment: 'Moda Festa & Noivas',
+    categories: ['google', 'segmento'],
+    description: 'Arte personalizada desenvolvida com a identidade visual elegante do ateliê para acolher noivas e convidadas, incentivando avaliações 5 estrelas espontâneas no balcão de atendimento.',
+    image: '/assets/inova/personalizada-claudia.jpeg',
+    alt: 'Arte vermelha de avaliação no Google para o Claudia Ateliê',
+    primaryColor: '#E11D48',
+    secondaryColor: '#9F1239',
+    accentGlow: 'rgba(225, 29, 72, 0.28)',
+    accentGlowSecondary: 'rgba(159, 18, 57, 0.18)',
+    badgeText: 'Arte Personalizada • Moda Festa & Noivas',
+    badgeBorder: '#E11D48',
+    keyBenefits: [
+      'Estamparia personalizada com as cores e monograma do ateliê',
+      'Incentivo acolhedor para noivas e formandas avaliarem no Google',
+      'Aprovação de mockup digital prévio antes da produção em acrílico'
+    ],
+    whatsappMessage: 'Olá! Vi o modelo da plaquinha personalizada da Claudia Ateliê e gostaria de solicitar um orçamento com o logotipo da minha marca.',
+  },
+  {
+    id: 'verde-limao',
+    name: 'Verde Limão Chinelaria',
+    label: 'Personalizada • Varejo',
+    type: 'personalizada',
+    segment: 'Calçados & Varejo',
+    categories: ['google', 'segmento'],
+    description: 'Comunicação vibrante no ponto de venda com as cores e mascote da loja para incentivar avaliações espontâneas no momento do pagamento, reforçando a marca na mente do consumidor.',
+    image: '/assets/inova/personalizada-verde-limao.jpeg',
+    alt: 'Arte verde-limão de avaliação no Google para a Verde Limão Chinelaria',
+    primaryColor: '#84CC16',
+    secondaryColor: '#16A34A',
+    accentGlow: 'rgba(132, 204, 22, 0.28)',
+    accentGlowSecondary: 'rgba(22, 163, 74, 0.18)',
+    badgeText: 'Arte Personalizada • Calçados & Varejo',
+    badgeBorder: '#84CC16',
+    keyBenefits: [
+      'Cores cítricas e alegres que destacam o caixa da loja',
+      'Aproximação NFC e QR Code direcionando ao perfil Google',
+      'Durabilidade para balcões com alto fluxo diário de clientes'
+    ],
+    whatsappMessage: 'Olá! Gostei da plaquinha personalizada da Verde Limão Chinelaria e gostaria de um orçamento para o meu estabelecimento.',
+  },
+  {
+    id: 'oticas-gouveia',
+    name: 'Óticas Gouveia',
+    label: 'Personalizada • Saúde visual',
+    type: 'personalizada',
+    segment: 'Ótica & Saúde Visual',
+    categories: ['google', 'segmento'],
+    description: 'Composição limpa e sóbria reforçando credibilidade clínica e confiança profissional para os clientes avaliarem os atendimentos oftálmicos e a experiência de compra de armações.',
+    image: '/assets/inova/personalizada-oticas-gouveia.jpeg',
+    alt: 'Arte de avaliação no Google para as Óticas Gouveia',
+    primaryColor: '#0284C7',
+    secondaryColor: '#0369A1',
+    accentGlow: 'rgba(2, 132, 199, 0.30)',
+    accentGlowSecondary: 'rgba(3, 105, 161, 0.18)',
+    badgeText: 'Arte Personalizada • Ótica & Saúde Visual',
+    badgeBorder: '#0284C7',
+    keyBenefits: [
+      'Estética sóbria e refinada adequada para clínicas e consultórios',
+      'Coleta de depoimentos espontâneos de satisfação do paciente',
+      'Suporte ergonômico de balcão fabricado em acrílico transparente'
+    ],
+    whatsappMessage: 'Olá! Gostaria de um orçamento para plaquinha personalizada inspirada no modelo das Óticas Gouveia com a minha identidade visual.',
+  },
+  {
+    id: 'reall-car',
+    name: 'Reall Car Automotive',
+    label: 'Personalizada • Automotivo',
+    type: 'personalizada',
+    segment: 'Estética Automotiva',
+    categories: ['google', 'segmento'],
+    description: 'Plaquinha personalizada para recepção de clientes com visual esportivo e agressivo em preto e laranja, com QR Code e NFC para avaliações 5 estrelas logo após a entrega técnica do veículo.',
+    image: '/assets/inova/personalizada-reall-car.jpeg',
+    alt: 'Arte preta e laranja de avaliação no Google para a Reall Car Automotive',
+    primaryColor: '#F97316',
+    secondaryColor: '#EA580C',
+    accentGlow: 'rgba(249, 115, 22, 0.28)',
+    accentGlowSecondary: 'rgba(234, 88, 12, 0.18)',
+    badgeText: 'Arte Personalizada • Estética Automotiva',
+    badgeBorder: '#F97316',
+    keyBenefits: [
+      'Visual moderno e esportivo alinhado ao nicho automotivo',
+      'Avaliação 5 estrelas no momento de maior satisfação do cliente',
+      'Acrílico espesso de alta resistência para balcões de oficina'
+    ],
+    whatsappMessage: 'Olá! Gostaria de um orçamento para plaquinha personalizada como a da Reall Car Automotive com meu logotipo e redes sociais.',
+  },
+  {
+    id: 'flayder-willis',
+    name: 'Flayder Willis Barbearia',
+    label: 'Personalizada • Barbearia',
+    type: 'personalizada',
+    segment: 'Barbearia & Estética Masculina',
+    categories: ['pix', 'segmento'],
+    description: 'Visual clássico de barbearia na bancada para agilizar pagamentos por Pix e aproximação NFC sem atrito com o cliente, valorizando o ambiente de atendimento e o profissionalismo do espaço.',
+    image: '/assets/inova/personalizada-flayder.jpeg',
+    alt: 'Arte de pagamento por Pix para a Flayder Willis Barbearia',
+    primaryColor: '#EAB308',
+    secondaryColor: '#CA8A04',
+    accentGlow: 'rgba(234, 179, 8, 0.28)',
+    accentGlowSecondary: 'rgba(202, 138, 4, 0.18)',
+    badgeText: 'Arte Personalizada • Barbearia & Estética',
+    badgeBorder: '#EAB308',
+    keyBenefits: [
+      'Agiliza o pagamento na bancada do barbeiro sem deslocamento',
+      'Arte exclusiva combinando tons dourados clássicos de barbearia',
+      'Chip NFC e QR Code Pix integrados para leitura imediata'
+    ],
+    whatsappMessage: 'Olá! Tenho uma barbearia/salão e gostaria de um orçamento para uma plaquinha personalizada como a da Flayder Willis Barbearia.',
+  },
+  {
+    id: 'capotas-pickup',
+    name: 'Capotas Pickup GYN Fibras',
+    label: 'Personalizada • Automotivo',
+    type: 'personalizada',
+    segment: 'Acessórios Automotivos',
+    categories: ['wifi', 'segmento'],
+    description: 'Arte personalizada com as cores e logotipo da oficina para conectar clientes à rede Wi-Fi na sala de espera com um único toque, oferecendo conforto e tecnologia durante o tempo de serviço.',
+    image: '/assets/inova/personalizada-capotas.jpeg',
+    alt: 'Arte de acesso ao Wi-Fi para a Capotas Pickup GYN Fibras',
+    primaryColor: '#6366F1',
+    secondaryColor: '#4338CA',
+    accentGlow: 'rgba(99, 102, 241, 0.28)',
+    accentGlowSecondary: 'rgba(67, 56, 202, 0.18)',
+    badgeText: 'Arte Personalizada • Acessórios Automotivos',
+    badgeBorder: '#6366F1',
+    keyBenefits: [
+      'Conexão Wi-Fi imediata para clientes em sala de espera',
+      'Identidade visual integrada com logotipo e cores da oficina',
+      'Base firme em acrílico para balcão de peças e recepção'
+    ],
+    whatsappMessage: 'Olá! Gostaria de solicitar um orçamento para uma plaquinha personalizada nos moldes da Capotas Pickup com logotipo da minha empresa.',
+  },
+];
+
 export const STANDARD_CATALOG: CatalogItem[] = [
+  {
+    id: 'padrao-google',
+    categories: ['google', 'nfc'],
+    label: 'ARTE PADRÃO • Avaliações Google • NFC e QR Code',
+    name: 'Plaquinha Google',
+    description: 'Deixe o caminho até as avaliações no Google direto e simples, incentivando depoimentos de 5 estrelas no balcão.',
+    image: '/assets/inova/padrao-google.jpeg',
+    alt: 'Modelo padrão azul de plaquinha para avaliações no Google com estrelas, NFC e QR Code',
+  },
+  {
+    id: 'padrao-instagram',
+    categories: ['instagram', 'nfc'],
+    label: 'ARTE PADRÃO • Instagram • NFC e QR Code',
+    name: 'Plaquinha Instagram',
+    description: 'Convide seus clientes a seguir o perfil da sua empresa e interagir com suas publicações no ponto de contato.',
+    image: '/assets/inova/padrao-instagram.jpeg',
+    alt: 'Modelo padrão colorido de plaquinha para divulgar o Instagram com NFC e QR Code',
+  },
   {
     id: 'padrao-whatsapp',
     categories: ['whatsapp', 'nfc', 'combinados'],
@@ -137,24 +426,6 @@ export const STANDARD_CATALOG: CatalogItem[] = [
     alt: 'Modelo padrão verde de plaquinha para pagamento por Pix com NFC e QR Code',
   },
   {
-    id: 'padrao-instagram',
-    categories: ['instagram', 'nfc'],
-    label: 'ARTE PADRÃO • Instagram • NFC e QR Code',
-    name: 'Plaquinha Instagram',
-    description: 'Convide seus clientes a seguir o perfil da sua empresa e interagir com suas publicações no ponto de contato.',
-    image: '/assets/inova/padrao-instagram.jpeg',
-    alt: 'Modelo padrão colorido de plaquinha para divulgar o Instagram com NFC e QR Code',
-  },
-  {
-    id: 'padrao-google',
-    categories: ['google', 'nfc'],
-    label: 'ARTE PADRÃO • Avaliações Google • NFC e QR Code',
-    name: 'Plaquinha Google',
-    description: 'Deixe o caminho até as avaliações no Google direto e simples, incentivando depoimentos de 5 estrelas no balcão.',
-    image: '/assets/inova/padrao-google.jpeg',
-    alt: 'Modelo padrão azul de plaquinha para avaliações no Google com estrelas, NFC e QR Code',
-  },
-  {
     id: 'padrao-wifi',
     categories: ['wifi', 'nfc'],
     label: 'ARTE PADRÃO • Wi-Fi • NFC e QR Code',
@@ -168,9 +439,9 @@ export const STANDARD_CATALOG: CatalogItem[] = [
 export const CATALOG_CATEGORIES = [
   { id: 'todos', label: 'Todas as artes' },
   { id: 'google', label: 'Avaliações Google' },
+  { id: 'instagram', label: 'Instagram' },
   { id: 'whatsapp', label: 'WhatsApp' },
   { id: 'pix', label: 'Pix' },
-  { id: 'instagram', label: 'Instagram' },
   { id: 'wifi', label: 'Wi-Fi' },
   { id: 'nfc', label: 'Aproximação NFC' },
   { id: 'combinados', label: 'Modelos combinados' },
@@ -245,97 +516,6 @@ export const CUSTOM_PLAQUES_FILTERS = [
   { id: 'pix', label: 'Pix' },
   { id: 'wifi', label: 'Wi-Fi' },
   { id: 'segmento', label: 'Por segmento' },
-];
-
-export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
-  {
-    id: 'agendamento-barbearia',
-    name: 'Barbearia Imperial Classic',
-    segment: 'Barbearia & Estética Masculina',
-    category: 'agendamento-sites',
-    categoryLabel: 'Agendamento Online',
-    description: 'Sistema prático de agendamento online com escolha de profissional, catálogo de serviços e confirmação de horários.',
-    solution: 'Página mobile rápida que permite ao cliente agendar horários em 3 cliques, reduzindo mensagens no WhatsApp e faltas.',
-    image: '/assets/inova/personalizada-flayder.jpeg',
-    isConceptual: true,
-  },
-  {
-    id: 'biosite-inova',
-    name: 'BioSite Integrado de Atendimento',
-    segment: 'Presença Digital & Centralização',
-    category: 'presenca-digital',
-    categoryLabel: 'BioSite',
-    description: 'Página unificada com todos os canais de contato, catálogo de serviços e localização comercial.',
-    solution: 'Design leve e de abertura ultrarrápida no celular, ideal para link na bio do Instagram e WhatsApp comercial.',
-    image: '/assets/inova/biosite-mockup.jpeg',
-    isConceptual: false,
-  },
-  {
-    id: 'chaveiro-nfc-inova',
-    name: 'Chaveiro NFC Impressão 3D',
-    segment: 'Conectividade Física Portátil',
-    category: 'chaveiros-cartoes',
-    categoryLabel: 'Chaveiro NFC 3D',
-    description: 'Chaveiro fabricado por tecnologia de impressão 3D de precisão com microchip NFC embutido para aproximação rápida.',
-    solution: 'Estrutura resistente com relevo sólido para compartilhar Instagram, WhatsApp ou BioSite com um simples toque.',
-    image: '/assets/inova/chaveiros-nfc.jpeg',
-    isConceptual: false,
-  },
-  {
-    id: 'cartao-nfc-networking',
-    name: 'Cartão de Visita NFC Inteligente',
-    segment: 'Networking & Contatos',
-    category: 'chaveiros-cartoes',
-    categoryLabel: 'Cartão NFC',
-    description: 'Cartão físico com aproximação NFC e QR Code para apresentação executiva e troca imediata de dados comerciais.',
-    solution: 'Aproxime o cartão do celular do cliente e abra seu contato, catálogo ou BioSite na hora, sem necessidade de papel.',
-    image: '/assets/inova/chaveiros-nfc.jpeg',
-    isConceptual: true,
-  },
-  {
-    id: 'placa-reall-car',
-    name: 'Plaquinha Reall Car Automotive',
-    segment: 'Estética Automotiva',
-    category: 'plaquinhas',
-    categoryLabel: 'Plaquinha NFC',
-    description: 'Plaquinha em acrílico com base em L, chip NFC e QR Code com arte personalizada para avaliações 5 estrelas no Google.',
-    solution: 'Posicionada na recepção, estimula clientes a deixarem avaliações no momento da entrega do veículo.',
-    image: '/assets/inova/personalizada-reall-car.jpeg',
-    isConceptual: false,
-  },
-  {
-    id: 'placa-claudia-atelie',
-    name: 'Plaquinha Claudia Ateliê',
-    segment: 'Moda Festa e Noivas',
-    category: 'plaquinhas',
-    categoryLabel: 'Plaquinha NFC',
-    description: 'Plaquinha em acrílico com arte personalizada nas cores do ateliê para captação de avaliações no Google.',
-    solution: 'Harmonizada com o balcão de atendimento, transmitindo profissionalismo e acolhimento para noivas e clientes.',
-    image: '/assets/inova/personalizada-claudia.jpeg',
-    isConceptual: false,
-  },
-  {
-    id: 'placa-verde-limao',
-    name: 'Plaquinha Verde Limão Chinelaria',
-    segment: 'Calçados & Varejo Local',
-    category: 'plaquinhas',
-    categoryLabel: 'Plaquinha NFC',
-    description: 'Plaquinha personalizada para balcão de vendas com instrução visual clara para avaliação no Google.',
-    solution: 'Facilitou a captação de avaliações espontâneas no caixa com aproximação NFC e leitura de QR Code.',
-    image: '/assets/inova/personalizada-verde-limao.jpeg',
-    isConceptual: false,
-  },
-  {
-    id: 'landing-page-servicos',
-    name: 'Página de Serviços & Lash Design',
-    segment: 'Estética & Beleza Feminina',
-    category: 'agendamento-sites',
-    categoryLabel: 'Página de Serviços',
-    description: 'Página focada na apresentação de procedimentos (Lash Design, Nail Design e Estética) com botão direto de agendamento.',
-    solution: 'Apresentação visual que valoriza o trabalho da profissional e facilita a consulta de procedimentos e marcação de horários.',
-    image: '/assets/inova/personalizada-capotas.jpeg',
-    isConceptual: true,
-  },
 ];
 
 export const FAQ_DATA: FAQItem[] = [

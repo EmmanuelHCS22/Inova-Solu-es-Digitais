@@ -47,32 +47,12 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="#solucoes" className="hover:text-white transition-colors">
-                  Soluções
+                  Soluções Inova
                 </a>
               </li>
               <li>
-                <a href="#catalogo-padrao" className="hover:text-white transition-colors">
-                  Plaquinhas NFC
-                </a>
-              </li>
-              <li>
-                <a href="#chaveiros-nfc" className="hover:text-white transition-colors">
-                  Chaveiros 3D & Cartões
-                </a>
-              </li>
-              <li>
-                <a href="#presenca-digital" className="hover:text-white transition-colors">
-                  Presença Digital
-                </a>
-              </li>
-              <li>
-                <a href="#agendamento-online" className="hover:text-white transition-colors">
-                  Agendamento Online
-                </a>
-              </li>
-              <li>
-                <a href="#portfolio" className="hover:text-white transition-colors">
-                  Portfólio
+                <a href="#diferenciais" className="hover:text-white transition-colors">
+                  Diferenciais
                 </a>
               </li>
               <li>
@@ -81,8 +61,18 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
+                <a href="#processo" className="hover:text-white transition-colors">
+                  Como Trabalhamos
+                </a>
+              </li>
+              <li>
                 <a href="#faq" className="hover:text-white transition-colors">
                   Dúvidas Frequentes
+                </a>
+              </li>
+              <li>
+                <a href="#contato" className="hover:text-white transition-colors">
+                  Contato
                 </a>
               </li>
             </ul>
@@ -95,48 +85,33 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <a href="#catalogo-padrao" className="hover:text-white transition-colors">
+                <a href="#solucoes" className="hover:text-white transition-colors">
                   Plaquinhas NFC (Balcão)
                 </a>
               </li>
               <li>
-                <a href="#chaveiros-nfc" className="hover:text-white transition-colors">
-                  Chaveiros NFC 3D
+                <a href="#solucoes" className="hover:text-white transition-colors">
+                  Chaveiros NFC em Impressão 3D
                 </a>
               </li>
               <li>
-                <a href="#chaveiros-nfc" className="hover:text-white transition-colors">
+                <a href="#solucoes" className="hover:text-white transition-colors">
                   Cartões NFC Inteligentes
                 </a>
               </li>
               <li>
-                <a href="#presenca-digital" className="hover:text-white transition-colors">
-                  Perfil no Google
+                <a href="#solucoes" className="hover:text-white transition-colors">
+                  Perfil no Google & BioSite
                 </a>
               </li>
               <li>
-                <a href="#presenca-digital" className="hover:text-white transition-colors">
-                  BioSite para Instagram
+                <a href="#solucoes" className="hover:text-white transition-colors">
+                  Sistemas de Agendamento Online
                 </a>
               </li>
               <li>
-                <a href="#presenca-digital" className="hover:text-white transition-colors">
-                  Catálogos & Cardápios
-                </a>
-              </li>
-              <li>
-                <a href="#agendamento-online" className="hover:text-white transition-colors">
-                  Agendamento Barbearias
-                </a>
-              </li>
-              <li>
-                <a href="#agendamento-online" className="hover:text-white transition-colors">
-                  Agendamento Lash & Salões
-                </a>
-              </li>
-              <li>
-                <a href="#presenca-digital" className="hover:text-white transition-colors">
-                  Landing Pages
+                <a href="#solucoes" className="hover:text-white transition-colors">
+                  Catálogos & Cardápios Digitais
                 </a>
               </li>
             </ul>

@@ -7,12 +7,6 @@ import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Solutions } from './components/Solutions';
-import { NFCProducts } from './components/NFCProducts';
-import { Catalog } from './components/Catalog';
-import { KeychainsNFC } from './components/KeychainsNFC';
-import { DigitalPresence } from './components/DigitalPresence';
-import { WebDevelopment } from './components/WebDevelopment';
-import { Portfolio } from './components/Portfolio';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { AboutUs } from './components/AboutUs';
 import { ProcessSection } from './components/ProcessSection';
@@ -38,12 +32,6 @@ export default function App() {
     const sectionIds = [
       'inicio',
       'solucoes',
-      'produtos-nfc',
-      'catalogo-padrao',
-      'chaveiros-nfc',
-      'presenca-digital',
-      'agendamento-online',
-      'portfolio',
       'diferenciais',
       'sobre',
       'processo',
@@ -75,58 +63,40 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#F5F4F0] text-[#171923] flex flex-col font-sans selection:bg-[#7357E8]/20 selection:text-[#7357E8]">
-      {/* 1. Fixed Header with navigation and official logo */}
+      {/* 1. Header Fixo com navegação reorganizada */}
       <Header activeSection={activeSection} />
 
-      {/* Main Content Area */}
+      {/* Conteúdo Principal */}
       <main className="flex-1">
-        {/* 2. Hero Section with 3D Plaque Showcase */}
+        {/* 2. Hero Refinada com Modelo 3D Real */}
         <Hero />
 
-        {/* 3. Solutions Section (4 Official Categories) */}
-        <Solutions />
+        {/* 3. Soluções Inova — Seção Central Unificada das 4 Categorias */}
+        <Solutions onOpenModal={(img) => setModalImage(img)} />
 
-        {/* 4. NFC & QR Code Products */}
-        <NFCProducts />
-
-        {/* 5. Product Showcase: Standard and Custom Acrylic Plaques */}
-        <Catalog onOpenModal={(img) => setModalImage(img)} />
-
-        {/* 6. 3D-Printed NFC Keychains & Smart NFC Cards */}
-        <KeychainsNFC />
-
-        {/* 7. Digital Presence: Google Meu Negócio, BioSite, Cartão Virtual, Catálogos, Cardápios, Landing Pages */}
-        <DigitalPresence />
-
-        {/* 8. Online Scheduling & Specialized Service Pages (Barbearias, Cabeleireiras, Lash, Nail, Estética) */}
-        <WebDevelopment />
-
-        {/* 9. Portfolio Section with Real Authentic Projects */}
-        <Portfolio onOpenModal={(img) => setModalImage(img)} />
-
-        {/* 10. Why Choose Inova (Differentials) */}
+        {/* 4. Por que Escolher a Inova (Diferenciais) */}
         <WhyChooseUs />
 
-        {/* 11. About Inova Soluções Digitais */}
+        {/* 5. Sobre a Inova Soluções Digitais */}
         <AboutUs />
 
-        {/* 12. Work Process (4 Linear Steps) */}
+        {/* 6. Processo de Trabalho (4 Etapas Lineares) */}
         <ProcessSection />
 
-        {/* 13. FAQ Accordion (14 Questions Covering all 10 areas) */}
+        {/* 7. Dúvidas Frequentes (FAQ) */}
         <FAQ />
 
-        {/* 14. Final CTA Banner & WhatsApp Lead Generator */}
+        {/* 8. Contato Final & Lead WhatsApp */}
         <ContactCTA />
       </main>
 
-      {/* 15. Footer */}
+      {/* 9. Rodapé Oficial */}
       <Footer />
 
-      {/* Image Zoom Modal */}
+      {/* Modal de Zoom de Imagens em Alta Definição */}
       <ImageModal image={modalImage} onClose={() => setModalImage(null)} />
 
-      {/* Persistent Floating WhatsApp Button */}
+      {/* Botão Flutuante de WhatsApp Comercial */}
       <FloatingWhatsApp />
     </div>
   );

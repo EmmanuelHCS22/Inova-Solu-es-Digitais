@@ -19,19 +19,6 @@ export interface CustomPlaque {
   alt: string;
 }
 
-export interface PortfolioProject {
-  id: string;
-  name: string;
-  segment: string;
-  category: 'plaquinhas' | 'chaveiros-cartoes' | 'presenca-digital' | 'agendamento-sites';
-  categoryLabel: string;
-  description: string;
-  solution: string;
-  image: string;
-  demoUrl?: string;
-  isConceptual?: boolean;
-}
-
 export interface ServiceItem {
   id: string;
   title: string;
