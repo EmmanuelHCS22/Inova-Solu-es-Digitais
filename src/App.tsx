@@ -62,7 +62,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F5F4F0] text-[#171923] flex flex-col font-sans selection:bg-[#7357E8]/20 selection:text-[#7357E8]">
+    <div className="min-h-screen bg-[#F5F4F0] text-[#0A0F2E] flex flex-col font-['Poppins',sans-serif] selection:bg-[#8B5CF6]/20 selection:text-[#8B5CF6]">
       {/* 1. Header Fixo com navegação reorganizada */}
       <Header activeSection={activeSection} />
 

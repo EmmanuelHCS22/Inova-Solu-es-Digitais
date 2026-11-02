@@ -178,6 +178,26 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
     return () => ctx.revert();
   }, []);
 
+  // Sincroniza abas com âncoras na URL (ex: ao clicar nos links do rodapé)
+  useEffect(() => {
+    const syncHashWithCategory = () => {
+      const hash = window.location.hash;
+      if (hash === '#chaveiros-nfc') {
+        setActiveCategory('chaveiros-cartoes');
+      } else if (hash === '#presenca-digital') {
+        setActiveCategory('presenca-digital');
+      } else if (hash === '#agendamento-online') {
+        setActiveCategory('sites-agendamento');
+      } else if (hash === '#catalogo-padrao' || hash === '#produtos-nfc' || hash === '#solucoes') {
+        setActiveCategory('plaquinhas');
+      }
+    };
+
+    syncHashWithCategory();
+    window.addEventListener('hashchange', syncHashWithCategory);
+    return () => window.removeEventListener('hashchange', syncHashWithCategory);
+  }, []);
+
   const handleCategoryChange = (cat: SolutionCategory) => {
     if (cat === activeCategory) return;
     setActiveCategory(cat);
@@ -187,7 +207,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
     <section
       id="solucoes"
       ref={sectionRef}
-      className="py-20 sm:py-28 lg:py-32 relative bg-[#111321] text-[#F7F8FC] border-t border-white/10 overflow-hidden"
+      className="py-20 sm:py-28 lg:py-32 relative bg-[#0A0F2E] text-[#F7F8FC] border-t border-white/[0.08] overflow-hidden"
     >
       {/* Âncoras legadas para compatibilidade de links antigos */}
       <div id="produtos-nfc" className="relative -top-24 pointer-events-none" aria-hidden="true" />
@@ -204,7 +224,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
       />
       <div
         aria-hidden="true"
-        className="absolute bottom-10 left-0 w-[400px] h-[400px] bg-[#22D3EE]/5 rounded-full blur-[120px] pointer-events-none -z-10"
+        className="absolute bottom-10 left-0 w-[400px] h-[400px] bg-[#00C2FF]/5 rounded-full blur-[120px] pointer-events-none -z-10"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -227,21 +247,21 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
 
         {/* Navegação Principal das 4 Categorias */}
         <div ref={navTabsRef} className="mb-10 sm:mb-14">
-          <div className="flex items-center gap-2 overflow-x-auto pb-3 scrollbar-none sm:grid sm:grid-cols-4 border-b border-white/10">
+          <div className="flex items-center gap-2 overflow-x-auto pb-3 border-b border-white/10 mobile-touch-scroll -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-4">
             
             {/* Categoria 1: Plaquinhas NFC */}
             <button
               type="button"
               onClick={() => handleCategoryChange('plaquinhas')}
-              className={`flex items-center gap-3 p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 shrink-0 sm:shrink min-h-[56px] ${
+              className={`flex items-center gap-3 p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 shrink-0 sm:shrink min-w-[200px] sm:min-w-0 min-h-[56px] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0.5 cursor-pointer ${
                 activeCategory === 'plaquinhas'
-                  ? 'bg-white/10 border border-[#8B5CF6]/60 text-white shadow-lg shadow-[#8B5CF6]/10'
-                  : 'bg-white/[0.02] border border-transparent text-[#F7F8FC]/65 hover:text-white hover:bg-white/5'
+                  ? 'bg-white/10 border border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/20 ring-1 ring-[#8B5CF6]/40'
+                  : 'bg-white/[0.02] border border-white/[0.06] text-[#F7F8FC]/65 hover:text-white hover:bg-white/[0.06] hover:border-white/15'
               }`}
             >
               <div
-                className={`p-2 rounded-lg shrink-0 ${
-                  activeCategory === 'plaquinhas' ? 'bg-[#8B5CF6] text-white' : 'bg-white/5 text-[#8B5CF6]'
+                className={`p-2 rounded-lg shrink-0 transition-transform duration-200 ${
+                  activeCategory === 'plaquinhas' ? 'bg-[#8B5CF6] text-white shadow-sm shadow-[#8B5CF6]/40 scale-105' : 'bg-white/5 text-[#8B5CF6]'
                 }`}
               >
                 <Radio className="w-4 h-4" />
@@ -260,15 +280,15 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
             <button
               type="button"
               onClick={() => handleCategoryChange('chaveiros-cartoes')}
-              className={`flex items-center gap-3 p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 shrink-0 sm:shrink min-h-[56px] ${
+              className={`flex items-center gap-3 p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 shrink-0 sm:shrink min-w-[200px] sm:min-w-0 min-h-[56px] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0.5 cursor-pointer ${
                 activeCategory === 'chaveiros-cartoes'
-                  ? 'bg-white/10 border border-[#8B5CF6]/60 text-white shadow-lg shadow-[#8B5CF6]/10'
-                  : 'bg-white/[0.02] border border-transparent text-[#F7F8FC]/65 hover:text-white hover:bg-white/5'
+                  ? 'bg-white/10 border border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/20 ring-1 ring-[#8B5CF6]/40'
+                  : 'bg-white/[0.02] border border-white/[0.06] text-[#F7F8FC]/65 hover:text-white hover:bg-white/[0.06] hover:border-white/15'
               }`}
             >
               <div
-                className={`p-2 rounded-lg shrink-0 ${
-                  activeCategory === 'chaveiros-cartoes' ? 'bg-[#8B5CF6] text-white' : 'bg-white/5 text-[#8B5CF6]'
+                className={`p-2 rounded-lg shrink-0 transition-transform duration-200 ${
+                  activeCategory === 'chaveiros-cartoes' ? 'bg-[#8B5CF6] text-white shadow-sm shadow-[#8B5CF6]/40 scale-105' : 'bg-white/5 text-[#8B5CF6]'
                 }`}
               >
                 <Printer className="w-4 h-4" />
@@ -287,15 +307,15 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
             <button
               type="button"
               onClick={() => handleCategoryChange('presenca-digital')}
-              className={`flex items-center gap-3 p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 shrink-0 sm:shrink min-h-[56px] ${
+              className={`flex items-center gap-3 p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 shrink-0 sm:shrink min-w-[200px] sm:min-w-0 min-h-[56px] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0.5 cursor-pointer ${
                 activeCategory === 'presenca-digital'
-                  ? 'bg-white/10 border border-[#8B5CF6]/60 text-white shadow-lg shadow-[#8B5CF6]/10'
-                  : 'bg-white/[0.02] border border-transparent text-[#F7F8FC]/65 hover:text-white hover:bg-white/5'
+                  ? 'bg-white/10 border border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/20 ring-1 ring-[#8B5CF6]/40'
+                  : 'bg-white/[0.02] border border-white/[0.06] text-[#F7F8FC]/65 hover:text-white hover:bg-white/[0.06] hover:border-white/15'
               }`}
             >
               <div
-                className={`p-2 rounded-lg shrink-0 ${
-                  activeCategory === 'presenca-digital' ? 'bg-[#8B5CF6] text-white' : 'bg-white/5 text-[#8B5CF6]'
+                className={`p-2 rounded-lg shrink-0 transition-transform duration-200 ${
+                  activeCategory === 'presenca-digital' ? 'bg-[#8B5CF6] text-white shadow-sm shadow-[#8B5CF6]/40 scale-105' : 'bg-white/5 text-[#8B5CF6]'
                 }`}
               >
                 <Globe className="w-4 h-4" />
@@ -314,15 +334,15 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
             <button
               type="button"
               onClick={() => handleCategoryChange('sites-agendamento')}
-              className={`flex items-center gap-3 p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 shrink-0 sm:shrink min-h-[56px] ${
+              className={`flex items-center gap-3 p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 shrink-0 sm:shrink min-w-[200px] sm:min-w-0 min-h-[56px] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0.5 cursor-pointer ${
                 activeCategory === 'sites-agendamento'
-                  ? 'bg-white/10 border border-[#8B5CF6]/60 text-white shadow-lg shadow-[#8B5CF6]/10'
-                  : 'bg-white/[0.02] border border-transparent text-[#F7F8FC]/65 hover:text-white hover:bg-white/5'
+                  ? 'bg-white/10 border border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/20 ring-1 ring-[#8B5CF6]/40'
+                  : 'bg-white/[0.02] border border-white/[0.06] text-[#F7F8FC]/65 hover:text-white hover:bg-white/[0.06] hover:border-white/15'
               }`}
             >
               <div
-                className={`p-2 rounded-lg shrink-0 ${
-                  activeCategory === 'sites-agendamento' ? 'bg-[#8B5CF6] text-white' : 'bg-white/5 text-[#8B5CF6]'
+                className={`p-2 rounded-lg shrink-0 transition-transform duration-200 ${
+                  activeCategory === 'sites-agendamento' ? 'bg-[#8B5CF6] text-white shadow-sm shadow-[#8B5CF6]/40 scale-105' : 'bg-white/5 text-[#8B5CF6]'
                 }`}
               >
                 <Calendar className="w-4 h-4" />
@@ -367,7 +387,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                     href={getWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para Plaquinhas NFC e QR Code.')}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#7348D6] text-white transition-all shadow-lg shadow-[#8B5CF6]/20 active:scale-98 min-h-[44px]"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-lg shadow-[#8B5CF6]/20 active:scale-98 min-h-[44px]"
                   >
                     <span>Solicitar plaquinha</span>
                     <ArrowUpRight className="w-4 h-4 text-white shrink-0" />
@@ -378,14 +398,14 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
               {/* Controles de Filtro das Plaquinhas */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 {/* Abas de Coleção: Todas / Padrão / Personalizada */}
-                <div className="flex items-center gap-1 bg-[#0C0D17] p-1 rounded-xl border border-white/10">
+                <div className="flex items-center gap-1 bg-[#12183F] p-1 rounded-xl border border-white/[0.08] overflow-x-auto max-w-full scrollbar-none mobile-touch-scroll shrink-0">
                   <button
                     type="button"
                     onClick={() => {
                       setPlaquesCollectionTab('todos');
                       setCurrentPlaqueIndex(0);
                     }}
-                    className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all min-h-[36px] ${
+                    className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all min-h-[36px] shrink-0 ${
                       plaquesCollectionTab === 'todos'
                         ? 'bg-[#8B5CF6] text-white shadow-sm'
                         : 'text-[#F7F8FC]/60 hover:text-white'
@@ -399,7 +419,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                       setPlaquesCollectionTab('padrao');
                       setCurrentPlaqueIndex(0);
                     }}
-                    className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all min-h-[36px] ${
+                    className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all min-h-[36px] shrink-0 ${
                       plaquesCollectionTab === 'padrao'
                         ? 'bg-[#8B5CF6] text-white shadow-sm'
                         : 'text-[#F7F8FC]/60 hover:text-white'
@@ -413,7 +433,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                       setPlaquesCollectionTab('personalizada');
                       setCurrentPlaqueIndex(0);
                     }}
-                    className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all min-h-[36px] ${
+                    className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all min-h-[36px] shrink-0 ${
                       plaquesCollectionTab === 'personalizada'
                         ? 'bg-[#8B5CF6] text-white shadow-sm'
                         : 'text-[#F7F8FC]/60 hover:text-white'
@@ -424,7 +444,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                 </div>
 
                 {/* Chips de Destino / Categoria */}
-                <div className="flex items-center gap-1.5 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto scrollbar-none text-xs">
+                <div className="flex items-center gap-1.5 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto scrollbar-none text-xs mobile-touch-scroll">
                   {CATALOG_CATEGORIES.map((cat) => (
                     <button
                       key={cat.id}
@@ -446,7 +466,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
               </div>
 
               {/* Coverflow Carousel Integrado de Plaquinhas Reais */}
-              <div className="relative rounded-2xl bg-[#0C0D17] border border-white/10 p-4 sm:p-6 lg:p-8 overflow-hidden shadow-2xl">
+              <div className="relative rounded-2xl bg-[#12183F] border border-white/[0.08] p-3 sm:p-6 lg:p-8 overflow-hidden shadow-2xl">
                 <CoverflowCarousel
                   items={filteredPlaques}
                   activeIndex={currentPlaqueIndex}
@@ -456,7 +476,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
 
                 {/* Informações da Plaquinha em Destaque */}
                 {activePlaqueItem && (
-                  <div className="mt-6 pt-5 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="mt-5 sm:mt-6 pt-5 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-1">
                         <span className="text-[11px] font-semibold text-[#8B5CF6] uppercase tracking-wide">
@@ -475,7 +495,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                       </p>
                     </div>
 
-                    <div className="flex items-center gap-3 shrink-0">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 shrink-0 w-full md:w-auto">
                       <button
                         type="button"
                         onClick={() =>
@@ -487,7 +507,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                             alt: activePlaqueItem.name,
                           })
                         }
-                        className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg text-xs font-semibold bg-white/5 hover:bg-white/10 text-white border border-white/10 transition-colors"
+                        className="inline-flex items-center justify-center gap-1.5 px-4 py-3 sm:py-2.5 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 text-white border border-white/10 transition-colors w-full sm:w-auto min-h-[44px] active:scale-98"
                       >
                         <Maximize2 className="w-3.5 h-3.5 text-white/70" />
                         <span>Ver foto ampliada</span>
@@ -497,7 +517,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                         href={getWhatsAppUrl(`Olá! Gostaria de consultar o modelo de plaquinha: ${activePlaqueItem.name}.`)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold bg-[#8B5CF6] hover:bg-[#7348D6] text-white transition-all shadow-md active:scale-98"
+                        className="inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 rounded-xl text-xs font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-md active:scale-98 w-full sm:w-auto min-h-[44px]"
                       >
                         <span>Pedir este modelo</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
@@ -509,7 +529,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
 
               {/* Destaques de Fabricação das Plaquinhas */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                <div className="bg-[#181B2E] p-4 rounded-xl border border-white/5">
+                <div className="bg-[#12183F] p-4 rounded-xl border border-white/[0.08]">
                   <span className="block text-xs font-bold text-white mb-1">
                     Acrílico com Base em L
                   </span>
@@ -517,7 +537,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                     Design estável para balcões, mesas e caixas, com inclinação ergonômica de leitura.
                   </p>
                 </div>
-                <div className="bg-[#181B2E] p-4 rounded-xl border border-white/5">
+                <div className="bg-[#12183F] p-4 rounded-xl border border-white/[0.08]">
                   <span className="block text-xs font-bold text-white mb-1">
                     NFC de Curto Alcance Integrado
                   </span>
@@ -525,7 +545,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                     Microchip de alta resposta. O cliente aproxima a traseira do celular e acessa seu link na hora.
                   </p>
                 </div>
-                <div className="bg-[#181B2E] p-4 rounded-xl border border-white/5">
+                <div className="bg-[#12183F] p-4 rounded-xl border border-white/[0.08]">
                   <span className="block text-xs font-bold text-white mb-1">
                     QR Code Vetorial Complementar
                   </span>
@@ -561,7 +581,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                     href={getWhatsAppUrl('Olá! Gostaria de um orçamento para Chaveiros em Impressão 3D e Cartões NFC da Inova.')}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#7348D6] text-white transition-all shadow-lg shadow-[#8B5CF6]/20 active:scale-98 min-h-[44px]"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-lg shadow-[#8B5CF6]/20 active:scale-98 min-h-[44px]"
                   >
                     <span>Solicitar chaveiros e cartões</span>
                     <ArrowUpRight className="w-4 h-4 text-white shrink-0" />
@@ -573,9 +593,9 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                 
                 {/* Lado Esquerdo: Fotografia Real dos Chaveiros em Impressão 3D */}
-                <div className="lg:col-span-5 bg-[#0C0D17] rounded-2xl border border-white/10 p-5 sm:p-7 shadow-2xl flex flex-col justify-between">
+                <div className="lg:col-span-5 bg-[#12183F] rounded-2xl border border-white/[0.08] p-5 sm:p-7 shadow-2xl flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/10 text-xs">
+                    <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/[0.08] text-xs">
                       <span className="font-semibold text-[#8B5CF6] uppercase tracking-wider">
                         Impressão 3D de Precisão
                       </span>
@@ -584,7 +604,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                       </span>
                     </div>
 
-                    <div className="relative rounded-xl overflow-hidden aspect-square bg-[#111321] flex items-center justify-center p-3 mb-5 group">
+                    <div className="relative rounded-xl overflow-hidden aspect-square bg-[#0A0F2E] flex items-center justify-center p-3 mb-5 group">
                       <img
                         src="/assets/inova/chaveiros-nfc.jpeg"
                         alt="Chaveiros NFC fabricados por tecnologia de impressão 3D da Inova Soluções Digitais"
@@ -602,7 +622,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                             alt: 'Chaveiros NFC fabricados por impressão 3D da Inova',
                           })
                         }
-                        className="absolute bottom-3 right-3 p-2 rounded-lg bg-[#111321]/80 backdrop-blur-sm text-white/80 hover:text-white border border-white/10 transition-colors"
+                        className="absolute bottom-3 right-3 p-2 rounded-lg bg-[#0A0F2E]/80 backdrop-blur-sm text-white/80 hover:text-white border border-white/10 transition-colors"
                         aria-label="Ampliar imagem dos chaveiros"
                       >
                         <Maximize2 className="w-4 h-4" />
@@ -615,16 +635,16 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-2 pt-4 mt-5 border-t border-white/10 text-center text-xs">
+                  <div className="grid grid-cols-3 gap-2 pt-4 mt-5 border-t border-white/[0.08] text-center text-xs">
                     <div>
                       <span className="text-[10px] uppercase text-white/40 block">Processo</span>
                       <span className="font-semibold text-white">Impressão 3D</span>
                     </div>
-                    <div className="border-l border-white/10">
+                    <div className="border-l border-white/[0.08]">
                       <span className="text-[10px] uppercase text-white/40 block">Frequência</span>
-                      <span className="font-semibold text-white">13.56 MHz NFC</span>
+                      <span className="font-semibold text-[#00C2FF]">13.56 MHz NFC</span>
                     </div>
-                    <div className="border-l border-white/10">
+                    <div className="border-l border-white/[0.08]">
                       <span className="text-[10px] uppercase text-white/40 block">App</span>
                       <span className="font-semibold text-white">Sem instalação</span>
                     </div>
@@ -643,8 +663,8 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                         onClick={() => setSelectedKeychainModel(model.id)}
                         className={`p-4 rounded-xl border transition-all cursor-pointer flex items-start justify-between gap-4 ${
                           selectedKeychainModel === model.id
-                            ? 'bg-[#181B2E] border-[#8B5CF6] shadow-md'
-                            : 'bg-[#0C0D17] border-white/10 hover:border-white/20'
+                            ? 'bg-[#161E4E] border-[#8B5CF6] shadow-md'
+                            : 'bg-[#12183F] border-white/[0.08] hover:border-white/20'
                         }`}
                       >
                         <div>
@@ -673,7 +693,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                   </div>
 
                   {/* Informação sobre os Cartões NFC */}
-                  <div className="p-4 sm:p-5 rounded-xl bg-gradient-to-r from-[#181B2E] to-[#141624] border border-[#8B5CF6]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="p-4 sm:p-5 rounded-xl bg-[#12183F] border border-[#8B5CF6]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div>
                       <span className="text-[11px] font-semibold text-[#8B5CF6] uppercase tracking-wide block">
                         Cartões de Visita NFC Inteligentes
@@ -686,7 +706,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                       href={getWhatsAppUrl('Olá! Gostaria de consultar um orçamento para Cartões de Visita NFC Inteligentes.')}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 rounded-lg text-xs font-semibold bg-[#8B5CF6] hover:bg-[#7348D6] text-white transition-colors shrink-0"
+                      className="px-4 py-2 rounded-lg text-xs font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-colors shrink-0"
                     >
                       Consultar cartão NFC
                     </a>
@@ -721,7 +741,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                     href={getWhatsAppUrl('Olá! Gostaria de um orçamento para soluções de Presença Digital com a Inova.')}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#7348D6] text-white transition-all shadow-lg shadow-[#8B5CF6]/20 active:scale-98 min-h-[44px]"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-lg shadow-[#8B5CF6]/20 active:scale-98 min-h-[44px]"
                   >
                     <span>Quero minha presença digital</span>
                     <ArrowUpRight className="w-4 h-4 text-white shrink-0" />
@@ -736,8 +756,8 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                   onClick={() => setDigitalTab('google')}
                   className={`p-4 rounded-xl border text-left transition-all min-h-[72px] flex items-center justify-between ${
                     digitalTab === 'google'
-                      ? 'bg-[#181B2E] border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/10'
-                      : 'bg-[#0C0D17] border-white/10 text-white/60 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#161E4E] border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/10'
+                      : 'bg-[#12183F] border-white/[0.08] text-white/60 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -755,8 +775,8 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                   onClick={() => setDigitalTab('biosite')}
                   className={`p-4 rounded-xl border text-left transition-all min-h-[72px] flex items-center justify-between ${
                     digitalTab === 'biosite'
-                      ? 'bg-[#181B2E] border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/10'
-                      : 'bg-[#0C0D17] border-white/10 text-white/60 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#161E4E] border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/10'
+                      : 'bg-[#12183F] border-white/[0.08] text-white/60 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -774,8 +794,8 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                   onClick={() => setDigitalTab('cartao-virtual')}
                   className={`p-4 rounded-xl border text-left transition-all min-h-[72px] flex items-center justify-between ${
                     digitalTab === 'cartao-virtual'
-                      ? 'bg-[#181B2E] border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/10'
-                      : 'bg-[#0C0D17] border-white/10 text-white/60 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#161E4E] border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/10'
+                      : 'bg-[#12183F] border-white/[0.08] text-white/60 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -790,7 +810,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
               </div>
 
               {/* Conteúdo Detalhado da Ferramenta Selecionada */}
-              <div className="rounded-2xl bg-[#0C0D17] border border-white/10 p-6 sm:p-8 lg:p-10 shadow-2xl">
+              <div className="rounded-2xl bg-[#12183F] border border-white/[0.08] p-6 sm:p-8 lg:p-10 shadow-2xl">
                 
                 {digitalTab === 'google' && (
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -805,7 +825,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                         Organize as informações do seu negócio e facilite que clientes encontrem sua empresa nas pesquisas e no Google Maps.
                       </p>
 
-                      <div className="space-y-2.5 pt-3 border-t border-white/10">
+                      <div className="space-y-2.5 pt-3 border-t border-white/[0.08]">
                         <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F8FC]/85">
                           <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
                           <span>Enquadramento correto nas categorias do Google para busca na sua região</span>
@@ -829,7 +849,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                           href={getWhatsAppUrl('Olá! Gostaria de um orçamento para criação e otimização do Perfil da Empresa no Google (Google Meu Negócio).')}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#7348D6] text-white transition-all shadow-md text-center"
+                          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-md text-center"
                         >
                           <span>Otimizar Perfil no Google</span>
                           <ArrowUpRight className="w-4 h-4" />
@@ -841,7 +861,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                     </div>
 
                     <div className="lg:col-span-5 flex justify-center">
-                      <div className="relative rounded-xl overflow-hidden border border-white/10 bg-[#111321] p-3 max-w-sm group">
+                      <div className="relative rounded-xl overflow-hidden border border-white/[0.08] bg-[#0A0F2E] p-3 max-w-sm group">
                         <img
                           src="/assets/inova/google-perfil.jpeg"
                           alt="Perfil da Empresa no Google organizado e otimizado pela Inova Soluções Digitais"
@@ -859,7 +879,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                               alt: 'Perfil da Empresa no Google',
                             })
                           }
-                          className="absolute bottom-5 right-5 p-2 rounded-lg bg-[#111321]/80 backdrop-blur-sm text-white/80 hover:text-white border border-white/10 transition-colors"
+                          className="absolute bottom-5 right-5 p-2 rounded-lg bg-[#0A0F2E]/80 backdrop-blur-sm text-white/80 hover:text-white border border-white/10 transition-colors"
                         >
                           <Maximize2 className="w-4 h-4" />
                         </button>
@@ -905,7 +925,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                           href={getWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para desenvolvimento de um BioSite para o meu negócio.')}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#7348D6] text-white transition-all shadow-md text-center"
+                          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-md text-center"
                         >
                           <span>Quero meu BioSite</span>
                           <ArrowUpRight className="w-4 h-4" />
@@ -917,7 +937,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                     </div>
 
                     <div className="lg:col-span-5 flex justify-center">
-                      <div className="relative rounded-xl overflow-hidden border border-white/10 bg-[#111321] p-3 max-w-[280px] group">
+                      <div className="relative rounded-xl overflow-hidden border border-white/[0.08] bg-[#0A0F2E] p-3 max-w-[280px] group">
                         <img
                           src="/assets/inova/biosite-mockup.jpeg"
                           alt="Interface mobile do BioSite desenvolvido pela Inova Soluções Digitais"
@@ -935,7 +955,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                               alt: 'BioSite Profissional',
                             })
                           }
-                          className="absolute bottom-5 right-5 p-2 rounded-lg bg-[#111321]/80 backdrop-blur-sm text-white/80 hover:text-white border border-white/10 transition-colors"
+                          className="absolute bottom-5 right-5 p-2 rounded-lg bg-[#0A0F2E]/80 backdrop-blur-sm text-white/80 hover:text-white border border-white/10 transition-colors"
                         >
                           <Maximize2 className="w-4 h-4" />
                         </button>
@@ -990,7 +1010,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                         href={getWhatsAppUrl('Olá! Gostaria de um orçamento para Cartão Virtual Interativo.')}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#7348D6] text-white transition-all shadow-md"
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-md"
                       >
                         <span>Solicitar Cartão Virtual</span>
                         <ArrowUpRight className="w-4 h-4" />
@@ -1009,7 +1029,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
           {activeCategory === 'sites-agendamento' && (
             <div className="space-y-8 animate-in fade-in duration-300">
               {/* Descritivo da Categoria */}
-              <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-white/10">
+              <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-white/[0.08]">
                 <div className="max-w-2xl">
                   <span className="text-xs font-semibold text-[#8B5CF6] uppercase tracking-wider block mb-1">
                     Categoria 04 • Plataformas & Organização de Horários
@@ -1027,7 +1047,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                     href={getWhatsAppUrl('Olá! Gostaria de um orçamento para Sistema de Agendamento Online e Sites com a Inova.')}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#7348D6] text-white transition-all shadow-lg shadow-[#8B5CF6]/20 active:scale-98 min-h-[44px]"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-lg shadow-[#8B5CF6]/20 active:scale-98 min-h-[44px]"
                   >
                     <span>Solicitar agendamento ou site</span>
                     <ArrowUpRight className="w-4 h-4 text-white shrink-0" />
@@ -1039,11 +1059,11 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
                 
                 {/* Protagonista: Sistema de Agendamento Online */}
-                <div className="lg:col-span-7 bg-[#0C0D17] rounded-2xl border border-[#8B5CF6]/40 p-6 sm:p-8 shadow-2xl flex flex-col justify-between relative overflow-hidden group hover:border-[#8B5CF6]/70 transition-colors">
+                <div className="lg:col-span-7 bg-[#12183F] rounded-2xl border border-[#8B5CF6]/40 p-6 sm:p-8 shadow-2xl flex flex-col justify-between relative overflow-hidden group hover:border-[#8B5CF6]/70 transition-colors">
                   <div className="absolute top-0 right-0 w-80 h-80 bg-[#8B5CF6]/10 rounded-full blur-3xl pointer-events-none" />
 
                   <div>
-                    <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/10 text-xs">
+                    <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/[0.08] text-xs">
                       <span className="text-[#8B5CF6] font-semibold uppercase tracking-wider">
                         Sistema de Agendamento Online
                       </span>
@@ -1065,36 +1085,36 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                       Seus clientes escolhem o serviço desejado, o profissional e o horário disponível em poucos cliques pelo celular. Você não precisa parar seu atendimento para responder perguntas de horários no WhatsApp.
                     </p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 pt-4 border-t border-white/10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 pt-4 border-t border-white/[0.08]">
                       <div className="space-y-2">
                         <div className="flex items-start gap-2 text-xs text-[#F7F8FC]/85">
-                          <Check className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0 mt-0.5" />
+                          <Check className="w-3.5 h-3.5 text-[#00C2FF] shrink-0 mt-0.5" />
                           <span>Catálogo de serviços com valores e tempo</span>
                         </div>
                         <div className="flex items-start gap-2 text-xs text-[#F7F8FC]/85">
-                          <Check className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0 mt-0.5" />
+                          <Check className="w-3.5 h-3.5 text-[#00C2FF] shrink-0 mt-0.5" />
                           <span>Escolha individual do profissional da equipe</span>
                         </div>
                       </div>
                       <div className="space-y-2">
                         <div className="flex items-start gap-2 text-xs text-[#F7F8FC]/85">
-                          <Check className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0 mt-0.5" />
+                          <Check className="w-3.5 h-3.5 text-[#00C2FF] shrink-0 mt-0.5" />
                           <span>Confirmação que reduz faltas e atrasos</span>
                         </div>
                         <div className="flex items-start gap-2 text-xs text-[#F7F8FC]/85">
-                          <Check className="w-3.5 h-3.5 text-[#8B5CF6] shrink-0 mt-0.5" />
+                          <Check className="w-3.5 h-3.5 text-[#00C2FF] shrink-0 mt-0.5" />
                           <span>Funciona no navegador, sem app para baixar</span>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                  <div className="pt-4 border-t border-white/[0.08] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                     <a
                       href={getWhatsAppUrl('Olá! Gostaria de um orçamento para implantar o Sistema de Agendamento Online no meu negócio.')}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#7348D6] text-white transition-all shadow-md text-center min-h-[44px]"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-md text-center min-h-[44px]"
                     >
                       <span>Solicitar orçamento de agendamento</span>
                       <ArrowUpRight className="w-4 h-4 text-white" />
@@ -1109,9 +1129,9 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                 <div className="lg:col-span-5 flex flex-col justify-between gap-5">
                   
                   {/* Card: Página de Serviços & Procedimentos */}
-                  <div className="bg-[#0C0D17] rounded-2xl border border-white/10 p-5 shadow-xl flex flex-col justify-between flex-1">
+                  <div className="bg-[#12183F] rounded-2xl border border-white/[0.08] p-5 shadow-xl flex flex-col justify-between flex-1">
                     <div>
-                      <div className="flex items-center justify-between pb-2 mb-3 border-b border-white/10">
+                      <div className="flex items-center justify-between pb-2 mb-3 border-b border-white/[0.08]">
                         <span className="text-xs font-semibold uppercase tracking-wider text-[#8B5CF6]">
                           Páginas de Procedimentos
                         </span>
@@ -1136,9 +1156,9 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                   </div>
 
                   {/* Card: Catálogos e Cardápios Digitais */}
-                  <div className="bg-[#0C0D17] rounded-2xl border border-white/10 p-5 shadow-xl flex flex-col justify-between flex-1">
+                  <div className="bg-[#12183F] rounded-2xl border border-white/[0.08] p-5 shadow-xl flex flex-col justify-between flex-1">
                     <div>
-                      <div className="flex items-center justify-between pb-2 mb-3 border-b border-white/10">
+                      <div className="flex items-center justify-between pb-2 mb-3 border-b border-white/[0.08]">
                         <span className="text-xs font-semibold uppercase tracking-wider text-[#8B5CF6]">
                           Catálogos & Cardápios
                         </span>
@@ -1186,7 +1206,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                   {SCHEDULING_NICHES.map((niche) => (
                     <div
                       key={niche.id}
-                      className="bg-[#0C0D17] rounded-xl border border-white/10 p-4 flex flex-col justify-between hover:border-[#8B5CF6]/50 transition-all duration-200 group"
+                      className="bg-[#12183F] rounded-xl border border-white/[0.08] p-4 flex flex-col justify-between hover:border-[#8B5CF6]/50 transition-all duration-200 group"
                     >
                       <div>
                         <div className="flex items-center justify-between gap-1 mb-2">
@@ -1203,8 +1223,8 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                         </p>
                       </div>
 
-                      <div className="pt-2.5 border-t border-white/10">
-                        <span className="text-[10px] text-[#F7F8FC]/80 font-medium block mb-2">
+                      <div className="pt-2.5 border-t border-white/[0.08]">
+                        <span className="text-[10px] text-[#00C2FF] font-medium block mb-2">
                           ✓ {niche.benefit}
                         </span>
                         <a
@@ -1223,7 +1243,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
               </div>
 
               {/* Destaque Discreto de Responsividade */}
-              <div className="rounded-xl bg-[#0C0D17] border border-white/10 p-5 sm:p-6 shadow-xl">
+              <div className="rounded-xl bg-[#12183F] border border-white/[0.08] p-5 sm:p-6 shadow-xl">
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
                   <div className="flex items-start sm:items-center gap-4">
                     <div className="flex items-center -space-x-1 bg-white/5 p-2.5 rounded-xl border border-white/10 shrink-0 text-[#8B5CF6]">

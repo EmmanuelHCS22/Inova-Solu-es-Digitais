@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { Loader2 } from 'lucide-react';
+import { Loader2, RotateCcw } from 'lucide-react';
 
 export const HeroPlaque3D: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -83,8 +83,8 @@ export const HeroPlaque3D: React.FC = () => {
     fillLight.position.set(-2.8, 1.8, 3.2);
     scene.add(fillLight);
 
-    // Rim Light 1: Ciano Inova acentuando bordas biseladas e quinas do acrílico cristal
-    const rimCyan = new THREE.DirectionalLight(0x06b6d4, 2.8);
+    // Rim Light 1: Ciano Inova oficial acentuando bordas biseladas e quinas do acrílico cristal
+    const rimCyan = new THREE.DirectionalLight(0x00c2ff, 2.8);
     rimCyan.position.set(4.0, 2.6, -3.2);
     scene.add(rimCyan);
 
@@ -329,7 +329,7 @@ export const HeroPlaque3D: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full aspect-[4/3] sm:aspect-[1/1] max-w-[500px] mx-auto flex flex-col items-center justify-center select-none overflow-visible">
+    <div className="relative w-full aspect-[4/3] sm:aspect-[1/1] max-w-[500px] min-h-[260px] xs:min-h-[290px] sm:min-h-[380px] mx-auto flex flex-col items-center justify-center select-none overflow-visible">
       {/* 3D Canvas Mount Point com Fundo 100% Transparente suspenso no espaço */}
       <div
         ref={mountRef}
@@ -342,7 +342,7 @@ export const HeroPlaque3D: React.FC = () => {
       {/* Indicador de carregamento minimalista */}
       {loading && (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2.5 z-10">
-          <Loader2 className="w-7 h-7 text-[#22D3EE] animate-spin" />
+          <Loader2 className="w-7 h-7 text-[#00C2FF] animate-spin" />
         </div>
       )}
 
@@ -350,6 +350,16 @@ export const HeroPlaque3D: React.FC = () => {
       {loadError && (
         <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
           <p className="text-xs text-white/50">{loadError}</p>
+        </div>
+      )}
+
+      {/* Dica de interação tátil no mobile */}
+      {!loading && !loadError && (
+        <div className="absolute -bottom-3 sm:bottom-0 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0A0F2E]/90 border border-white/10 text-[11px] text-[#F7F8FC]/70 shadow-sm backdrop-blur-xs whitespace-nowrap">
+            <RotateCcw className="w-3 h-3 text-[#00C2FF]" />
+            <span>Gire a plaquinha 360°</span>
+          </span>
         </div>
       )}
     </div>

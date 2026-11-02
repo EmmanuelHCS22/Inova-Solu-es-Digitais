@@ -6,8 +6,10 @@ export const INOVA_CONTACT = {
   subtagline: 'Plaquinhas NFC, produtos personalizados e soluções digitais que facilitam a conexão com seus clientes e fortalecem a presença do seu negócio.',
   phone: '5534998973287',
   displayPhone: '(34) 99897-3287',
+  email: 'inovasdigitais@gmail.com',
   location: 'Uberlândia, MG',
-  instagram: 'https://www.instagram.com',
+  instagram: 'https://www.instagram.com/inova.solucoesdigitais/',
+  instagramHandle: '@inova.solucoesdigitais',
   logo: '/assets/inova/logo-inova.png',
 };
 

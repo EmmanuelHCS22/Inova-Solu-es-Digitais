@@ -98,7 +98,7 @@ export const Hero: React.FC = () => {
       {/* Iluminação de profundidade arquitetural e controlada */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 pointer-events-none -z-10 bg-[radial-gradient(ellipse_70%_50%_at_65%_45%,rgba(34,211,238,0.06)_0%,rgba(139,92,246,0.09)_45%,transparent_75%)]"
+        className="absolute inset-0 pointer-events-none -z-10 bg-[radial-gradient(ellipse_70%_50%_at_65%_45%,rgba(0,194,255,0.06)_0%,rgba(139,92,246,0.09)_45%,transparent_75%)]"
       />
       <div
         aria-hidden="true"
@@ -112,7 +112,7 @@ export const Hero: React.FC = () => {
           <div ref={leftColRef} className="lg:col-span-7 xl:col-span-6 flex flex-col justify-center text-left">
             
             {/* Título Principal — 2 Linhas com Peso e Firmeza */}
-            <h1 className="text-[clamp(2.35rem,4.4vw,4.25rem)] font-extrabold text-white tracking-tight leading-[1.08] mb-6 font-display">
+            <h1 className="text-[clamp(1.75rem,6.2vw,4.25rem)] font-extrabold text-white tracking-tight leading-[1.12] mb-5 sm:mb-6 font-display">
               <span className="block overflow-hidden pb-1">
                 <span className="hero-line-reveal block will-change-transform">
                   Seu negócio mais conectado.
@@ -141,10 +141,10 @@ export const Hero: React.FC = () => {
               {/* CTA Principal: Conhecer Soluções */}
               <a
                 href="#solucoes"
-                className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 text-base font-semibold rounded-xl text-white bg-[#8B5CF6] hover:bg-[#7C3AED] transition-[background-color,transform,box-shadow] duration-200 shadow-md shadow-[#8B5CF6]/25 hover:shadow-lg hover:shadow-[#8B5CF6]/40 active:scale-98 min-h-[48px]"
+                className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 text-base font-semibold rounded-xl text-white bg-[#8B5CF6] hover:bg-[#6366F1] transition-all duration-200 shadow-md shadow-[#8B5CF6]/25 hover:shadow-lg hover:shadow-[#8B5CF6]/40 hover:-translate-y-0.5 active:scale-[0.97] active:translate-y-0.5 min-h-[48px]"
               >
                 <span>Conhecer soluções</span>
-                <ArrowDown className="w-4 h-4 text-white/90 group-hover:translate-y-0.5 transition-transform duration-200" />
+                <ArrowDown className="w-4 h-4 text-white/90 group-hover:translate-y-1 transition-transform duration-200" />
               </a>
 
               {/* CTA Secundário: Solicitar Orçamento */}
@@ -152,17 +152,17 @@ export const Hero: React.FC = () => {
                 href={getWhatsAppUrl('Olá! Estou no site da Inova Soluções Digitais e gostaria de solicitar um orçamento.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 text-base font-semibold rounded-xl text-white/90 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 transition-[background-color,border-color,transform] duration-200 active:scale-98 min-h-[48px]"
+                className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 text-base font-semibold rounded-xl text-white/90 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.97] active:translate-y-0.5 min-h-[48px]"
               >
                 <span>Solicitar orçamento</span>
-                <ArrowUpRight className="w-4 h-4 text-white/70" />
+                <ArrowUpRight className="w-4 h-4 text-white/70 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
               </a>
             </div>
 
             {/* Síntese do Ecossistema Físico-Digital */}
             <div
               ref={ecosystemRef}
-              className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-white/65 font-medium pt-2 border-t border-white/10"
+              className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-white/65 font-medium pt-2 border-t border-white/[0.08]"
             >
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]" />
@@ -170,12 +170,12 @@ export const Hero: React.FC = () => {
               </span>
               <span className="text-white/20 hidden sm:inline">·</span>
               <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#22D3EE]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00C2FF]" />
                 Chaveiros 3D & Cartões NFC
               </span>
               <span className="text-white/20 hidden sm:inline">·</span>
               <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#6366F1]" />
                 Presença Digital & Agendamento
               </span>
             </div>
@@ -191,7 +191,7 @@ export const Hero: React.FC = () => {
               aria-hidden="true"
               className="absolute w-[280px] sm:w-[360px] lg:w-[420px] h-[280px] sm:h-[360px] lg:h-[420px] rounded-full pointer-events-none -z-10 blur-3xl opacity-20"
               style={{
-                background: 'radial-gradient(circle, rgba(34, 211, 238, 0.25) 0%, rgba(139, 92, 246, 0.18) 50%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(0, 194, 255, 0.25) 0%, rgba(139, 92, 246, 0.18) 50%, transparent 70%)',
               }}
             />
 

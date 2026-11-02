@@ -1,67 +1,91 @@
 @import "tailwindcss";
 
+@theme {
+  --color-inova-purple: #8B5CF6;
+  --color-inova-violet: #6366F1;
+  --color-inova-cyan: #00C2FF;
+  --color-inova-dark: #0A0F2E;
+  --color-inova-surface: #12183F;
+  --color-inova-white: #F7F8FC;
+  --color-inova-offwhite: #F5F4F0;
+}
+
 @layer base {
   :root {
     --bg-canvas: #F5F4F0;
-    --bg-dark: #111321;
-    --bg-dark-surface: #181B2E;
-    --text-primary: #171923;
-    --text-muted: #5A6072;
-    --text-light: #F7F7F5;
-    --accent-purple: #7357E8;
-    --accent-violet: #8B5CF6;
-    --accent-cyan: #22D3EE;
-    --border-light: rgba(23, 25, 35, 0.08);
-    --border-dark: rgba(255, 255, 255, 0.1);
+    --bg-dark: #0A0F2E;
+    --bg-dark-surface: #12183F;
+    --text-primary: #0A0F2E;
+    --text-muted: #4A5168;
+    --text-light: #F7F8FC;
+    --accent-purple: #8B5CF6;
+    --accent-violet: #6366F1;
+    --accent-cyan: #00C2FF;
+    --border-light: rgba(10, 15, 46, 0.08);
+    --border-dark: rgba(247, 248, 252, 0.08);
   }
 
   body {
-    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Poppins', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: #F5F4F0;
-    color: #171923;
+    color: #0A0F2E;
     overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Safe padding for iOS notched displays and home indicator */
+  .safe-bottom-padding {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Mobile horizontal touch scroll container */
+  .mobile-touch-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
   }
 
   h1, h2, h3, h4, .font-display {
-    font-family: 'Manrope', 'Plus Jakarta Sans', sans-serif;
-    letter-spacing: -0.025em;
+    font-family: 'Poppins', 'Manrope', sans-serif;
+    letter-spacing: -0.02em;
   }
 }
 
-/* Editorial studio surfaces */
+/* Superfícies refinadas Inova */
 .studio-card-light {
   background: #FFFFFF;
-  border: 1px solid rgba(23, 25, 35, 0.08);
-  box-shadow: 0 4px 20px -2px rgba(23, 25, 35, 0.04);
+  border: 1px solid rgba(10, 15, 46, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(10, 15, 46, 0.04);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .studio-card-light:hover {
-  border-color: rgba(115, 87, 232, 0.3);
-  box-shadow: 0 12px 30px -4px rgba(23, 25, 35, 0.08);
+  border-color: rgba(139, 92, 246, 0.35);
+  box-shadow: 0 12px 30px -4px rgba(10, 15, 46, 0.08);
   transform: translateY(-2px);
 }
 
 .studio-card-dark {
-  background: #181B2E;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+  background: #12183F;
+  border: 1px solid rgba(247, 248, 252, 0.08);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.35);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .studio-card-dark:hover {
-  background: #1E223A;
-  border-color: rgba(115, 87, 232, 0.35);
+  background: #161E4E;
+  border-color: rgba(139, 92, 246, 0.45);
   transform: translateY(-2px);
 }
 
 /* Hairline dividers */
 .hairline-light {
-  border-color: rgba(23, 25, 35, 0.08);
+  border-color: rgba(10, 15, 46, 0.08);
 }
 
 .hairline-dark {
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(247, 248, 252, 0.08);
 }
 
 /* Scrollbar styling */
@@ -74,12 +98,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D2D0C8;
+  background: #C4C8D8;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7357E8;
+  background: #8B5CF6;
 }
 
 /* Accessible reduced motion */

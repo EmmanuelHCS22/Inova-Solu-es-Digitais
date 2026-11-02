@@ -46,17 +46,26 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
   const updateDimensions = useCallback(() => {
     if (typeof window === 'undefined') return;
     const w = window.innerWidth;
-    if (w < 640) {
-      // Mobile
+    if (w < 380) {
+      // Small mobile (320px - 360px)
       setDimensions({
-        activeWidth: 260,
+        activeWidth: Math.max(210, w - 76),
+        activeHeight: 285,
+        restWidth: 110,
+        restHeight: 160,
+        gap: 8,
+      });
+    } else if (w < 640) {
+      // Standard mobile (375px - 430px)
+      setDimensions({
+        activeWidth: Math.min(w - 80, 260),
         activeHeight: 330,
-        restWidth: 150,
-        restHeight: 200,
+        restWidth: 140,
+        restHeight: 190,
         gap: 12,
       });
     } else if (w < 1024) {
-      // Tablet
+      // Tablet (640px - 768px - 1024px)
       setDimensions({
         activeWidth: 320,
         activeHeight: 400,
@@ -168,28 +177,57 @@ export const CoverflowCarousel: React.FC<CoverflowCarouselProps> = ({
           />
         ))}
 
-        {/* Navigation Arrow Left */}
+        {/* Navigation Arrow Left (Tablet & Desktop only) */}
         <button
           type="button"
           onClick={() => activeIndex > 0 && onSelectIndex(activeIndex - 1)}
           disabled={activeIndex === 0}
-          className="absolute left-2 sm:left-6 lg:left-10 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#0A0F2E]/80 hover:bg-[#8B5CF6] border border-white/15 text-white flex items-center justify-center transition-all duration-200 shadow-xl shadow-black/40 active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed z-30 focus:outline-none focus:ring-2 focus:ring-[#8B5CF6]"
+          className="hidden sm:flex absolute left-2 sm:left-6 lg:left-10 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#0A0F2E]/80 hover:bg-[#8B5CF6] border border-white/15 text-white items-center justify-center transition-all duration-200 shadow-xl shadow-black/40 active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed z-30 focus:outline-none focus:ring-2 focus:ring-[#8B5CF6]"
           aria-label="Plaquinha anterior"
           title="Ver plaquinha anterior (Seta esquerda)"
         >
           <ChevronLeft className="w-5 h-5 text-white" />
         </button>
 
-        {/* Navigation Arrow Right */}
+        {/* Navigation Arrow Right (Tablet & Desktop only) */}
         <button
           type="button"
           onClick={() => activeIndex < items.length - 1 && onSelectIndex(activeIndex + 1)}
           disabled={activeIndex === items.length - 1}
-          className="absolute right-2 sm:right-6 lg:right-10 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#0A0F2E]/80 hover:bg-[#8B5CF6] border border-white/15 text-white flex items-center justify-center transition-all duration-200 shadow-xl shadow-black/40 active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed z-30 focus:outline-none focus:ring-2 focus:ring-[#8B5CF6]"
+          className="hidden sm:flex absolute right-2 sm:right-6 lg:right-10 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#0A0F2E]/80 hover:bg-[#8B5CF6] border border-white/15 text-white items-center justify-center transition-all duration-200 shadow-xl shadow-black/40 active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed z-30 focus:outline-none focus:ring-2 focus:ring-[#8B5CF6]"
           aria-label="Próxima plaquinha"
           title="Ver próxima plaquinha (Seta direita)"
         >
           <ChevronRight className="w-5 h-5 text-white" />
+        </button>
+      </div>
+
+      {/* Barra de Controles Dedicada Mobile (Elimina sobreposição na arte e garante toque $\ge 44$px) */}
+      <div className="sm:hidden flex items-center justify-between gap-3 px-2 pt-2">
+        <button
+          type="button"
+          onClick={() => activeIndex > 0 && onSelectIndex(activeIndex - 1)}
+          disabled={activeIndex === 0}
+          className="min-h-[44px] min-w-[44px] px-3.5 py-2.5 rounded-xl bg-[#0A0F2E] border border-white/15 text-white flex items-center justify-center transition-all active:scale-95 disabled:opacity-30"
+          aria-label="Plaquinha anterior"
+        >
+          <ChevronLeft className="w-5 h-5" />
+          <span className="text-xs font-medium ml-1">Anterior</span>
+        </button>
+
+        <span className="text-xs font-semibold text-white/70 font-mono tracking-wide">
+          {activeIndex + 1} <span className="text-white/30">/</span> {items.length}
+        </span>
+
+        <button
+          type="button"
+          onClick={() => activeIndex < items.length - 1 && onSelectIndex(activeIndex + 1)}
+          disabled={activeIndex === items.length - 1}
+          className="min-h-[44px] min-w-[44px] px-3.5 py-2.5 rounded-xl bg-[#0A0F2E] border border-white/15 text-white flex items-center justify-center transition-all active:scale-95 disabled:opacity-30"
+          aria-label="Próxima plaquinha"
+        >
+          <span className="text-xs font-medium mr-1">Próxima</span>
+          <ChevronRight className="w-5 h-5" />
         </button>
       </div>
     </div>
@@ -297,7 +335,7 @@ const CoverflowCard: React.FC<CoverflowCardProps> = ({
         !isActive ? 'cursor-pointer hover:brightness-110' : ''
       }`}
     >
-      <div className="relative w-full h-full flex flex-col items-center justify-center p-3 sm:p-5 rounded-3xl bg-[#0E153E]/85 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.65)] backdrop-blur-md overflow-hidden transition-all duration-300 group">
+      <div className="relative w-full h-full flex flex-col items-center justify-center p-3 sm:p-5 rounded-3xl bg-[#12183F]/90 border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.65)] backdrop-blur-md overflow-hidden transition-all duration-300 group">
         
         {/* Active Item Color Ambient Glow behind image */}
         {isActive && (
