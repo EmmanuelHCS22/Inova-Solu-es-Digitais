@@ -143,18 +143,11 @@ export const HeroPlaque3D: React.FC = () => {
     const clock = new THREE.Clock();
 
     loader.load(
-      '/models/placa-google-azul.glb',
+      '/models/placa-google-otimizada.glb',
       (gltf) => {
         loadedScene = gltf.scene;
 
-        // Geometria e posicionamento com base nos parâmetros físicos do modelo GLB:
-        // Normal do plano frontal inclinado (N): [0, -0.0784591, 0.9969173] (unitário)
-        // Plano original da arte: d_arte = 0.03069228
-        // Plano da face frontal externa do acrílico: d_front = 0.04669227
-        // Offset de contato físico perfeito: t = 0.01650000 (com micrométrico offset de contato)
-        // Deslocamento da arte: deltaY = 0.0165 * Ny = -0.001295, deltaZ = 0.0165 * Nz = +0.016449
-        // Deslocamento do verso: deltaY = 0.0420 * Ny = -0.003300, deltaZ = 0.0420 * Nz = +0.041870
-
+        // Materiais PBR e propriedades físicas do acrílico cristal e arte original
         loadedScene.traverse((child) => {
           if ((child as THREE.Mesh).isMesh) {
             const mesh = child as THREE.Mesh;
@@ -165,45 +158,20 @@ export const HeroPlaque3D: React.FC = () => {
               const meshName = (mesh.name || '').toLowerCase();
 
               // 1. Arte Gráfica Original: Material "ArteGoogleAvaliacao" / Mesh "ArteGoogleFace"
-              // Fixada na face frontal externa do acrílico com fidelidade total de cores
+              // Fixada na face frontal externa do acrílico com fidelidade total de cores e azul puro
               if (matName.includes('artegoogle') || meshName.includes('artegoogle')) {
-                const geo = mesh.geometry;
-                const uvAttr = geo.attributes.uv;
-                const posAttr = geo.attributes.position;
-
-                if (uvAttr && posAttr) {
-                  // Vértices superiores v6 e v7 na geometria original da arte:
-                  // Ajustamos uv.y de 0.005 para 0.038 (linha 48 da textura), onde o azul é 100% puro e uniforme,
-                  // eliminando as faixas brancas e os cantos arredondados do scan original da imagem.
-                  uvAttr.setY(6, 0.038);
-                  uvAttr.setY(7, 0.038);
-                  uvAttr.needsUpdate = true;
-
-                  // Acompanha perfeitamente o limite da área frontal antes do bisel (Y = 1.532, Z = 0.1513 no plano):
-                  posAttr.setY(6, 1.532);
-                  posAttr.setZ(6, 0.1513);
-                  posAttr.setY(7, 1.532);
-                  posAttr.setZ(7, 0.1513);
-                  posAttr.needsUpdate = true;
-                  geo.computeVertexNormals();
-                }
-
-                // Posiciona a arte exatamente sobre a face frontal externa
-                mesh.position.set(0, -0.001295, 0.016449);
-                mesh.updateMatrix();
-
                 mesh.renderOrder = 2; // Renderiza à frente: cores autênticas e vivas
                 mat.transparent = false;
                 mat.opacity = 1.0;
                 mat.depthWrite = true;
                 mat.depthTest = true;
-                mat.roughness = 0.06; // Impressão UV lisa de alta definição: pretos profundos e azul intenso
+                mat.roughness = 0.05; // Impressão UV lisa de alta definição: pretos profundos e azul intenso
                 mat.metalness = 0.0;
-                mat.envMapIntensity = 0.15; // Reflexo de estúdio sutil sem desbotar o azul
+                mat.envMapIntensity = 0.18; // Reflexo de estúdio sutil sem desbotar o azul
                 mat.side = THREE.FrontSide;
                 mat.polygonOffset = true;
                 mat.polygonOffsetFactor = -1.0;
-                mat.polygonOffsetUnits = -4.0; // Elimina z-fighting em qualquer ângulo de visualização
+                mat.polygonOffsetUnits = -4.0; // Elimina qualquer conflito coplanar com o acrílico
 
                 if (mat.map) {
                   mat.map.colorSpace = THREE.SRGBColorSpace;
@@ -218,21 +186,6 @@ export const HeroPlaque3D: React.FC = () => {
               // 2. Fundo Branco da Arte Impressa: Material "VersoCartaoBranco" / Mesh "VersoCartao"
               // Alinhado imediatamente atrás da arte na face frontal (base branca da impressão UV)
               else if (matName.includes('versocartao') || meshName.includes('versocartao')) {
-                const vGeo = mesh.geometry;
-                const vPosAttr = vGeo.attributes.position;
-                if (vPosAttr) {
-                  // Topo do verso ajustado para coincidir com a arte (Y = 1.531) sem ultrapassar o topo da placa
-                  vPosAttr.setY(2, 1.531);
-                  vPosAttr.setZ(2, 0.1247);
-                  vPosAttr.setY(3, 1.531);
-                  vPosAttr.setZ(3, 0.1247);
-                  vPosAttr.needsUpdate = true;
-                  vGeo.computeVertexNormals();
-                }
-
-                mesh.position.set(0, -0.003300, 0.041870);
-                mesh.updateMatrix();
-
                 mesh.renderOrder = 1;
                 mat.transparent = false;
                 mat.opacity = 1.0;
@@ -240,36 +193,34 @@ export const HeroPlaque3D: React.FC = () => {
                 mat.depthTest = true;
                 mat.roughness = 0.35;
                 mat.metalness = 0.0;
-                mat.side = THREE.FrontSide; // Normal aponta para trás: visível ao rotacionar a plaquinha
+                mat.side = THREE.FrontSide;
                 mat.polygonOffset = true;
                 mat.polygonOffsetFactor = 1.0;
                 mat.polygonOffsetUnits = 2.0;
               }
 
-              // 3. Suporte de Acrílico Cristal: Material "AcrilicoTransparente" / Mesh "SuporteAcrilicoL"
+              // 3. Suporte de Acrílico Cristal Contínuo: Material "AcrilicoTransparente" / Mesh "SuporteAcrilicoL"
+              // Peça única e sólida dobrada termicamente em L, sem emendas, junções aparentes ou pés artificiais
               else if (matName.includes('acrilico') || meshName.includes('suporteacrilico')) {
                 mesh.renderOrder = 0;
                 mat.transparent = true;
-                mat.opacity = 0.20; // Acrílico cristal transparente límpido
+                mat.opacity = 0.22; // Acrílico cristal transparente límpido de alta refração
                 mat.depthWrite = false;
-                mat.roughness = 0.04; // Polimento cristal com alto brilho especular nas bordas biseladas
-                mat.metalness = 0.08;
-                mat.color = new THREE.Color(0xf4f9ff); // Pureza óptica com sutil toque frio
+                mat.roughness = 0.035; // Polimento cristal com alto brilho especular nas bordas chanfradas
+                mat.metalness = 0.06;
+                mat.color = new THREE.Color(0xf6fbff); // Pureza óptica com sutil toque frio
+                mat.side = THREE.DoubleSide;
               }
 
-              // 4. Pés Antiderrapantes de Silicone: Material "PesSilicone" / Mesh "PesApoioSilicone"
+              // Oculta qualquer elemento antigo de pés de silicone caso presente
               else if (matName.includes('pessilicone') || meshName.includes('pesapoio')) {
-                mesh.renderOrder = 1;
-                mat.transparent = true;
-                mat.opacity = 0.65;
-                mat.depthWrite = false;
-                mat.roughness = 0.55;
+                mesh.visible = false;
               }
             }
           }
         });
 
-        // Atualiza a matriz mundial de todos os nós após o reposicionamento
+        // Atualiza a matriz mundial de todos os nós após configuração dos materiais
         loadedScene.updateMatrixWorld(true);
 
         // Center model geometry for a balanced 360° spin along the central vertical axis
