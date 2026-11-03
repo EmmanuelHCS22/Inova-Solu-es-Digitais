@@ -8,8 +8,8 @@ export const INOVA_CONTACT = {
   displayPhone: '(34) 99897-3287',
   email: 'inovasdigitais@gmail.com',
   location: 'Uberlândia, MG',
-  instagram: 'https://www.instagram.com/inova.solucoesdigitais/',
-  instagramHandle: '@inova.solucoesdigitais',
+  instagram: 'https://www.instagram.com/inova_sdigitais/',
+  instagramHandle: '@inova_sdigitais',
   logo: '/assets/inova/logo-inova.png',
 };
 
