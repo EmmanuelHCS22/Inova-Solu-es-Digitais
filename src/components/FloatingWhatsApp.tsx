@@ -15,7 +15,7 @@ export const FloatingWhatsApp: React.FC = () => {
   return (
     <aside
       aria-label="Atendimento rápido"
-      className="fixed right-3 sm:right-6 z-40 flex items-end flex-col gap-2 pointer-events-auto"
+      className="floating-whatsapp-widget fixed right-3 sm:right-6 z-40 flex items-end flex-col gap-2 pointer-events-auto"
       style={{ bottom: 'max(1rem, env(safe-area-inset-bottom))' }}
     >
       {/* Tooltip prompt */}

@@ -88,6 +88,43 @@
   border-color: rgba(247, 248, 252, 0.08);
 }
 
+/* Menu Mobile Glassmorphism (Superfície translúcida com blur de 18px e Safari support) */
+.glass-menu-mobile {
+  background-color: #0E1438; /* Fallback para navegadores sem suporte a backdrop-filter */
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 16px 40px -10px rgba(10, 15, 46, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+@supports ((-webkit-backdrop-filter: blur(18px)) or (backdrop-filter: blur(18px))) {
+  .glass-menu-mobile {
+    background-color: rgba(10, 15, 46, 0.78) !important;
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+  }
+}
+
+.glass-menu-backdrop {
+  background-color: rgba(10, 15, 46, 0.50);
+}
+
+@supports ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
+  .glass-menu-backdrop {
+    background-color: rgba(10, 15, 46, 0.40) !important;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Ocultar WhatsApp flutuante quando o menu mobile estiver aberto */
+body[data-mobile-menu-open="true"] aside[aria-label="Atendimento rápido"],
+body[data-mobile-menu-open="true"] .floating-whatsapp-widget {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  transform: translateY(16px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 7px;
