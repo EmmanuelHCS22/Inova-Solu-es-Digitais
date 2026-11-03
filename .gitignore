@@ -6,3 +6,11 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Vercel
+.vercel
+
+# AI Studio and local metadata
+.agents/
+.aistudio/
+.gemini/
