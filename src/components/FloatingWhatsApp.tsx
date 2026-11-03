@@ -5,6 +5,13 @@ import { getWhatsAppUrl, INOVA_CONTACT } from '../data/inovaData';
 export const FloatingWhatsApp: React.FC = () => {
   const [showTooltip, setShowTooltip] = useState(true);
 
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowTooltip(false);
+    }, 7000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <aside
       aria-label="Atendimento rápido"
@@ -13,7 +20,7 @@ export const FloatingWhatsApp: React.FC = () => {
     >
       {/* Tooltip prompt */}
       {showTooltip && (
-        <div className="relative bg-[#0A0F2E] border border-white/[0.08] text-[#F7F8FC] rounded-xl p-2.5 sm:p-3 shadow-2xl max-w-[210px] xs:max-w-[250px] sm:max-w-xs text-xs animate-in fade-in slide-in-from-bottom-2 duration-300">
+        <div className="relative bg-[#0A0F2E] border border-white/[0.08] text-[#F7F8FC] rounded-xl p-2.5 sm:p-3 shadow-2xl max-w-[190px] xs:max-w-[230px] sm:max-w-xs text-xs animate-in fade-in slide-in-from-bottom-2 duration-300">
           <button
             type="button"
             onClick={() => setShowTooltip(false)}

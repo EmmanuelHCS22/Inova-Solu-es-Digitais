@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
     { label: 'Plaquinhas NFC e QR Code', href: '#solucoes' },
     { label: 'Chaveiros e Cartões NFC', href: '#chaveiros-nfc' },
     { label: 'Perfil da Empresa no Google', href: '#presenca-digital' },
-    { label: 'BioSite e Cartão Virtual', href: '#presenca-digital' },
+    { label: 'BioSite (Cartão de Visitas Digital)', href: '#presenca-digital' },
     { label: 'Catálogos e Cardápios Digitais', href: '#presenca-digital' },
     { label: 'Landing Pages e Agendamento Online', href: '#agendamento-online' },
   ];

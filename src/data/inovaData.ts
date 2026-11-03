@@ -58,8 +58,7 @@ export const SOLUTIONS_DATA: ServiceItem[] = [
     description: 'Ferramentas digitais para organizar seus canais comerciais, centralizar links e atrair mais clientes na sua região.',
     services: [
       'Criação e otimização do Perfil da Empresa no Google (Google Meu Negócio)',
-      'BioSite completo para a biografia do Instagram e WhatsApp',
-      'Cartão virtual interativo para apresentação comercial',
+      'BioSite profissional para a biografia do Instagram e WhatsApp (cartão de visitas digital)',
       'Catálogo digital interativo para apresentação de produtos',
       'Cardápio digital prático para estabelecimentos alimentícios',
       'Landing pages desenvolvidas para apresentar produtos, serviços e ofertas',
@@ -550,8 +549,8 @@ export const FAQ_DATA: FAQItem[] = [
     answer: 'O BioSite é uma página digital desenvolvida para reunir informações, links comerciais, redes sociais e canais de contato em um único endereço. É a solução ideal para colocar na biografia do Instagram ou compartilhar no WhatsApp, permitindo que o cliente encontre rapidamente o que procura.',
   },
   {
-    question: 'O que é o Cartão Virtual e qual a diferença para o BioSite?',
-    answer: 'O Cartão Virtual é uma apresentação digital interativa focada no compartilhamento dos dados de contato de uma pessoa ou empresa (telefone, WhatsApp, e-mail, redes, endereço e chave Pix). Funciona como um cartão de visitas digital leve que pode ser salvo no celular.',
+    question: 'O BioSite funciona também como cartão de visitas digital?',
+    answer: 'Sim! O BioSite é exatamente o seu cartão de visitas digital. Ele reúne seus links, redes sociais, contatos diretos (WhatsApp, telefone, e-mail) e dados profissionais em uma única página leve e personalizada, que o cliente abre instantaneamente no celular sem precisar baixar nenhum aplicativo.',
   },
   {
     question: 'O que é o Catálogo Digital e o Cardápio Digital?',

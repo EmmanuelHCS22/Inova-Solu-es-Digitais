@@ -3,15 +3,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ArrowUpRight,
-  Radio,
-  Printer,
-  Globe,
   Calendar,
   Check,
   Maximize2,
   Search,
   Smartphone,
-  CreditCard,
   Store,
   Sparkles,
   Monitor,
@@ -132,8 +128,8 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
   // Chaveiros state
   const [selectedKeychainModel, setSelectedKeychainModel] = useState<string>('instagram');
 
-  // Presença Digital state
-  const [digitalTab, setDigitalTab] = useState<'google' | 'biosite' | 'cartao-virtual'>('google');
+  // Presença Digital state (Apenas Google e BioSite - Cartão Virtual unificado ao BioSite)
+  const [digitalTab, setDigitalTab] = useState<'google' | 'biosite'>('google');
 
   // DOM Refs
   const sectionRef = useRef<HTMLElement>(null);
@@ -153,6 +149,12 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
   });
 
   const activePlaqueItem = filteredPlaques[currentPlaqueIndex] || filteredPlaques[0];
+
+  useEffect(() => {
+    if (currentPlaqueIndex >= filteredPlaques.length && filteredPlaques.length > 0) {
+      setCurrentPlaqueIndex(0);
+    }
+  }, [filteredPlaques.length, currentPlaqueIndex]);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -201,7 +203,39 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
   const handleCategoryChange = (cat: SolutionCategory) => {
     if (cat === activeCategory) return;
     setActiveCategory(cat);
+
+    // No mobile, se o usuário estiver rolando ou navegando,
+    // mantém a transição suave e o viewport alinhado aos botões sem salto
+    if (typeof window !== 'undefined' && window.innerWidth < 640 && navTabsRef.current) {
+      const rect = navTabsRef.current.getBoundingClientRect();
+      if (rect.top < 20) {
+        navTabsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
   };
+
+  const solutionTabs: { id: SolutionCategory; label: string; subtitle: string }[] = [
+    {
+      id: 'plaquinhas',
+      label: 'Plaquinhas NFC & QR',
+      subtitle: 'Balcão & Atendimento',
+    },
+    {
+      id: 'chaveiros-cartoes',
+      label: 'Chaveiros & Cartões',
+      subtitle: 'Impressão 3D & NFC',
+    },
+    {
+      id: 'presenca-digital',
+      label: 'Presença Digital',
+      subtitle: 'Google & BioSite',
+    },
+    {
+      id: 'sites-agendamento',
+      label: 'Sites & Agendamento',
+      subtitle: 'Horários & Serviços',
+    },
+  ];
 
   return (
     <section
@@ -230,7 +264,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Central Oficial da Seção Soluções Inova */}
-        <div ref={headerRef} className="max-w-3xl mb-12 sm:mb-16">
+        <div ref={headerRef} className="max-w-3xl mb-8 sm:mb-14">
           <span className="inline-block text-xs font-semibold text-[#8B5CF6] uppercase tracking-wider mb-2">
             Soluções Inova
           </span>
@@ -245,118 +279,41 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
           </p>
         </div>
 
-        {/* Navegação Principal das 4 Categorias */}
-        <div ref={navTabsRef} className="mb-10 sm:mb-14">
-          <div className="flex items-center gap-2 overflow-x-auto pb-3 border-b border-white/10 mobile-touch-scroll -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-4">
-            
-            {/* Categoria 1: Plaquinhas NFC */}
-            <button
-              type="button"
-              onClick={() => handleCategoryChange('plaquinhas')}
-              className={`flex items-center gap-3 p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 shrink-0 sm:shrink min-w-[200px] sm:min-w-0 min-h-[56px] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0.5 cursor-pointer ${
-                activeCategory === 'plaquinhas'
-                  ? 'bg-white/10 border border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/20 ring-1 ring-[#8B5CF6]/40'
-                  : 'bg-white/[0.02] border border-white/[0.06] text-[#F7F8FC]/65 hover:text-white hover:bg-white/[0.06] hover:border-white/15'
-              }`}
-            >
-              <div
-                className={`p-2 rounded-lg shrink-0 transition-transform duration-200 ${
-                  activeCategory === 'plaquinhas' ? 'bg-[#8B5CF6] text-white shadow-sm shadow-[#8B5CF6]/40 scale-105' : 'bg-white/5 text-[#8B5CF6]'
-                }`}
-              >
-                <Radio className="w-4 h-4" />
-              </div>
-              <div className="truncate">
-                <span className="block text-xs uppercase tracking-wider font-semibold opacity-70">
-                  Categoria 01
-                </span>
-                <span className="block text-sm font-bold text-white truncate">
-                  Plaquinhas NFC & QR
-                </span>
-              </div>
-            </button>
-
-            {/* Categoria 2: Chaveiros 3D & Cartões */}
-            <button
-              type="button"
-              onClick={() => handleCategoryChange('chaveiros-cartoes')}
-              className={`flex items-center gap-3 p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 shrink-0 sm:shrink min-w-[200px] sm:min-w-0 min-h-[56px] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0.5 cursor-pointer ${
-                activeCategory === 'chaveiros-cartoes'
-                  ? 'bg-white/10 border border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/20 ring-1 ring-[#8B5CF6]/40'
-                  : 'bg-white/[0.02] border border-white/[0.06] text-[#F7F8FC]/65 hover:text-white hover:bg-white/[0.06] hover:border-white/15'
-              }`}
-            >
-              <div
-                className={`p-2 rounded-lg shrink-0 transition-transform duration-200 ${
-                  activeCategory === 'chaveiros-cartoes' ? 'bg-[#8B5CF6] text-white shadow-sm shadow-[#8B5CF6]/40 scale-105' : 'bg-white/5 text-[#8B5CF6]'
-                }`}
-              >
-                <Printer className="w-4 h-4" />
-              </div>
-              <div className="truncate">
-                <span className="block text-xs uppercase tracking-wider font-semibold opacity-70">
-                  Categoria 02
-                </span>
-                <span className="block text-sm font-bold text-white truncate">
-                  Chaveiros 3D & Cartões
-                </span>
-              </div>
-            </button>
-
-            {/* Categoria 3: Presença Digital */}
-            <button
-              type="button"
-              onClick={() => handleCategoryChange('presenca-digital')}
-              className={`flex items-center gap-3 p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 shrink-0 sm:shrink min-w-[200px] sm:min-w-0 min-h-[56px] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0.5 cursor-pointer ${
-                activeCategory === 'presenca-digital'
-                  ? 'bg-white/10 border border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/20 ring-1 ring-[#8B5CF6]/40'
-                  : 'bg-white/[0.02] border border-white/[0.06] text-[#F7F8FC]/65 hover:text-white hover:bg-white/[0.06] hover:border-white/15'
-              }`}
-            >
-              <div
-                className={`p-2 rounded-lg shrink-0 transition-transform duration-200 ${
-                  activeCategory === 'presenca-digital' ? 'bg-[#8B5CF6] text-white shadow-sm shadow-[#8B5CF6]/40 scale-105' : 'bg-white/5 text-[#8B5CF6]'
-                }`}
-              >
-                <Globe className="w-4 h-4" />
-              </div>
-              <div className="truncate">
-                <span className="block text-xs uppercase tracking-wider font-semibold opacity-70">
-                  Categoria 03
-                </span>
-                <span className="block text-sm font-bold text-white truncate">
-                  Presença Digital
-                </span>
-              </div>
-            </button>
-
-            {/* Categoria 4: Sites & Agendamento */}
-            <button
-              type="button"
-              onClick={() => handleCategoryChange('sites-agendamento')}
-              className={`flex items-center gap-3 p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 shrink-0 sm:shrink min-w-[200px] sm:min-w-0 min-h-[56px] hover:-translate-y-0.5 active:scale-[0.98] active:translate-y-0.5 cursor-pointer ${
-                activeCategory === 'sites-agendamento'
-                  ? 'bg-white/10 border border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/20 ring-1 ring-[#8B5CF6]/40'
-                  : 'bg-white/[0.02] border border-white/[0.06] text-[#F7F8FC]/65 hover:text-white hover:bg-white/[0.06] hover:border-white/15'
-              }`}
-            >
-              <div
-                className={`p-2 rounded-lg shrink-0 transition-transform duration-200 ${
-                  activeCategory === 'sites-agendamento' ? 'bg-[#8B5CF6] text-white shadow-sm shadow-[#8B5CF6]/40 scale-105' : 'bg-white/5 text-[#8B5CF6]'
-                }`}
-              >
-                <Calendar className="w-4 h-4" />
-              </div>
-              <div className="truncate">
-                <span className="block text-xs uppercase tracking-wider font-semibold opacity-70">
-                  Categoria 04
-                </span>
-                <span className="block text-sm font-bold text-white truncate">
-                  Sites & Agendamento
-                </span>
-              </div>
-            </button>
-
+        {/* Navegação Principal das 4 Categorias (Mobile: Grade 2x2 sem rolagem; Desktop: Grade 4 colunas) */}
+        <div ref={navTabsRef} className="mb-6 sm:mb-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
+            {solutionTabs.map((cat) => {
+              const isSelected = activeCategory === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  type="button"
+                  onClick={() => handleCategoryChange(cat.id)}
+                  className={`group relative flex flex-col justify-between p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer select-none w-full min-h-[64px] sm:min-h-[72px] border ${
+                    isSelected
+                      ? 'bg-[#161E4E] border-[#8B5CF6] text-white shadow-md shadow-[#8B5CF6]/15 ring-1 ring-[#8B5CF6]/40'
+                      : 'bg-[#12183F]/70 border-white/[0.08] text-[#F7F8FC]/70 hover:text-white hover:bg-[#141C48] hover:border-white/20 active:scale-[0.98]'
+                  }`}
+                  aria-pressed={isSelected}
+                >
+                  <div className="flex items-center justify-between mb-1 w-full">
+                    <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#F7F8FC]/50 group-hover:text-[#F7F8FC]/70 transition-colors truncate pr-1">
+                      {cat.subtitle}
+                    </span>
+                    <span
+                      className={`w-2 h-2 rounded-full shrink-0 transition-all duration-200 ${
+                        isSelected
+                          ? 'bg-[#8B5CF6] scale-110 shadow-[0_0_8px_rgba(139,92,246,0.8)]'
+                          : 'bg-white/20'
+                      }`}
+                    />
+                  </div>
+                  <span className="text-xs sm:text-sm font-bold text-white tracking-tight leading-snug font-display">
+                    {cat.label}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -466,7 +423,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
               </div>
 
               {/* Coverflow Carousel Integrado de Plaquinhas Reais */}
-              <div className="relative rounded-2xl bg-[#12183F] border border-white/[0.08] p-3 sm:p-6 lg:p-8 overflow-hidden shadow-2xl">
+              <div className="relative rounded-2xl bg-[#12183F] border border-white/[0.08] p-2.5 sm:p-6 lg:p-8 overflow-hidden shadow-2xl">
                 <CoverflowCarousel
                   items={filteredPlaques}
                   activeIndex={currentPlaqueIndex}
@@ -474,23 +431,27 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                   onOpenModal={onOpenModal}
                 />
 
-                {/* Informações da Plaquinha em Destaque */}
+                {/* 4. Identificação e Descrição da Arte em Destaque */}
                 {activePlaqueItem && (
-                  <div className="mt-5 sm:mt-6 pt-5 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="mt-3 sm:mt-6 pt-3 sm:pt-5 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-[11px] font-semibold text-[#8B5CF6] uppercase tracking-wide">
+                      <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#8B5CF6]/20 border border-[#8B5CF6]/30 text-[11px] font-semibold text-[#8B5CF6] uppercase tracking-wide">
+                          <span
+                            className="w-1.5 h-1.5 rounded-full"
+                            style={{ backgroundColor: activePlaqueItem.primaryColor }}
+                          />
                           {activePlaqueItem.type === 'padrao' ? 'Arte Padrão Oficial' : 'Arte Personalizada da Empresa'}
                         </span>
-                        <span className="text-white/40">·</span>
+                        <span className="text-white/40 hidden xs:inline">·</span>
                         <span className="text-xs text-white/70">
                           {activePlaqueItem.badgeText}
                         </span>
                       </div>
-                      <h4 className="text-base sm:text-lg font-bold text-white">
+                      <h4 className="text-base sm:text-lg font-bold text-white mt-0.5">
                         {activePlaqueItem.name}
                       </h4>
-                      <p className="text-xs text-[#F7F8FC]/65 mt-0.5 max-w-xl">
+                      <p className="text-xs text-[#F7F8FC]/70 mt-1 max-w-xl leading-relaxed">
                         {activePlaqueItem.description}
                       </p>
                     </div>
@@ -507,7 +468,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                             alt: activePlaqueItem.name,
                           })
                         }
-                        className="inline-flex items-center justify-center gap-1.5 px-4 py-3 sm:py-2.5 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 text-white border border-white/10 transition-colors w-full sm:w-auto min-h-[44px] active:scale-98"
+                        className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 text-white border border-white/10 transition-colors w-full sm:w-auto min-h-[44px] active:scale-98 cursor-pointer"
                       >
                         <Maximize2 className="w-3.5 h-3.5 text-white/70" />
                         <span>Ver foto ampliada</span>
@@ -517,7 +478,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                         href={getWhatsAppUrl(`Olá! Gostaria de consultar o modelo de plaquinha: ${activePlaqueItem.name}.`)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 rounded-xl text-xs font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-md active:scale-98 w-full sm:w-auto min-h-[44px]"
+                        className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-md active:scale-98 w-full sm:w-auto min-h-[44px]"
                       >
                         <span>Pedir este modelo</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
@@ -749,124 +710,127 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                 </div>
               </div>
 
-              {/* Sub-Seletores de Soluções da Presença Digital */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              {/* Sub-Seletores de Soluções da Presença Digital: Apenas as 2 Soluções Reais */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* 1. Perfil da Empresa no Google */}
                 <button
                   type="button"
                   onClick={() => setDigitalTab('google')}
-                  className={`p-4 rounded-xl border text-left transition-all min-h-[72px] flex items-center justify-between ${
+                  className={`p-5 rounded-2xl text-left transition-all duration-200 cursor-pointer border ${
                     digitalTab === 'google'
-                      ? 'bg-[#161E4E] border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/10'
-                      : 'bg-[#12183F] border-white/[0.08] text-white/60 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#161E4E] border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/15 ring-1 ring-[#8B5CF6]/30'
+                      : 'bg-[#12183F] border-white/[0.08] text-white/70 hover:text-white hover:bg-[#141C48] hover:border-white/15'
                   }`}
                 >
-                  <div className="flex items-center gap-3">
-                    <Search className={`w-5 h-5 ${digitalTab === 'google' ? 'text-[#8B5CF6]' : 'text-white/40'}`} />
-                    <div>
-                      <span className="block text-xs uppercase tracking-wider font-semibold opacity-60">Perfil no Google</span>
-                      <span className="block text-sm font-bold text-white">Google Meu Negócio</span>
-                    </div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] font-semibold text-[#8B5CF6] uppercase tracking-wider">
+                      Busca Local & Google Maps
+                    </span>
+                    <span
+                      className={`w-2 h-2 rounded-full transition-colors ${
+                        digitalTab === 'google' ? 'bg-[#8B5CF6]' : 'bg-white/20'
+                      }`}
+                    />
                   </div>
-                  <ChevronRight className="w-4 h-4 opacity-50" />
+                  <h4 className="text-base sm:text-lg font-bold text-white mb-1 font-display">
+                    Perfil da Empresa no Google
+                  </h4>
+                  <p className="text-xs text-[#F7F8FC]/70 leading-relaxed font-normal">
+                    Otimização e padronização do Google Meu Negócio para posicionar sua marca nas pesquisas locais e atrair clientes no Maps.
+                  </p>
                 </button>
 
+                {/* 2. BioSite Profissional (Cartão de Visitas Digital) */}
                 <button
                   type="button"
                   onClick={() => setDigitalTab('biosite')}
-                  className={`p-4 rounded-xl border text-left transition-all min-h-[72px] flex items-center justify-between ${
+                  className={`p-5 rounded-2xl text-left transition-all duration-200 cursor-pointer border ${
                     digitalTab === 'biosite'
-                      ? 'bg-[#161E4E] border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/10'
-                      : 'bg-[#12183F] border-white/[0.08] text-white/60 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#161E4E] border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/15 ring-1 ring-[#8B5CF6]/30'
+                      : 'bg-[#12183F] border-white/[0.08] text-white/70 hover:text-white hover:bg-[#141C48] hover:border-white/15'
                   }`}
                 >
-                  <div className="flex items-center gap-3">
-                    <Smartphone className={`w-5 h-5 ${digitalTab === 'biosite' ? 'text-[#8B5CF6]' : 'text-white/40'}`} />
-                    <div>
-                      <span className="block text-xs uppercase tracking-wider font-semibold opacity-60">Link na Bio</span>
-                      <span className="block text-sm font-bold text-white">BioSite Profissional</span>
-                    </div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] font-semibold text-[#8B5CF6] uppercase tracking-wider">
+                      Link na Bio & Cartão Digital
+                    </span>
+                    <span
+                      className={`w-2 h-2 rounded-full transition-colors ${
+                        digitalTab === 'biosite' ? 'bg-[#8B5CF6]' : 'bg-white/20'
+                      }`}
+                    />
                   </div>
-                  <ChevronRight className="w-4 h-4 opacity-50" />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setDigitalTab('cartao-virtual')}
-                  className={`p-4 rounded-xl border text-left transition-all min-h-[72px] flex items-center justify-between ${
-                    digitalTab === 'cartao-virtual'
-                      ? 'bg-[#161E4E] border-[#8B5CF6] text-white shadow-lg shadow-[#8B5CF6]/10'
-                      : 'bg-[#12183F] border-white/[0.08] text-white/60 hover:text-white hover:bg-white/5'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <CreditCard className={`w-5 h-5 ${digitalTab === 'cartao-virtual' ? 'text-[#8B5CF6]' : 'text-white/40'}`} />
-                    <div>
-                      <span className="block text-xs uppercase tracking-wider font-semibold opacity-60">Contato Interativo</span>
-                      <span className="block text-sm font-bold text-white">Cartão Virtual</span>
-                    </div>
-                  </div>
-                  <ChevronRight className="w-4 h-4 opacity-50" />
+                  <h4 className="text-base sm:text-lg font-bold text-white mb-1 font-display">
+                    BioSite Profissional
+                  </h4>
+                  <p className="text-xs text-[#F7F8FC]/70 leading-relaxed font-normal">
+                    Seu cartão de visitas digital. Reúna seus links, redes sociais, contatos e informações profissionais em uma única página.
+                  </p>
                 </button>
               </div>
 
-              {/* Conteúdo Detalhado da Ferramenta Selecionada */}
+              {/* Painel de Apresentação das Soluções Digitais */}
               <div className="rounded-2xl bg-[#12183F] border border-white/[0.08] p-6 sm:p-8 lg:p-10 shadow-2xl">
                 
+                {/* Detalhe 1: Perfil da Empresa no Google */}
                 {digitalTab === 'google' && (
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <div className="lg:col-span-7 space-y-4">
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 text-[#8B5CF6] text-xs font-semibold">
-                        <span>Busca Local & Google Maps</span>
-                      </div>
-                      <h4 className="text-xl sm:text-2xl font-bold text-white font-display">
-                        Criação e otimização do Perfil da Empresa no Google
-                      </h4>
-                      <p className="text-sm text-[#F7F8FC]/80 leading-relaxed">
-                        Organize as informações do seu negócio e facilite que clientes encontrem sua empresa nas pesquisas e no Google Maps.
-                      </p>
-
-                      <div className="space-y-2.5 pt-3 border-t border-white/[0.08]">
-                        <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F8FC]/85">
-                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
-                          <span>Enquadramento correto nas categorias do Google para busca na sua região</span>
-                        </div>
-                        <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F8FC]/85">
-                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
-                          <span>Horários de funcionamento, telefone, endereço e rotas no Maps organizados</span>
-                        </div>
-                        <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F8FC]/85">
-                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
-                          <span>Orientações práticas para incentivar avaliações espontâneas dos clientes</span>
-                        </div>
-                        <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F8FC]/85">
-                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
-                          <span>Fotos de fachada, ambiente e serviços padronizadas em alta resolução</span>
-                        </div>
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    <div className="lg:col-span-7 space-y-5">
+                      <div>
+                        <span className="text-xs font-semibold text-[#8B5CF6] uppercase tracking-wider block mb-1.5">
+                          Busca Local & Google Maps
+                        </span>
+                        <h4 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white font-display leading-tight">
+                          Perfil da Empresa no Google
+                        </h4>
+                        <p className="text-sm text-[#F7F8FC]/80 leading-relaxed mt-2">
+                          Organize as informações do seu negócio e facilite que clientes encontrem sua empresa nas pesquisas da sua região e no Google Maps.
+                        </p>
                       </div>
 
-                      <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                      {/* Lista de Recursos Limpa e Direta */}
+                      <div className="space-y-3 pt-2">
+                        <div className="flex items-start gap-3 text-xs sm:text-sm text-[#F7F8FC]/85">
+                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
+                          <span>Enquadramento correto nas categorias do Google para busca qualificada na sua cidade</span>
+                        </div>
+                        <div className="flex items-start gap-3 text-xs sm:text-sm text-[#F7F8FC]/85">
+                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
+                          <span>Horários de funcionamento, telefone de contato, endereço físico e rota no Maps conferidos</span>
+                        </div>
+                        <div className="flex items-start gap-3 text-xs sm:text-sm text-[#F7F8FC]/85">
+                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
+                          <span>Orientações práticas para incentivar avaliações espontâneas de 5 estrelas dos seus clientes</span>
+                        </div>
+                        <div className="flex items-start gap-3 text-xs sm:text-sm text-[#F7F8FC]/85">
+                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
+                          <span>Fotos de fachada, ambiente e serviços padronizadas em alta resolução para transmitir confiança</span>
+                        </div>
+                      </div>
+
+                      <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                         <a
                           href={getWhatsAppUrl('Olá! Gostaria de um orçamento para criação e otimização do Perfil da Empresa no Google (Google Meu Negócio).')}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-md text-center"
+                          className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-md text-center min-h-[44px]"
                         >
                           <span>Otimizar Perfil no Google</span>
                           <ArrowUpRight className="w-4 h-4" />
                         </a>
-                        <span className="text-xs text-[#F7F8FC]/50 text-center sm:text-left">
-                          Sem promessas falsas de primeiro lugar, com padronização séria
+                        <span className="text-xs text-[#F7F8FC]/55 text-center sm:text-left">
+                          Sem falsas promessas, com estruturação séria e profissional
                         </span>
                       </div>
                     </div>
 
                     <div className="lg:col-span-5 flex justify-center">
-                      <div className="relative rounded-xl overflow-hidden border border-white/[0.08] bg-[#0A0F2E] p-3 max-w-sm group">
+                      <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0F2E] p-3 w-full max-w-sm sm:max-w-md group shadow-xl">
                         <img
                           src="/assets/inova/google-perfil.jpeg"
                           alt="Perfil da Empresa no Google organizado e otimizado pela Inova Soluções Digitais"
                           loading="lazy"
-                          className="w-full h-auto rounded-lg object-cover transition-transform duration-300 group-hover:scale-102"
+                          className="w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-102"
                         />
                         <button
                           type="button"
@@ -879,7 +843,9 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                               alt: 'Perfil da Empresa no Google',
                             })
                           }
-                          className="absolute bottom-5 right-5 p-2 rounded-lg bg-[#0A0F2E]/80 backdrop-blur-sm text-white/80 hover:text-white border border-white/10 transition-colors"
+                          className="absolute bottom-5 right-5 p-2.5 rounded-xl bg-[#0A0F2E]/85 backdrop-blur-sm text-white/90 hover:text-white border border-white/10 transition-colors cursor-pointer shadow-md"
+                          title="Ampliar visualização"
+                          aria-label="Ampliar visualização"
                         >
                           <Maximize2 className="w-4 h-4" />
                         </button>
@@ -888,61 +854,69 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                   </div>
                 )}
 
+                {/* Detalhe 2: BioSite Profissional (Seu Cartão de Visitas Digital) */}
                 {digitalTab === 'biosite' && (
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <div className="lg:col-span-7 space-y-4">
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 text-[#8B5CF6] text-xs font-semibold">
-                        <span>Centralização de Links no Instagram</span>
-                      </div>
-                      <h4 className="text-xl sm:text-2xl font-bold text-white font-display">
-                        BioSite Profissional
-                      </h4>
-                      <p className="text-sm text-[#F7F7F5]/80 leading-relaxed">
-                        Reúna seus links, redes sociais, contatos e informações em uma única página digital.
-                      </p>
-
-                      <div className="space-y-2.5 pt-3 border-t border-white/10">
-                        <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F8FC]/85">
-                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
-                          <span>Carregamento leve e ultrarrápido em qualquer smartphone</span>
-                        </div>
-                        <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F8FC]/85">
-                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
-                          <span>Botão em destaque para contato direto no WhatsApp comercial</span>
-                        </div>
-                        <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F8FC]/85">
-                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
-                          <span>Identidade visual alinhada às cores e logotipo da sua empresa</span>
-                        </div>
-                        <div className="flex items-start gap-2.5 text-xs sm:text-sm text-[#F7F8FC]/85">
-                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
-                          <span>Sem mensalidades ou assinaturas de plataformas genéricas</span>
-                        </div>
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    <div className="lg:col-span-7 space-y-5">
+                      <div>
+                        <span className="text-xs font-semibold text-[#8B5CF6] uppercase tracking-wider block mb-1.5">
+                          Cartão de Visitas Digital & Link na Bio
+                        </span>
+                        <h4 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white font-display leading-tight">
+                          BioSite Profissional
+                        </h4>
+                        <p className="text-sm sm:text-base text-[#F7F8FC]/85 leading-relaxed mt-2 font-normal">
+                          Seu cartão de visitas digital. Reúna seus links, redes sociais, contatos e informações profissionais em uma única página, facilitando o acesso dos seus clientes.
+                        </p>
                       </div>
 
-                      <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                      {/* Lista de Recursos Limpa e Direta */}
+                      <div className="space-y-3 pt-2">
+                        <div className="flex items-start gap-3 text-xs sm:text-sm text-[#F7F8FC]/85">
+                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
+                          <span>Funciona como cartão de visitas virtual instantâneo para networking no WhatsApp ou presencial</span>
+                        </div>
+                        <div className="flex items-start gap-3 text-xs sm:text-sm text-[#F7F8FC]/85">
+                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
+                          <span>Botão em destaque para contato direto no WhatsApp comercial e salvamento rápido de contato</span>
+                        </div>
+                        <div className="flex items-start gap-3 text-xs sm:text-sm text-[#F7F8FC]/85">
+                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
+                          <span>Centralização de links de redes sociais, localização, catálogo, chave Pix e serviços</span>
+                        </div>
+                        <div className="flex items-start gap-3 text-xs sm:text-sm text-[#F7F8FC]/85">
+                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
+                          <span>Identidade visual sob medida com as cores, logotipo e estilo do seu negócio</span>
+                        </div>
+                        <div className="flex items-start gap-3 text-xs sm:text-sm text-[#F7F8FC]/85">
+                          <Check className="w-4 h-4 text-[#8B5CF6] shrink-0 mt-0.5" />
+                          <span>Página leve, sem mensalidades ou assinaturas de plataformas genéricas</span>
+                        </div>
+                      </div>
+
+                      <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                         <a
-                          href={getWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para desenvolvimento de um BioSite para o meu negócio.')}
+                          href={getWhatsAppUrl('Olá! Gostaria de solicitar um orçamento para o BioSite Profissional (meu cartão de visitas digital).')}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-md text-center"
+                          className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-md text-center min-h-[44px]"
                         >
                           <span>Quero meu BioSite</span>
                           <ArrowUpRight className="w-4 h-4" />
                         </a>
-                        <span className="text-xs text-[#F7F8FC]/50 text-center sm:text-left">
-                          Desenvolvido sob medida para a sua marca
+                        <span className="text-xs text-[#F7F8FC]/55 text-center sm:text-left">
+                          Desenvolvido sob medida com prévia digital antes da entrega
                         </span>
                       </div>
                     </div>
 
                     <div className="lg:col-span-5 flex justify-center">
-                      <div className="relative rounded-xl overflow-hidden border border-white/[0.08] bg-[#0A0F2E] p-3 max-w-[280px] group">
+                      <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0F2E] p-3 w-full max-w-sm sm:max-w-md group shadow-xl">
                         <img
                           src="/assets/inova/biosite-mockup.jpeg"
-                          alt="Interface mobile do BioSite desenvolvido pela Inova Soluções Digitais"
+                          alt="Interface mobile do BioSite desenvolvido pela Inova Soluções Digitais funcionando como cartão de visitas digital"
                           loading="lazy"
-                          className="w-full h-auto rounded-lg object-contain transition-transform duration-300 group-hover:scale-102"
+                          className="w-full h-auto rounded-xl object-contain transition-transform duration-300 group-hover:scale-102"
                         />
                         <button
                           type="button"
@@ -951,70 +925,17 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenModal }) => {
                               src: '/assets/inova/biosite-mockup.jpeg',
                               name: 'BioSite Profissional',
                               category: 'Presença Digital',
-                              description: 'Página mobile centralizadora de links para biografia do Instagram.',
+                              description: 'Página digital que funciona como cartão de visitas virtual e centralizador de links para Instagram e WhatsApp.',
                               alt: 'BioSite Profissional',
                             })
                           }
-                          className="absolute bottom-5 right-5 p-2 rounded-lg bg-[#0A0F2E]/80 backdrop-blur-sm text-white/80 hover:text-white border border-white/10 transition-colors"
+                          className="absolute bottom-5 right-5 p-2.5 rounded-xl bg-[#0A0F2E]/85 backdrop-blur-sm text-white/90 hover:text-white border border-white/10 transition-colors cursor-pointer shadow-md"
+                          title="Ampliar visualização"
+                          aria-label="Ampliar visualização"
                         >
                           <Maximize2 className="w-4 h-4" />
                         </button>
                       </div>
-                    </div>
-                  </div>
-                )}
-
-                {digitalTab === 'cartao-virtual' && (
-                  <div className="space-y-6">
-                    <div className="max-w-2xl">
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 text-[#8B5CF6] text-xs font-semibold mb-2">
-                        <span>Apresentação Executiva & Compartilhamento</span>
-                      </div>
-                      <h4 className="text-xl sm:text-2xl font-bold text-white font-display">
-                        Cartão Virtual Interativo
-                      </h4>
-                      <p className="text-sm text-[#F7F8FC]/80 leading-relaxed mt-1">
-                        Compartilhe seus dados profissionais e canais de contato em uma apresentação digital prática.
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                      <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                        <span className="block text-xs font-bold text-white mb-1">
-                          Compartilhamento Fácil
-                        </span>
-                        <p className="text-xs text-[#F7F8FC]/65">
-                          Envie por WhatsApp como link ou arquivo executivo. O cliente acessa em 1 clique.
-                        </p>
-                      </div>
-                      <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                        <span className="block text-xs font-bold text-white mb-1">
-                          Salvar Contato na Agenda
-                        </span>
-                        <p className="text-xs text-[#F7F8FC]/65">
-                          Botão que baixa o vCard direto para a agenda telefônica do cliente sem digitação.
-                        </p>
-                      </div>
-                      <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                        <span className="block text-xs font-bold text-white mb-1">
-                          Atalhos de Ação Rápida
-                        </span>
-                        <p className="text-xs text-[#F7F8FC]/65">
-                          Botões diretos para chamada de voz, WhatsApp, e-mail, redes sociais e chave Pix.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="pt-2">
-                      <a
-                        href={getWhatsAppUrl('Olá! Gostaria de um orçamento para Cartão Virtual Interativo.')}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-[#8B5CF6] hover:bg-[#6366F1] text-white transition-all shadow-md"
-                      >
-                        <span>Solicitar Cartão Virtual</span>
-                        <ArrowUpRight className="w-4 h-4" />
-                      </a>
                     </div>
                   </div>
                 )}
